@@ -3,13 +3,24 @@ import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import safety from "@/assets/safety.jpg";
-import { HiOutlineShieldCheck, HiOutlineAcademicCap, HiOutlineExclamation, HiOutlineGlobeAlt, HiOutlineDocumentText, HiOutlineFire } from "react-icons/hi";
+import {
+  HiOutlineShieldCheck,
+  HiOutlineAcademicCap,
+  HiOutlineExclamation,
+  HiOutlineGlobeAlt,
+  HiOutlineDocumentText,
+  HiOutlineFire,
+} from "react-icons/hi";
 
 export const Route = createFileRoute("/safety")({
   head: () => ({
     meta: [
       { title: "Safety & HSE — Geofields Tanzania Limited" },
-      { name: "description", content: "Zero-harm safety systems, ISO 45001 and ISO 14001 aligned HSE practice, and environmental stewardship across every Geofields operation." },
+      {
+        name: "description",
+        content:
+          "Zero-harm safety systems, ISO 45001 and ISO 14001 aligned HSE practice, and environmental stewardship across every Geofields operation.",
+      },
     ],
     links: [{ rel: "canonical", href: "/safety" }],
   }),
@@ -17,12 +28,36 @@ export const Route = createFileRoute("/safety")({
 });
 
 const pillars = [
-  { icon: HiOutlineShieldCheck, title: "Safety Philosophy", desc: "Zero harm is not a target — it is a non-negotiable standard on every site." },
-  { icon: HiOutlineDocumentText, title: "HSE Policy", desc: "Documented policies aligned to ISO 45001 and ISO 14001, audited annually." },
-  { icon: HiOutlineAcademicCap, title: "Training", desc: "Structured induction, competency and refresher training for every employee." },
-  { icon: HiOutlineExclamation, title: "Risk Management", desc: "Site-specific risk assessments, JHAs and continuous hazard reporting." },
-  { icon: HiOutlineFire, title: "Emergency Response", desc: "24/7 on-call response teams and drilled evacuation protocols." },
-  { icon: HiOutlineGlobeAlt, title: "Environmental Care", desc: "Water, waste and rehabilitation programmes on every project." },
+  {
+    icon: HiOutlineShieldCheck,
+    title: "Safety Philosophy",
+    desc: "Zero harm is not a target — it is a non-negotiable standard on every site.",
+  },
+  {
+    icon: HiOutlineDocumentText,
+    title: "HSE Policy",
+    desc: "Documented policies aligned to ISO 45001 and ISO 14001, audited annually.",
+  },
+  {
+    icon: HiOutlineAcademicCap,
+    title: "Training",
+    desc: "Structured induction, competency and refresher training for every employee.",
+  },
+  {
+    icon: HiOutlineExclamation,
+    title: "Risk Management",
+    desc: "Site-specific risk assessments, JHAs and continuous hazard reporting.",
+  },
+  {
+    icon: HiOutlineFire,
+    title: "Emergency Response",
+    desc: "24/7 on-call response teams and drilled evacuation protocols.",
+  },
+  {
+    icon: HiOutlineGlobeAlt,
+    title: "Environmental Care",
+    desc: "Water, waste and rehabilitation programmes on every project.",
+  },
 ];
 
 function SafetyPage() {

@@ -16,10 +16,20 @@ export function Footer() {
             company delivering engineering excellence across Tanzania and Africa.
           </p>
           <div className="flex gap-3 mt-6">
-            <a href="https://wa.me/255766775255" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="size-10 grid place-items-center border border-white/15 hover:bg-primary hover:border-primary transition">
+            <a
+              href="https://wa.me/255766775255"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="WhatsApp"
+              className="size-10 grid place-items-center border border-white/15 hover:bg-primary hover:border-primary transition"
+            >
               <FaWhatsapp />
             </a>
-            <a href="#" aria-label="LinkedIn" className="size-10 grid place-items-center border border-white/15 hover:bg-primary hover:border-primary transition">
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              className="size-10 grid place-items-center border border-white/15 hover:bg-primary hover:border-primary transition"
+            >
               <FaLinkedin />
             </a>
           </div>
@@ -28,11 +38,31 @@ export function Footer() {
         <div>
           <h5 className="text-white text-sm tracking-[0.2em] uppercase mb-5">Company</h5>
           <ul className="space-y-3 text-sm">
-            <li><Link to="/about" className="hover:text-primary">About Us</Link></li>
-            <li><Link to="/divisions" className="hover:text-primary">Business Divisions</Link></li>
-            <li><Link to="/projects" className="hover:text-primary">Projects</Link></li>
-            <li><Link to="/safety" className="hover:text-primary">Safety & HSE</Link></li>
-            <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
+            <li>
+              <Link to="/about" className="hover:text-primary">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/divisions" className="hover:text-primary">
+                Business Divisions
+              </Link>
+            </li>
+            <li>
+              <Link to="/projects" className="hover:text-primary">
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link to="/safety" className="hover:text-primary">
+                Safety & HSE
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-primary">
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -50,11 +80,26 @@ export function Footer() {
         <div>
           <h5 className="text-white text-sm tracking-[0.2em] uppercase mb-5">Get In Touch</h5>
           <ul className="space-y-3 text-sm">
-            <li className="flex gap-3"><HiOutlineLocationMarker className="size-5 text-primary shrink-0 mt-0.5" /> P.O Box 76387, Mwai Kibaki Road, Mbezi Beach, Dar es Salaam, Tanzania</li>
-            <li className="flex gap-3"><HiOutlinePhone className="size-5 text-primary shrink-0" /> <a href="tel:+255766775255">+255 766 775 255</a></li>
-            <li className="flex gap-3"><HiOutlinePhone className="size-5 text-primary shrink-0" /> <a href="tel:+255755284141">+255 755 284 141</a></li>
-            <li className="flex gap-3"><HiOutlineMail className="size-5 text-primary shrink-0" /> <a href="mailto:info@geofields.co.tz">info@geofields.co.tz</a></li>
-            <li className="flex gap-3"><HiOutlineMail className="size-5 text-primary shrink-0" /> <a href="mailto:sales@geofields.co.tz">sales@geofields.co.tz</a></li>
+            <li className="flex gap-3">
+              <HiOutlineLocationMarker className="size-5 text-primary shrink-0 mt-0.5" /> P.O Box
+              76387, Mwai Kibaki Road, Mbezi Beach, Dar es Salaam, Tanzania
+            </li>
+            <li className="flex gap-3">
+              <HiOutlinePhone className="size-5 text-primary shrink-0" />{" "}
+              <a href="tel:+255766775255">+255 766 775 255</a>
+            </li>
+            <li className="flex gap-3">
+              <HiOutlinePhone className="size-5 text-primary shrink-0" />{" "}
+              <a href="tel:+255755284141">+255 755 284 141</a>
+            </li>
+            <li className="flex gap-3">
+              <HiOutlineMail className="size-5 text-primary shrink-0" />{" "}
+              <a href="mailto:info@geofields.co.tz">info@geofields.co.tz</a>
+            </li>
+            <li className="flex gap-3">
+              <HiOutlineMail className="size-5 text-primary shrink-0" />{" "}
+              <a href="mailto:sales@geofields.co.tz">sales@geofields.co.tz</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -62,8 +107,12 @@ export function Footer() {
       <div className="container-x mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
         <p>© {new Date().getFullYear()} Geofields Tanzania Limited. All rights reserved.</p>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-primary">Privacy Policy</a>
-          <a href="#" className="hover:text-primary">Terms & Conditions</a>
+          <a href="#" className="hover:text-primary">
+            Privacy Policy
+          </a>
+          <a href="#" className="hover:text-primary">
+            Terms & Conditions
+          </a>
         </div>
       </div>
     </footer>

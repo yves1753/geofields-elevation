@@ -78,11 +78,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Geofields Tanzania Limited — Drilling, Exploration & Mining Services" },
-      { name: "description", content: "Geofields Tanzania Limited delivers world-class drilling, exploration, underground support and integrated mining services across Tanzania and Africa." },
+      {
+        name: "description",
+        content:
+          "Geofields Tanzania Limited delivers world-class drilling, exploration, underground support and integrated mining services across Tanzania and Africa.",
+      },
       { name: "theme-color", content: "#D97A2C" },
       { property: "og:site_name", content: "Geofields Tanzania Limited" },
-      { property: "og:title", content: "Geofields Tanzania Limited — Engineering the Future of Mining" },
-      { property: "og:description", content: "Integrated drilling, exploration, underground support and mining supplies across Africa. Safety, precision and reliability at scale." },
+      {
+        property: "og:title",
+        content: "Geofields Tanzania Limited — Engineering the Future of Mining",
+      },
+      {
+        property: "og:description",
+        content:
+          "Integrated drilling, exploration, underground support and mining supplies across Africa. Safety, precision and reliability at scale.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -91,7 +102,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,

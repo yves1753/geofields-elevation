@@ -8,7 +8,11 @@ export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Geofields Tanzania Limited" },
-      { name: "description", content: "Selected drilling, exploration and underground projects delivered by Geofields across Tanzania and Africa." },
+      {
+        name: "description",
+        content:
+          "Selected drilling, exploration and underground projects delivered by Geofields across Tanzania and Africa.",
+      },
     ],
     links: [{ rel: "canonical", href: "/projects" }],
   }),
@@ -16,12 +20,54 @@ export const Route = createFileRoute("/projects")({
 });
 
 const projects = [
-  { name: "Geita Gold Expansion", commodity: "Gold", location: "Geita, Tanzania", depth: "1,200 m", duration: "18 months", scope: "Diamond core, RC, underground support" },
-  { name: "North Mara Exploration", commodity: "Gold", location: "Mara, Tanzania", depth: "800 m", duration: "12 months", scope: "Exploration drilling & sampling" },
-  { name: "Kabanga Nickel Program", commodity: "Nickel", location: "Kagera, Tanzania", depth: "1,500 m", duration: "24 months", scope: "Deep diamond drilling" },
-  { name: "Bulyanhulu Underground", commodity: "Gold", location: "Shinyanga, Tanzania", depth: "1,100 m", duration: "Ongoing", scope: "Underground support & bolting" },
-  { name: "Mkuju Uranium Program", commodity: "Uranium", location: "Ruvuma, Tanzania", depth: "600 m", duration: "9 months", scope: "RC & core drilling" },
-  { name: "Nyanzaga Gold Project", commodity: "Gold", location: "Mwanza, Tanzania", depth: "900 m", duration: "14 months", scope: "Resource definition drilling" },
+  {
+    name: "Geita Gold Expansion",
+    commodity: "Gold",
+    location: "Geita, Tanzania",
+    depth: "1,200 m",
+    duration: "18 months",
+    scope: "Diamond core, RC, underground support",
+  },
+  {
+    name: "North Mara Exploration",
+    commodity: "Gold",
+    location: "Mara, Tanzania",
+    depth: "800 m",
+    duration: "12 months",
+    scope: "Exploration drilling & sampling",
+  },
+  {
+    name: "Kabanga Nickel Program",
+    commodity: "Nickel",
+    location: "Kagera, Tanzania",
+    depth: "1,500 m",
+    duration: "24 months",
+    scope: "Deep diamond drilling",
+  },
+  {
+    name: "Bulyanhulu Underground",
+    commodity: "Gold",
+    location: "Shinyanga, Tanzania",
+    depth: "1,100 m",
+    duration: "Ongoing",
+    scope: "Underground support & bolting",
+  },
+  {
+    name: "Mkuju Uranium Program",
+    commodity: "Uranium",
+    location: "Ruvuma, Tanzania",
+    depth: "600 m",
+    duration: "9 months",
+    scope: "RC & core drilling",
+  },
+  {
+    name: "Nyanzaga Gold Project",
+    commodity: "Gold",
+    location: "Mwanza, Tanzania",
+    depth: "900 m",
+    duration: "14 months",
+    scope: "Resource definition drilling",
+  },
 ];
 
 function ProjectsPage() {
@@ -43,8 +89,14 @@ function ProjectsPage() {
                 <div className="mt-2 text-sm text-muted-foreground">{p.location}</div>
                 <p className="mt-4 text-sm text-foreground/80 leading-relaxed">{p.scope}</p>
                 <div className="mt-6 pt-6 border-t border-border flex justify-between text-sm">
-                  <span><span className="text-muted-foreground">Depth: </span><strong>{p.depth}</strong></span>
-                  <span><span className="text-muted-foreground">Duration: </span><strong>{p.duration}</strong></span>
+                  <span>
+                    <span className="text-muted-foreground">Depth: </span>
+                    <strong>{p.depth}</strong>
+                  </span>
+                  <span>
+                    <span className="text-muted-foreground">Duration: </span>
+                    <strong>{p.duration}</strong>
+                  </span>
                 </div>
               </article>
             </Reveal>

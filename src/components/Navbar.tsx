@@ -29,12 +29,16 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/95 backdrop-blur border-b border-border shadow-sm" : "bg-transparent"
+        scrolled
+          ? "bg-background/95 backdrop-blur border-b border-border shadow-sm"
+          : "bg-transparent"
       }`}
     >
       <div className="container-x flex items-center justify-between h-20">
         <Link to="/" className="flex items-center">
-          <Logo className={`transition-all ${scrolled ? "h-10" : "h-11"} w-auto ${scrolled ? "" : "brightness-0 invert-0"}`} />
+          <Logo
+            className={`transition-all ${scrolled ? "h-10" : "h-11"} w-auto ${scrolled ? "" : "brightness-0 invert-0"}`}
+          />
         </Link>
 
         <nav className="hidden xl:flex items-center gap-8">
@@ -43,7 +47,9 @@ export function Navbar() {
               key={l.to}
               to={l.to}
               className={`text-sm font-semibold tracking-wide transition-colors ${
-                scrolled ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white"
+                scrolled
+                  ? "text-foreground/80 hover:text-primary"
+                  : "text-white/90 hover:text-white"
               }`}
               activeProps={{ className: "text-primary" }}
               activeOptions={{ exact: l.to === "/" }}
@@ -91,7 +97,12 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <a href="https://wa.me/255766775255" className="btn-primary justify-center mt-2" target="_blank" rel="noreferrer">
+            <a
+              href="https://wa.me/255766775255"
+              className="btn-primary justify-center mt-2"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaWhatsapp /> WhatsApp Us
             </a>
           </div>
