@@ -2,23 +2,60 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Logo } from "./Logo";
 
+// Module-level flag so client-side route changes never re-trigger the loader
+// within the same page session.
+let hasPlayed = false;
+
 export function LoadingScreen() {
+  const [mounted, setMounted] = useState(false);
   const [progress, setProgress] = useState(0);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    // Skip entirely on subsequent mounts or if the user has already seen it.
+    if (hasPlayed) {
+      setDone(true);
+      return;
+    }
+    if (typeof window !== "undefined" && sessionStorage.getItem("gf_loaded") === "1") {
+      hasPlayed = true;
+      setDone(true);
+      return;
+    }
+    // Respect reduced motion — dismiss immediately.
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+    ) {
+      hasPlayed = true;
+      sessionStorage.setItem("gf_loaded", "1");
+      setDone(true);
+      return;
+    }
+
+    setMounted(true);
     let raf: number;
     const start = performance.now();
-    const duration = 1600;
+    const duration = 1200;
     const tick = (t: number) => {
       const p = Math.min(1, (t - start) / duration);
       setProgress(Math.round(p * 100));
       if (p < 1) raf = requestAnimationFrame(tick);
-      else setTimeout(() => setDone(true), 350);
+      else {
+        hasPlayed = true;
+        try {
+          sessionStorage.setItem("gf_loaded", "1");
+        } catch {
+          /* ignore */
+        }
+        setTimeout(() => setDone(true), 300);
+      }
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <AnimatePresence>
@@ -26,12 +63,12 @@ export function LoadingScreen() {
         <motion.div
           className="fixed inset-0 z-[100] bg-[oklch(0.1_0.005_60)] flex flex-col items-center justify-center"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.6, ease: "easeInOut" } }}
+          exit={{ opacity: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
         >
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="bg-white p-5 rounded-sm"
           >
             <Logo className="h-12 w-auto" />
