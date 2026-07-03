@@ -13,7 +13,11 @@ export const Route = createFileRoute("/divisions")({
   head: () => ({
     meta: [
       { title: "Business Divisions — Geofields Tanzania Limited" },
-      { name: "description", content: "Explore Geofields' five integrated service divisions: Drilling, Geological & Exploration, Mining Supplies, Oil & Gas Support and Underground Support (GUS)." },
+      {
+        name: "description",
+        content:
+          "Explore Geofields' five integrated service divisions: Drilling, Geological & Exploration, Mining Supplies, Oil & Gas Support and Underground Support (GUS).",
+      },
     ],
     links: [{ rel: "canonical", href: "/divisions" }],
   }),
@@ -21,11 +25,56 @@ export const Route = createFileRoute("/divisions")({
 });
 
 const divisions = [
-  { img: drilling, title: "Drilling Services", capabilities: ["Diamond Drilling", "Reverse Circulation (RC)", "Blast Hole Drilling", "Water Drilling", "Core Drilling"] },
-  { img: exploration, title: "Geological & Exploration Services", capabilities: ["Geological Mapping", "Mineral Exploration", "Sampling & Assays", "Surveying", "Resource Evaluation"] },
-  { img: supplies, title: "Mining Supplies", capabilities: ["Mining Equipment", "PPE & Safety Gear", "Consumables", "Industrial Supplies", "Spare Parts"] },
-  { img: oilgas, title: "Oil & Gas Support", capabilities: ["Industrial Support Services", "Equipment Supply", "Field Support Crews"] },
-  { img: underground, title: "Geofields Underground Support (GUS)", featured: true, to: "/gus", capabilities: ["Ground Support & Rock Bolting", "Mine Development", "Underground Logistics", "Emergency Response"] },
+  {
+    img: drilling,
+    title: "Drilling Services",
+    capabilities: [
+      "Diamond Drilling",
+      "Reverse Circulation (RC)",
+      "Blast Hole Drilling",
+      "Water Drilling",
+      "Core Drilling",
+    ],
+  },
+  {
+    img: exploration,
+    title: "Geological & Exploration Services",
+    capabilities: [
+      "Geological Mapping",
+      "Mineral Exploration",
+      "Sampling & Assays",
+      "Surveying",
+      "Resource Evaluation",
+    ],
+  },
+  {
+    img: supplies,
+    title: "Mining Supplies",
+    capabilities: [
+      "Mining Equipment",
+      "PPE & Safety Gear",
+      "Consumables",
+      "Industrial Supplies",
+      "Spare Parts",
+    ],
+  },
+  {
+    img: oilgas,
+    title: "Oil & Gas Support",
+    capabilities: ["Industrial Support Services", "Equipment Supply", "Field Support Crews"],
+  },
+  {
+    img: underground,
+    title: "Geofields Underground Support (GUS)",
+    featured: true,
+    to: "/gus",
+    capabilities: [
+      "Ground Support & Rock Bolting",
+      "Mine Development",
+      "Underground Logistics",
+      "Emergency Response",
+    ],
+  },
 ];
 
 function DivisionsPage() {
@@ -42,11 +91,20 @@ function DivisionsPage() {
         <div className="container-x space-y-24">
           {divisions.map((d, i) => (
             <Reveal key={d.title}>
-              <div className={`grid lg:grid-cols-2 gap-14 items-center ${i % 2 === 1 ? "lg:[&>div:first-child]:order-2" : ""}`}>
+              <div
+                className={`grid lg:grid-cols-2 gap-14 items-center ${i % 2 === 1 ? "lg:[&>div:first-child]:order-2" : ""}`}
+              >
                 <div className="relative">
-                  <img src={d.img} alt={d.title} className="w-full aspect-[4/3] object-cover" loading="lazy" />
+                  <img
+                    src={d.img}
+                    alt={d.title}
+                    className="w-full aspect-[4/3] object-cover"
+                    loading="lazy"
+                  />
                   {d.featured && (
-                    <span className="absolute top-4 right-4 bg-primary text-primary-foreground text-[10px] tracking-[0.25em] font-bold px-3 py-1.5">NEW</span>
+                    <span className="absolute top-4 right-4 bg-primary text-primary-foreground text-[10px] tracking-[0.25em] font-bold px-3 py-1.5">
+                      NEW
+                    </span>
                   )}
                 </div>
                 <div>
@@ -61,8 +119,14 @@ function DivisionsPage() {
                     ))}
                   </ul>
                   <div className="mt-10 flex gap-4">
-                    {d.to && <Link to={d.to} className="btn-primary">Learn More <HiOutlineArrowRight /></Link>}
-                    <Link to="/contact" className="btn-outline">Request Quote</Link>
+                    {d.to && (
+                      <Link to={d.to} className="btn-primary">
+                        Learn More <HiOutlineArrowRight />
+                      </Link>
+                    )}
+                    <Link to="/contact" className="btn-outline">
+                      Request Quote
+                    </Link>
                   </div>
                 </div>
               </div>
