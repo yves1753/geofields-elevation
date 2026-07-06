@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "sdk_version": "0.20.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "geofields-mcp",
+      "version": "0.1.0",
+      "title": "Geofields Tanzania MCP"
+    },
+    "tools": [
+      {
+        "name": "get_company_info",
+        "title": "Get company info",
+        "description": "Return an overview of Geofields Tanzania Limited: what the company does, headquarters, and primary contact channels.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_divisions",
+        "title": "List divisions & services",
+        "description": "List the operational divisions and services offered by Geofields Tanzania Limited.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_contact",
+        "title": "Get contact details",
+        "description": "Return contact channels for Geofields Tanzania Limited: phone, WhatsApp, and website contact page.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
