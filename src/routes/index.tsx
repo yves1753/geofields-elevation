@@ -233,7 +233,7 @@ function StatsBar() {
       <div className="container-x py-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-10 gap-x-6">
         {stats.map((s, i) => (
           <div key={i} className="text-center md:text-left border-l border-white/10 pl-5">
-            <div className="font-display font-extrabold text-4xl md:text-5xl text-primary-glow">
+            <div className="font-display font-extrabold text-3xl md:text-4xl text-primary-glow">
               {inView && <CountUp end={s.value} duration={2.4} separator="," suffix={s.suffix} />}
             </div>
             <div className="mt-2 text-xs tracking-[0.2em] uppercase text-white/60">{s.label}</div>
