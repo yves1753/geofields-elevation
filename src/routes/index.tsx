@@ -1,8 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import CountUp from "react-countup";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import CountUpImport from "react-countup";
 import { useRef } from "react";
+
+// Vite prebundles react-countup (CJS) with a double-wrapped default export
+// (`{ default: { default: CountUp, useCountUp } }`), so the bare import is an
+// object, not a component. Unwrap to the actual component.
+const CountUp = ((CountUpImport as unknown as { default?: unknown }).default ??
+  CountUpImport) as typeof CountUpImport;
 import {
   HiOutlineChevronDown,
   HiOutlineArrowRight,
