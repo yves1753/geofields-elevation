@@ -66,7 +66,7 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { value: 12, suffix: "+", label: "Years Experience" },
+  { value: 18, suffix: "+", label: "Years Experience" },
   { value: 2500, suffix: "+", label: "Projects Completed" },
   { value: 18, suffix: "+", label: "Drill Rigs" },
   { value: 500000, suffix: "+", label: "Metres Drilled" },
