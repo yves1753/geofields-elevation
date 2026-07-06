@@ -259,7 +259,7 @@ function AboutPreview() {
               loading="lazy"
             />
             <div className="absolute -bottom-8 -right-8 bg-primary text-primary-foreground p-8 max-w-xs shadow-elegant">
-              <div className="font-display text-5xl leading-none">12+</div>
+              <div className="font-display text-5xl leading-none">18+</div>
               <div className="mt-2 text-xs tracking-[0.2em] uppercase">
                 Years of Engineering Excellence
               </div>
