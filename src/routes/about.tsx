@@ -157,6 +157,8 @@ function AboutPage() {
           </div>
         </div>
       </section>
+
+      <ClientsAffiliates />
     </Layout>
   );
 }
