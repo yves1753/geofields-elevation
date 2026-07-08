@@ -45,21 +45,12 @@ function LogoCell({ item, index }: { item: LogoItem; index: number }) {
         className="group relative w-full aspect-[229/192] cursor-pointer overflow-hidden rounded-sm border border-transparent bg-white/50 p-3 transition-all duration-500 ease-in-out hover:border-primary/20 hover:bg-white hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
         <div
-          className="absolute inset-3 bg-[url('/logos-grid.png')] bg-no-repeat transition-all duration-500 ease-in-out group-hover:scale-105 group-focus-visible:scale-105"
+          className="absolute inset-3 bg-[url('/logos-grid.png')] bg-no-repeat grayscale opacity-60 transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100 group-focus-visible:scale-105 group-focus-visible:grayscale-0 group-focus-visible:opacity-100"
           style={{
             backgroundSize: "600% 400%",
             backgroundPosition: `-${x}% -${y}%`,
-            filter: "grayscale(100%)",
-            opacity: 0.6,
           }}
         />
-        <style>{`
-          .group:hover .absolute,
-          .group:focus-visible .absolute {
-            filter: grayscale(0%) !important;
-            opacity: 1 !important;
-          }
-        `}</style>
       </button>
     </Reveal>
   );
