@@ -26,30 +26,13 @@ export function ClientsAffiliates() {
               Clients
             </h3>
           </Reveal>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
-            {[
-              "AngloGold Ashanti", "Barrick", "Shanta Gold", "Petra Diamonds",
-              "Government of Tanzania", "Tanzania Geological Drilling Company",
-              "TANCOAL", "Sunshine Group Limited", "STAMICO", "TANESCO",
-              "East Africa Metals", "TGDC", "Dodoma Gold Group", "Tanzanian Gold Corporation",
-              "Yapi Merkezi", "Twiga Cement", "NT", "Strandline Resources",
-            ].map((alt, index) => (
-              <Reveal key={alt} delay={index * 0.03}>
-                <button
-                  type="button"
-                  aria-label={alt}
-                  className="group relative w-full aspect-[229/192] cursor-pointer overflow-hidden rounded-sm border border-transparent bg-white/50 p-3 transition-all duration-500 ease-in-out hover:border-primary/20 hover:bg-white hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  <div
-                    className="absolute inset-3 bg-[url('/logos-grid.png')] bg-no-repeat grayscale opacity-60 transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100 group-focus-visible:scale-105 group-focus-visible:grayscale-0 group-focus-visible:opacity-100"
-                    style={{
-                      backgroundSize: "600% 400%",
-                      backgroundPosition: `-${(index % 6) * 100}% -${Math.floor(index / 6) * 100}%`,
-                    }}
-                  />
-                </button>
-              </Reveal>
-            ))}
+          <div className="group overflow-hidden rounded-sm bg-white p-4 md:p-8 transition-all duration-500 ease-in-out hover:shadow-card focus-within:shadow-card">
+            <img
+              src="/logos-grid.png"
+              alt="Geofields clients including AngloGold Ashanti, Barrick, Shanta Gold, Petra Diamonds, Government of Tanzania, TANCOAL, Sunshine Group, STAMICO, TANESCO, East Africa Metals, TGDC, DGG, Tanzanian Gold, Yapi Merkezi, Twiga Cement, NT and Strandline Resources"
+              className="w-full h-auto grayscale opacity-60 transition-all duration-500 ease-in-out group-hover:scale-[1.02] group-hover:grayscale-0 group-hover:opacity-100 group-focus-within:scale-[1.02] group-focus-within:grayscale-0 group-focus-within:opacity-100"
+              loading="lazy"
+            />
           </div>
         </div>
 
@@ -59,28 +42,13 @@ export function ClientsAffiliates() {
               Partners & Affiliates
             </h3>
           </Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-            {[
-              "African Underground Mining Services",
-              "Eng Pamoja Royalty Limited",
-              "MSA Mining Ltd",
-            ].map((alt, index) => (
-              <Reveal key={alt} delay={index * 0.05}>
-                <button
-                  type="button"
-                  aria-label={alt}
-                  className="group relative w-full aspect-[229/192] cursor-pointer overflow-hidden rounded-sm border border-transparent bg-white/50 p-3 transition-all duration-500 ease-in-out hover:border-primary/20 hover:bg-white hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  <div
-                    className="absolute inset-3 bg-[url('/logos-grid.png')] bg-no-repeat grayscale opacity-60 transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100 group-focus-visible:scale-105 group-focus-visible:grayscale-0 group-focus-visible:opacity-100"
-                    style={{
-                      backgroundSize: "600% 400%",
-                      backgroundPosition: `-${[0, 2, 5][index] * 100}% -300%`,
-                    }}
-                  />
-                </button>
-              </Reveal>
-            ))}
+          <div className="group overflow-hidden rounded-sm bg-white p-4 md:p-8 transition-all duration-500 ease-in-out hover:shadow-card focus-within:shadow-card max-w-4xl mx-auto">
+            <img
+              src="/logos-grid.png"
+              alt="Geofields partners and affiliates: African Underground Mining Services, Eng Pamoja Royalty Limited and MSA Mining Ltd"
+              className="w-full h-auto grayscale opacity-60 transition-all duration-500 ease-in-out group-hover:scale-[1.02] group-hover:grayscale-0 group-hover:opacity-100 group-focus-within:scale-[1.02] group-focus-within:grayscale-0 group-focus-within:opacity-100"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
