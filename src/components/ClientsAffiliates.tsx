@@ -14,6 +14,26 @@ const partners = [
   "MSA Mining Ltd",
 ];
 
+function LogoCell({ alt, position, delay }: { alt: string; position: string; delay: number }) {
+  return (
+    <Reveal delay={delay}>
+      <button
+        type="button"
+        aria-label={alt}
+        className="group relative w-full aspect-[229/192] cursor-pointer overflow-hidden rounded-sm border border-transparent bg-white/50 p-3 transition-all duration-500 ease-in-out hover:border-primary/20 hover:bg-white hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      >
+        <div
+          className="absolute inset-3 bg-[url('/logos-grid.png')] bg-no-repeat grayscale opacity-60 transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100 group-focus-visible:scale-105 group-focus-visible:grayscale-0 group-focus-visible:opacity-100"
+          style={{
+            backgroundSize: "600% 400%",
+            backgroundPosition: position,
+          }}
+        />
+      </button>
+    </Reveal>
+  );
+}
+
 export function ClientsAffiliates() {
   return (
     <section className="section-y bg-surface">
@@ -40,26 +60,15 @@ export function ClientsAffiliates() {
               Clients
             </h3>
           </Reveal>
-          <div className="group cursor-pointer overflow-hidden rounded-sm bg-white p-4 md:p-8 transition-all duration-500 ease-in-out hover:shadow-card focus-within:shadow-card">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
-              {clients.map((alt, index) => (
-                <Reveal key={alt} delay={index * 0.03}>
-                  <button
-                    type="button"
-                    aria-label={alt}
-                    className="relative w-full aspect-[229/192] overflow-hidden rounded-sm border border-transparent bg-white/50 transition-all duration-500 ease-in-out hover:border-primary/20 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  >
-                    <div
-                      className="absolute inset-2 bg-[url('/logos-grid.png')] bg-no-repeat grayscale opacity-60 transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100 group-focus-within:scale-105 group-focus-within:grayscale-0 group-focus-within:opacity-100"
-                      style={{
-                        backgroundSize: "600% 400%",
-                        backgroundPosition: `-${(index % 6) * 100}% -${Math.floor(index / 6) * 100}%`,
-                      }}
-                    />
-                  </button>
-                </Reveal>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
+            {clients.map((alt, index) => (
+              <LogoCell
+                key={alt}
+                alt={alt}
+                delay={index * 0.03}
+                position={`-${(index % 6) * 100}% -${Math.floor(index / 6) * 100}%`}
+              />
+            ))}
           </div>
         </div>
 
@@ -69,26 +78,15 @@ export function ClientsAffiliates() {
               Partners & Affiliates
             </h3>
           </Reveal>
-          <div className="group cursor-pointer overflow-hidden rounded-sm bg-white p-4 md:p-8 transition-all duration-500 ease-in-out hover:shadow-card focus-within:shadow-card">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-              {partners.map((alt, index) => (
-                <Reveal key={alt} delay={index * 0.05}>
-                  <button
-                    type="button"
-                    aria-label={alt}
-                    className="relative w-full aspect-[229/192] overflow-hidden rounded-sm border border-transparent bg-white/50 transition-all duration-500 ease-in-out hover:border-primary/20 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  >
-                    <div
-                      className="absolute inset-2 bg-[url('/logos-grid.png')] bg-no-repeat grayscale opacity-60 transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100 group-focus-within:scale-105 group-focus-within:grayscale-0 group-focus-within:opacity-100"
-                      style={{
-                        backgroundSize: "600% 400%",
-                        backgroundPosition: `-${[0, 2, 5][index] * 100}% -300%`,
-                      }}
-                    />
-                  </button>
-                </Reveal>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+            {partners.map((alt, index) => (
+              <LogoCell
+                key={alt}
+                alt={alt}
+                delay={index * 0.05}
+                position={`-${[0, 2, 5][index] * 100}% -300%`}
+              />
+            ))}
           </div>
         </div>
       </div>
