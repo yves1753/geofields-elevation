@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
+import { ClientsAffiliates } from "@/components/ClientsAffiliates";
 import exploration from "@/assets/exploration.jpg";
 import safety from "@/assets/safety.jpg";
 import {
