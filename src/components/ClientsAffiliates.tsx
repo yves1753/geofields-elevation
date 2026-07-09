@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/Reveal";
 import clientsLogos from "@/assets/clients-logos.png.asset.json";
+import partnersAffiliates from "@/assets/partners-affiliates.png.asset.json";
 
 export function ClientsAffiliates() {
   return (
@@ -45,8 +46,8 @@ export function ClientsAffiliates() {
           </Reveal>
           <div className="group overflow-hidden rounded-sm bg-white p-4 md:p-8 transition-all duration-500 ease-in-out hover:shadow-card focus-within:shadow-card max-w-4xl mx-auto">
             <img
-              src="/logos-grid.png"
-              alt="Geofields partners and affiliates: African Underground Mining Services, Eng Pamoja Royalty Limited and MSA Mining Ltd"
+              src={partnersAffiliates.url}
+              alt="Geofields partners and affiliates: African Underground Mining Services, EMG Pamoja Royalty Limited and MSA Mining Limited"
               className="w-full h-auto grayscale opacity-60 transition-all duration-500 ease-in-out group-hover:scale-[1.02] group-hover:grayscale-0 group-hover:opacity-100 group-focus-within:scale-[1.02] group-focus-within:grayscale-0 group-focus-within:opacity-100"
               loading="lazy"
             />
