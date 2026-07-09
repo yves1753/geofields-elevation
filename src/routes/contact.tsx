@@ -12,7 +12,7 @@ import {
   HiOutlineArrowRight,
 } from "react-icons/hi";
 import { FaWhatsapp } from "react-icons/fa";
-import safety from "@/assets/safety.jpg";
+import contactHero from "@/assets/contact-hero.png.asset.json";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
