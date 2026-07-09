@@ -74,7 +74,7 @@ function AboutPage() {
         eyebrow="Our Story"
         title="Africa's mineral wealth deserves world-class engineering."
         subtitle="For more than a decade, Geofields Tanzania Limited has been engineering the systems, crews and equipment that turn Africa's geological potential into responsible, long-term prosperity."
-        image={safety}
+        image={aboutHero.url}
       />
 
       <section className="section-y bg-background">
