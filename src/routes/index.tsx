@@ -21,7 +21,7 @@ import {
 import { FaHardHat, FaMountain, FaTruckMoving, FaOilCan, FaTools } from "react-icons/fa";
 import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
-import heroImg from "@/assets/hero-mine.jpg";
+import heroVideo from "@/assets/home-hero.mp4.asset.json";
 import drillingImg from "@/assets/drilling.jpg";
 import explorationImg from "@/assets/exploration.jpg";
 import undergroundImg from "@/assets/underground.jpg";
@@ -164,9 +164,12 @@ function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="Aerial view of an active open-pit mine at golden hour"
+        <video
+          src={heroVideo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
           className="size-full object-cover scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/90" />
