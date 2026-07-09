@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/Reveal";
+import clientsLogos from "@/assets/clients-logos.png.asset.json";
 
 export function ClientsAffiliates() {
   return (
