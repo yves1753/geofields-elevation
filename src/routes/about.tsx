@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { ClientsAffiliates } from "@/components/ClientsAffiliates";
 import exploration from "@/assets/exploration.jpg";
-import safety from "@/assets/safety.jpg";
+import aboutHero from "@/assets/about-hero.jpg.asset.json";
 import {
   HiOutlineShieldCheck,
   HiOutlineStar,
