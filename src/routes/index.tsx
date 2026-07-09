@@ -22,6 +22,7 @@ import { FaHardHat, FaMountain, FaTruckMoving, FaOilCan, FaTools } from "react-i
 import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
 import heroVideo from "@/assets/home-hero.mp4.asset.json";
+import heroImg from "@/assets/hero-mine.jpg";
 import drillingImg from "@/assets/drilling.jpg";
 import explorationImg from "@/assets/exploration.jpg";
 import undergroundImg from "@/assets/underground.jpg";
