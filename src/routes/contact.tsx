@@ -62,7 +62,7 @@ function ContactPage() {
         eyebrow="Get In Touch"
         title="Let's engineer your next project together."
         subtitle="Our team responds to every enquiry within 24 hours with a clear, scoped proposal."
-        image={safety}
+        image={contactHero.url}
       />
 
       <section className="section-y bg-background">
