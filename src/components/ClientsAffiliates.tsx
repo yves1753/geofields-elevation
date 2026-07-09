@@ -29,8 +29,8 @@ export function ClientsAffiliates() {
           </Reveal>
           <div className="group overflow-hidden rounded-sm bg-white p-4 md:p-8 transition-all duration-500 ease-in-out hover:shadow-card focus-within:shadow-card">
             <img
-              src="/logos-grid.png"
-              alt="Geofields clients including AngloGold Ashanti, Barrick, Shanta Gold, Petra Diamonds, Government of Tanzania, TANCOAL, Sunshine Group, STAMICO, TANESCO, East Africa Metals, TGDC, DGG, Tanzanian Gold, Yapi Merkezi, Twiga Cement, NT and Strandline Resources"
+              src={clientsLogos.url}
+              alt="Geofields clients including AngloGold Ashanti, Shanta Gold, Barrick, TanzGraphite, Helium One, Twiga Cement, Strandline Resources, Panafrican Energy, Marula Mining, Yapi Merkezi, Mantra Resources, East Africa Metals, Geological Survey of Tanzania, Petra Diamonds, TANESCO, TANCOAL, DGG Eco, NT Marble, Sunshine Group and Advent"
               className="w-full h-auto grayscale opacity-60 transition-all duration-500 ease-in-out group-hover:scale-[1.02] group-hover:grayscale-0 group-hover:opacity-100 group-focus-within:scale-[1.02] group-focus-within:grayscale-0 group-focus-within:opacity-100"
               loading="lazy"
             />
