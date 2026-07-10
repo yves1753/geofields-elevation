@@ -21,7 +21,8 @@ import {
 import { FaHardHat, FaMountain, FaTruckMoving, FaOilCan, FaTools } from "react-icons/fa";
 import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
-import heroVideo from "@/assets/home-hero.mp4.asset.json";
+import { HeroVideo } from "@/components/HeroVideo";
+import heroPoster from "@/assets/home-hero-poster.jpg.asset.json";
 import heroImg from "@/assets/hero-mine.jpg";
 import drillingImg from "@/assets/drilling.jpg";
 import explorationImg from "@/assets/exploration.jpg";
@@ -40,9 +41,12 @@ export const Route = createFileRoute("/")({
         content:
           "Integrated drilling, exploration, underground support and mining supplies across Tanzania and Africa. Safety, precision and reliability at scale.",
       },
-      { property: "og:image", content: "/og-home.jpg" },
+      { property: "og:image", content: heroPoster.url },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: heroPoster.url, fetchpriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -164,17 +168,7 @@ function HomePage() {
 function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0">
-        <video
-          src={heroVideo.url}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="size-full object-cover scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/90" />
-      </div>
+      <HeroVideo />
 
       <div className="container-x relative py-32">
         <motion.span
