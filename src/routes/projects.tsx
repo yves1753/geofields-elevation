@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import CountUp from "react-countup";
 import { ArrowUpRight, ChevronDown, Expand, MapPin, X } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
@@ -123,6 +122,39 @@ const partners = [
   { name: "Tanzania Lithium Company Ltd.", short: "TANZANIA\nLITHIUM CO." },
   { name: "EMG Pamoja Royalty", short: "EMG PAMOJA", image: "/logos/partner-2.png" },
 ];
+
+function SafeCounter({ end, suffix }: { end: number; suffix: string }) {
+  const [value, setValue] = useState(0);
+  const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (reduceMotion) {
+      setValue(end);
+      return;
+    }
+
+    let animationFrame = 0;
+    const startedAt = performance.now();
+    const duration = 1400;
+
+    const animate = (now: number) => {
+      const progress = Math.min((now - startedAt) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(end * eased));
+      if (progress < 1) animationFrame = requestAnimationFrame(animate);
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end, reduceMotion]);
+
+  return (
+    <>
+      {value}
+      {suffix}
+    </>
+  );
+}
 
 function TanzaniaMap({
   active,
@@ -456,7 +488,7 @@ function ProjectsPage() {
             ].map((s) => (
               <div key={s.label} className="bg-[#151515] px-5 py-8 text-center md:py-10">
                 <div className="text-3xl font-extrabold text-white md:text-5xl">
-                  <CountUp end={s.n} suffix={s.suffix} enableScrollSpy scrollSpyOnce duration={2} />
+                  <SafeCounter end={s.n} suffix={s.suffix} />
                 </div>
                 <div className="mt-2 text-[10px] font-semibold uppercase tracking-[.16em] text-white/40 md:text-xs">
                   {s.label}
