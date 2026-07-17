@@ -98,7 +98,7 @@ function ContactPage() {
                   <option>Drilling Services</option>
                   <option>Geological & Exploration</option>
                   <option>Mining Supplies</option>
-                  <option>Oil & Gas Support</option>
+                  <option>Mining Services</option>
                   <option>Underground Support (GUS)</option>
                   <option>Other</option>
                 </select>

@@ -103,7 +103,7 @@ function AboutPage() {
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Today, we deliver five integrated service lines across drilling, exploration, mining
-              supplies, oil and gas support and underground services — anchored by more than 200
+              supplies, mining support and underground services — anchored by more than 200
               skilled Tanzanian and international professionals.
             </p>
           </Reveal>

@@ -44,7 +44,7 @@
   --card-foreground: oklch(0.18 0.01 60);
 
   /* Brand orange from the logo (approx #D97A2C) */
-  --primary: oklch(0.685 0.165 52);
+  --primary: #f58220;
   --primary-foreground: oklch(1 0 0);
   --primary-glow: oklch(0.78 0.17 62);
 

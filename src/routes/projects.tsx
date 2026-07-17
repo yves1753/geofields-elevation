@@ -46,8 +46,8 @@ const projects: Project[] = [
     region: "Kagera",
     mineral: "Nickel",
     status: "Completed",
-    x: 123,
-    y: 117,
+    x: 140,
+    y: 77,
   },
   {
     id: "kabanga",
@@ -55,8 +55,8 @@ const projects: Project[] = [
     region: "Kagera",
     mineral: "Lithium",
     status: "Partnership",
-    x: 102,
-    y: 91,
+    x: 108,
+    y: 121,
   },
   {
     id: "geita",
@@ -65,8 +65,8 @@ const projects: Project[] = [
     mineral: "Gold",
     status: "Completed",
     partner: "African Underground Mining Services (AUMS)",
-    x: 176,
-    y: 146,
+    x: 165,
+    y: 121,
   },
   {
     id: "ikungi",
@@ -74,8 +74,8 @@ const projects: Project[] = [
     region: "Singida",
     mineral: "Lithium",
     status: "Completed",
-    x: 259,
-    y: 228,
+    x: 257,
+    y: 203,
   },
   {
     id: "mahonga",
@@ -83,8 +83,8 @@ const projects: Project[] = [
     region: "Dodoma",
     mineral: "Lithium",
     status: "Completed",
-    x: 313,
-    y: 254,
+    x: 291,
+    y: 240,
   },
   {
     id: "mkunazi",
@@ -92,8 +92,8 @@ const projects: Project[] = [
     region: "Morogoro",
     mineral: "Limestone",
     status: "Completed",
-    x: 362,
-    y: 300,
+    x: 361,
+    y: 266,
   },
   {
     id: "manga",
@@ -102,8 +102,8 @@ const projects: Project[] = [
     mineral: "Gold",
     status: "Partnership",
     partner: "MSA",
-    x: 397,
-    y: 197,
+    x: 399,
+    y: 195,
   },
 ];
 
@@ -115,12 +115,18 @@ const legend = [
 ] as const;
 
 const partners = [
-  { name: "African Underground Mining Services", short: "AUMS", image: "/logos/partner-1.png" },
-  { name: "East Africa Metals", short: "EAST AFRICA\nMETALS" },
-  { name: "MSA Mining", short: "MSA", image: "/logos/affiliate-1.png" },
-  { name: "Barminco Geofields Joint Venture", short: "BARMINCO ×\nGEOFIELDS" },
-  { name: "Tanzania Lithium Company Ltd.", short: "TANZANIA\nLITHIUM CO." },
-  { name: "EMG Pamoja Royalty", short: "EMG PAMOJA", image: "/logos/partner-2.png" },
+  {
+    name: "African Underground Mining Services",
+    image: "/logos/partner-aums.png",
+  },
+  {
+    name: "EMG Pamoja Royalty Limited",
+    image: "/logos/partner-emg-pamoja.png",
+  },
+  {
+    name: "MSA Mining Ltd. Joint Venture",
+    image: "/logos/partner-msa-mining.png",
+  },
 ];
 
 function SafeCounter({ end, suffix }: { end: number; suffix: string }) {
@@ -165,6 +171,9 @@ function TanzaniaMap({
   onSelect: (p: Project) => void;
   expanded?: boolean;
 }) {
+  const mainlandPath =
+    "M227 49L233 53L363 129L366 150L417 187L401 233L403 254L426 267L427 277L417 299L419 310L417 328L429 351L444 388L457 396L429 417L389 432L368 431L355 442L330 443L321 448L277 437L250 440L240 390L228 373L221 363L185 356L165 345L142 338L128 332L113 323L93 276L72 255L65 234L69 215L62 181L77 179L90 165L104 146L113 138L113 126L105 118L103 103L113 99L115 77L101 56L114 52L153 52L227 49Z";
+
   return (
     <svg
       viewBox="0 0 520 520"
@@ -188,12 +197,23 @@ function TanzaniaMap({
         <pattern id={`grid-${expanded}`} width="26" height="26" patternUnits="userSpaceOnUse">
           <path d="M26 0H0V26" fill="none" stroke="#fff" strokeOpacity=".035" />
         </pattern>
+        <clipPath id={`mainland-clip-${expanded}`}>
+          <path d={mainlandPath} />
+        </clipPath>
       </defs>
       <rect width="520" height="520" fill={`url(#grid-${expanded})`} />
       <path
-        d="M99 51 166 66l56-21 34 24 67-2 28 31 70 13 21 49-17 43 20 46-23 27 10 42-32 22-5 49-41 14-31 48-53 8-30-31-50-4-18-44-58-23-2-48-34-36 18-47-22-37 31-43-19-48Z"
+        d={mainlandPath}
         fill={`url(#land-${expanded})`}
-        stroke="#555"
+        stroke="#777"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+      {/* Zanzibar (Unguja) and Pemba complete the United Republic's silhouette. */}
+      <path
+        d="M421 233c7-7 12-5 13 3 1 10-4 21-9 27-4-7-6-21-4-30ZM436 191c5-5 10-3 11 4 1 9-3 19-8 24-4-7-5-20-3-28Z"
+        fill={`url(#land-${expanded})`}
+        stroke="#777"
         strokeWidth="2"
       />
       <path
@@ -202,6 +222,7 @@ function TanzaniaMap({
         stroke="#fff"
         strokeOpacity=".055"
         strokeWidth="1.5"
+        clipPath={`url(#mainland-clip-${expanded})`}
       />
       <text
         x="257"
@@ -483,7 +504,7 @@ function ProjectsPage() {
             {[
               { n: 7, suffix: "+", label: "Project Sites" },
               { n: 4, suffix: "", label: "Mineral Categories" },
-              { n: 5, suffix: "+", label: "Strategic Partners" },
+              { n: 3, suffix: "", label: "Strategic Partners" },
               { n: 6, suffix: "+", label: "Regions Covered" },
             ].map((s) => (
               <div key={s.label} className="bg-[#151515] px-5 py-8 text-center md:py-10">
@@ -507,25 +528,19 @@ function ProjectsPage() {
             Working alongside respected operators, consultants and exploration partners to deliver
             safer, stronger project outcomes.
           </p>
-          <div className="-mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 lg:grid-cols-6">
+          <div className="-mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
             {partners.map((p) => (
               <div
                 key={p.name}
-                className="group flex min-h-36 min-w-[72vw] snap-center items-center justify-center rounded-xl border border-white/10 bg-white/[.035] p-6 transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/[.07] md:min-w-0"
+                className="group flex min-h-36 min-w-[72vw] snap-center items-center justify-center rounded-xl border border-white/10 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] md:min-w-0"
                 title={p.name}
               >
-                {p.image ? (
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    loading="lazy"
-                    className="max-h-14 max-w-full object-contain grayscale opacity-60 transition duration-500 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100"
-                  />
-                ) : (
-                  <span className="whitespace-pre-line text-center text-sm font-black tracking-tight text-white/45 grayscale transition group-hover:scale-105 group-hover:text-white group-hover:grayscale-0">
-                    {p.short}
-                  </span>
-                )}
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  loading="lazy"
+                  className="max-h-16 w-full object-contain transition duration-500 group-hover:scale-[1.03]"
+                />
               </div>
             ))}
           </div>

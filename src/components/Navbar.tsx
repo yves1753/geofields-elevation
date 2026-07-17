@@ -34,14 +34,14 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-x flex items-center justify-between h-20">
+      <div className="container-x flex items-center justify-between h-24 lg:h-28">
         <Link to="/" className="flex items-center">
           <Logo
-            className={`transition-all ${scrolled ? "h-10" : "h-11"} w-auto ${scrolled ? "" : "brightness-0 invert-0"}`}
+            className="w-[145px] md:w-[170px] xl:w-[190px] h-auto transition-all"
           />
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-8">
+        <nav className="hidden xl:flex items-center gap-6">
           {links.map((l) => (
             <Link
               key={l.to}

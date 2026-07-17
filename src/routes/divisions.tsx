@@ -6,7 +6,7 @@ import { HiOutlineArrowRight, HiOutlineCheck } from "react-icons/hi";
 import drilling from "@/assets/drilling.jpg";
 import exploration from "@/assets/exploration.jpg";
 import supplies from "@/assets/supplies.jpg";
-import oilgas from "@/assets/oilgas.jpg";
+import miningServices from "@/assets/hero-mine.jpg";
 import underground from "@/assets/underground.jpg";
 
 export const Route = createFileRoute("/divisions")({
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/divisions")({
       {
         name: "description",
         content:
-          "Explore Geofields' five integrated service divisions: Drilling, Geological & Exploration, Mining Supplies, Oil & Gas Support and Underground Support (GUS).",
+          "Explore Geofields' five integrated service divisions: Drilling, Geological & Exploration, Mining Supplies, Mining Services and Underground Support (GUS).",
       },
     ],
     links: [{ rel: "canonical", href: "/divisions" }],
@@ -59,9 +59,10 @@ const divisions = [
     ],
   },
   {
-    img: oilgas,
-    title: "Oil & Gas Support",
-    capabilities: ["Industrial Support Services", "Equipment Supply", "Field Support Crews"],
+    img: miningServices,
+    title: "Mining Services",
+    description: "Geofields Tanzania Limited provides reliable mining support services designed to improve operational efficiency, resource development and safe project execution throughout the mining lifecycle.",
+    capabilities: ["Production Drilling", "Grade Control Drilling", "Blast Hole Drilling", "Reverse Circulation Drilling", "Diamond Core Drilling", "Exploration Drilling", "Drill and Blast Support", "Mine Dewatering Support", "Site Mobilization", "Equipment Rental", "Drilling Consumables Supply", "Technical Field Support"],
   },
   {
     img: underground,
@@ -110,6 +111,7 @@ function DivisionsPage() {
                 <div>
                   <div className="eyebrow">Division 0{i + 1}</div>
                   <h2 className="mt-4 text-3xl md:text-4xl leading-tight">{d.title}</h2>
+                  {d.description && <p className="mt-5 text-muted-foreground leading-relaxed">{d.description}</p>}
                   <ul className="mt-8 space-y-3">
                     {d.capabilities.map((c) => (
                       <li key={c} className="flex items-start gap-3 text-foreground/85">

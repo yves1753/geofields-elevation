@@ -28,9 +28,9 @@ const DIVISIONS = [
     description: "Consumables, spares and industrial supplies for mines and contractors.",
   },
   {
-    slug: "oilgas",
-    name: "Oil & Gas Services",
-    description: "Support services for oil, gas and energy sector projects.",
+    slug: "mining-services",
+    name: "Mining Services",
+    description: "Production, grade control, blast hole, RC and diamond core drilling with integrated mine support.",
   },
   {
     slug: "safety",

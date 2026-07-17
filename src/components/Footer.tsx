@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container-x grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
           <div className="bg-white p-3 inline-block rounded-sm">
-            <Logo className="h-10 w-auto" />
+            <Logo className="w-[190px] md:w-[215px] h-auto" />
           </div>
           <p className="mt-6 text-sm leading-relaxed max-w-sm text-white/60">
             Geofields Tanzania Limited is an integrated drilling, exploration and mining services
@@ -72,7 +72,7 @@ export function Footer() {
             <li>Drilling Services</li>
             <li>Geological & Exploration</li>
             <li>Mining Supplies</li>
-            <li>Oil & Gas Support</li>
+            <li>Mining Services</li>
             <li>Underground Support (GUS)</li>
           </ul>
         </div>

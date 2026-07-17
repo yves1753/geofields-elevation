@@ -1,6 +1,6 @@
 import logo from "@/assets/geofields-logo.asset.json";
 
-export function Logo({ className = "h-11 w-auto" }: { className?: string }) {
+export function Logo({ className = "w-[145px] md:w-[175px] xl:w-[205px] h-auto" }: { className?: string }) {
   return (
     <img
       src={logo.url}

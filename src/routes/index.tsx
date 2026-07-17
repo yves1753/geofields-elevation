@@ -18,7 +18,7 @@ import {
   HiOutlineStar,
   HiOutlineDownload,
 } from "react-icons/hi";
-import { FaHardHat, FaMountain, FaTruckMoving, FaOilCan, FaTools } from "react-icons/fa";
+import { FaHardHat, FaMountain, FaTruckMoving, FaTools } from "react-icons/fa";
 import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
 import { HeroVideo } from "@/components/HeroVideo";
@@ -28,7 +28,6 @@ import drillingImg from "@/assets/drilling.jpg";
 import explorationImg from "@/assets/exploration.jpg";
 import undergroundImg from "@/assets/underground.jpg";
 import suppliesImg from "@/assets/supplies.jpg";
-import oilgasImg from "@/assets/oilgas.jpg";
 import fleetImg from "@/assets/fleet.jpg";
 import safetyImg from "@/assets/safety.jpg";
 
@@ -73,7 +72,7 @@ export const Route = createFileRoute("/")({
 const stats = [
   { value: 18, suffix: "+", label: "Years Experience" },
   { value: 2500, suffix: "+", label: "Projects Completed" },
-  { value: 18, suffix: "+", label: "Drill Rigs" },
+  { value: 15, suffix: "", label: "Drill Rigs" },
   { value: 500000, suffix: "+", label: "Metres Drilled" },
   { value: 200, suffix: "+", label: "Employees" },
   { value: 98, suffix: "%", label: "Client Satisfaction" },
@@ -102,10 +101,10 @@ const divisions = [
     to: "/divisions",
   },
   {
-    icon: FaOilCan,
-    title: "Oil & Gas Support",
-    desc: "Industrial support services, equipment supply and specialised field support crews.",
-    img: oilgasImg,
+    icon: FaHardHat,
+    title: "Mining Services",
+    desc: "Production, grade control, blast hole and exploration drilling with integrated field support.",
+    img: heroImg,
     to: "/divisions",
   },
   {
@@ -385,7 +384,7 @@ function FleetSection() {
             </Reveal>
           </div>
           <p className="text-white/60 max-w-md">
-            18+ rigs from the world's leading manufacturers, supported by 24/7 maintenance workshops
+            15 drilling rigs across multiple configurations, supported by dedicated maintenance workshops
             and certified operators.
           </p>
         </div>
