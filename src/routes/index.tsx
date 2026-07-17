@@ -22,6 +22,7 @@ import { FaHardHat, FaMountain, FaTruckMoving, FaTools } from "react-icons/fa";
 import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
 import { HeroVideo } from "@/components/HeroVideo";
+import { fleetData } from "@/data/fleetData";
 import heroPoster from "@/assets/home-hero-poster.jpg.asset.json";
 import heroImg from "@/assets/hero-mine.jpg";
 import drillingImg from "@/assets/drilling.jpg";
@@ -362,68 +363,96 @@ function Divisions() {
 }
 
 function FleetSection() {
-  const fleet = [
-    { name: "Atlas Copco CS14", type: "Diamond Core Rig", capacity: "1200 m NQ", status: "Active" },
-    { name: "Sandvik DE710", type: "Underground Core Rig", capacity: "900 m NQ", status: "Active" },
-    { name: "Schramm T685WS", type: "RC / DTH Rig", capacity: "500 m", status: "Active" },
-    { name: "Epiroc SmartROC D65", type: "Blast Hole Rig", capacity: "165 mm", status: "Active" },
-    { name: "Boart Longyear LF160", type: "Surface Core", capacity: "1500 m HQ", status: "Active" },
+  const homepageRigIds = ["ZQ-1600-006", "MP1000-002", "MP800-ZQ800-004", "ZQ-1600C-010"];
+  const homepageRigs = homepageRigIds
+    .map((id) => fleetData.find((rig) => rig.id === id))
+    .filter((rig): rig is (typeof fleetData)[number] => Boolean(rig));
+
+  const specifications = (rig: (typeof fleetData)[number]) => [
+    ["Maximum Depth", rig.maximumDrillDepth],
+    ["Hole Size", rig.holeSize],
+    [
+      "Engine Power",
+      rig.id === "MP1000-002" ? "132 HP + optional 44 HP" : rig.enginePower,
+    ],
+    ["Pullback", rig.pullbackCapacity],
+    ["Pulldown", rig.pulldownCapacity],
+    ["Rotation Speed", rig.rotationSpeed],
+    ["Drill Angle", rig.drillAngle],
   ];
+
   return (
     <section className="section-y bg-[oklch(0.14_0.005_60)] text-white relative overflow-hidden">
       <div className="container-x">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
-          <div className="max-w-2xl">
+        <div className="grid lg:grid-cols-[1fr_0.7fr] lg:items-end gap-8 mb-14">
+          <div className="max-w-3xl">
             <Reveal>
               <span className="eyebrow-light">
-                <span className="h-[1px] w-10 bg-primary-glow" /> Equipment Fleet
+                <span className="h-[1px] w-10 bg-primary-glow" /> Our Fleet
               </span>
               <h2 className="mt-5 text-white text-4xl md:text-5xl leading-tight">
-                A modern, ISO-maintained fleet built for African terrain.
+                Drilling Equipment Built for Demanding Projects
               </h2>
             </Reveal>
           </div>
-          <p className="text-white/60 max-w-md">
-            15 drilling rigs across multiple configurations, supported by dedicated maintenance workshops
-            and certified operators.
+          <p className="text-white/60 max-w-xl leading-relaxed">
+            Explore selected rigs from Geofields Tanzania Limited's fleet of 15 drilling units,
+            supporting deep diamond core drilling, mineral exploration and mining operations across
+            challenging ground conditions.
           </p>
         </div>
 
         <Reveal>
-          <div className="relative aspect-[16/8] overflow-hidden mb-10">
+          <div className="relative aspect-[16/8] md:aspect-[16/7] overflow-hidden rounded-xl mb-10">
             <img
               src={fleetImg}
-              alt="Fleet of drill rigs"
+              alt="Geofields drilling fleet operating in demanding African terrain"
               className="size-full object-cover"
               loading="lazy"
+              sizes="(min-width: 1360px) 1264px, (min-width: 768px) calc(100vw - 64px), calc(100vw - 40px)"
               width={1600}
               height={900}
             />
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
-          {fleet.map((f, i) => (
-            <Reveal key={f.name} delay={i * 0.05}>
-              <div className="border border-white/10 p-6 bg-white/[0.02] backdrop-blur h-full">
-                <div className="text-xs uppercase tracking-[0.2em] text-primary-glow">{f.type}</div>
-                <h3 className="text-white text-lg mt-3">{f.name}</h3>
-                <div className="mt-5 pt-5 border-t border-white/10 space-y-2 text-sm">
-                  <div className="flex justify-between text-white/70">
-                    <span>Capacity</span>
-                    <span className="text-white font-semibold">{f.capacity}</span>
-                  </div>
-                  <div className="flex justify-between text-white/70">
-                    <span>Status</span>
-                    <span className="text-green-400 font-semibold flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-green-400" />
-                      {f.status}
-                    </span>
-                  </div>
+        <div className="grid md:grid-cols-2 2xl:grid-cols-4 gap-5">
+          {homepageRigs.map((rig, i) => (
+            <Reveal key={rig.id} delay={i * 0.06} className="h-full">
+              <article className="relative flex h-full flex-col rounded-xl border border-white/10 bg-[#191919] p-6 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-2xl">
+                <span className="absolute inset-x-6 top-0 h-0.5 bg-primary" />
+                <div className="text-[11px] uppercase tracking-[0.22em] text-primary-glow">
+                  {rig.rigType}
                 </div>
-              </div>
+                <h3 className="mt-3 text-2xl text-white">{rig.name}</h3>
+                <p className="mt-2 text-sm text-white/60">{rig.drillingMethod}</p>
+                <dl className="mt-6 flex-1 border-t border-white/10 pt-5 space-y-3">
+                  {specifications(rig).map(([label, value]) => (
+                    <div key={label} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-3 text-sm">
+                      <dt className="text-white/45">{label}</dt>
+                      <dd className="text-right font-semibold text-white break-words">{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <Link
+                  to="/fleet"
+                  className="mt-7 inline-flex min-h-11 items-center gap-2 border-t border-white/10 pt-5 text-xs font-semibold uppercase tracking-[0.16em] text-primary-glow hover:text-white transition-colors"
+                >
+                  View Full Specifications <HiOutlineArrowRight />
+                </Link>
+              </article>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-white/55">
+            Explore the complete Geofields fleet and review detailed technical specifications for
+            available drilling configurations.
+          </p>
+          <Link to="/fleet" className="btn-primary mt-6">
+            Explore All 15 Rigs <HiOutlineArrowRight />
+          </Link>
         </div>
       </div>
     </section>
