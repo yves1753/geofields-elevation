@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import heroVideoMp4 from "@/assets/home-hero.mp4.asset.json";
 import heroVideoWebm from "@/assets/home-hero.webm.asset.json";
 import heroPoster from "@/assets/home-hero-poster.jpg.asset.json";
+import { OptimizedImage } from "@/components/OptimizedImage";
+import { images } from "@/lib/image-assets";
 
 /**
  * Full-bleed hero video with poster-first paint.
@@ -23,23 +25,20 @@ export function HeroVideo() {
     const slow =
       conn &&
       (conn.saveData ||
-        (typeof conn.effectiveType === "string" &&
-          /(^|-)2g$/.test(conn.effectiveType)) ||
+        (typeof conn.effectiveType === "string" && /(^|-)2g$/.test(conn.effectiveType)) ||
         conn.effectiveType === "3g");
     if (!reduced && wide && !slow) setPlayVideo(true);
   }, []);
 
   return (
     <div className="absolute inset-0">
-      <img
-        src={heroPoster.url}
+      <OptimizedImage
+        asset={images.homeHero}
         alt=""
         aria-hidden="true"
-        fetchPriority="high"
-        decoding="async"
+        priority
+        sizes="100vw"
         className="absolute inset-0 size-full object-cover scale-105"
-        width={1920}
-        height={1080}
       />
       {playVideo && (
         <video

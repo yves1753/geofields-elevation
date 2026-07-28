@@ -6,7 +6,8 @@ import { Layout } from "@/components/Layout";
 import { FleetImage } from "@/components/fleet/FleetImage";
 import { FleetRigModal } from "@/components/fleet/FleetRigModal";
 import { fleetData, type FleetRig } from "@/data/fleetData";
-import fleetHero from "@/assets/fleet.jpg";
+import { images } from "@/lib/image-assets";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 export const Route = createFileRoute("/fleet")({
   head: () => ({
@@ -73,9 +74,11 @@ function FleetPage() {
   return (
     <Layout>
       <section className="relative min-h-[720px] flex items-end overflow-hidden bg-[#111]">
-        <img
-          src={fleetHero}
+        <OptimizedImage
+          asset={images.fleet}
           alt="Geofields drilling operations"
+          priority
+          sizes="100vw"
           className="absolute inset-0 size-full object-cover opacity-45"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/25" />

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
+import { OptimizedImage, type ImageAsset } from "@/components/OptimizedImage";
 
 export function PageHero({
   eyebrow,
@@ -11,13 +12,19 @@ export function PageHero({
   eyebrow: string;
   title: string;
   subtitle?: string;
-  image: string;
+  image: ImageAsset;
   children?: ReactNode;
 }) {
   return (
     <section className="relative min-h-[70vh] flex items-end pt-32 pb-20 overflow-hidden">
       <div className="absolute inset-0">
-        <img src={image} alt="" className="size-full object-cover" />
+        <OptimizedImage
+          asset={image}
+          alt=""
+          priority
+          sizes="100vw"
+          className="size-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
       </div>
       <div className="container-x relative">

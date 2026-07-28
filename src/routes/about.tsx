@@ -3,8 +3,8 @@ import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { ClientsAffiliates } from "@/components/ClientsAffiliates";
-import exploration from "@/assets/exploration.jpg";
-import aboutHero from "@/assets/about-hero.jpg.asset.json";
+import { images } from "@/lib/image-assets";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import {
   HiOutlineShieldCheck,
   HiOutlineStar,
@@ -74,17 +74,17 @@ function AboutPage() {
         eyebrow="Our Story"
         title="Africa's mineral wealth deserves world-class engineering."
         subtitle="For more than a decade, Geofields Tanzania Limited has been engineering the systems, crews and equipment that turn Africa's geological potential into responsible, long-term prosperity."
-        image={aboutHero.url}
+        image={images.aboutHero}
       />
 
       <section className="section-y bg-background">
         <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
-            <img
-              src={exploration}
+            <OptimizedImage
+              asset={images.exploration}
               alt="Geofields exploration team"
               className="w-full aspect-[4/5] object-cover"
-              loading="lazy"
+              sizes="(min-width: 1024px) 50vw, 100vw"
             />
           </Reveal>
           <Reveal delay={0.15}>
@@ -103,8 +103,8 @@ function AboutPage() {
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Today, we deliver five integrated service lines across drilling, exploration, mining
-              supplies, mining support and underground services — anchored by more than 200
-              skilled Tanzanian and international professionals.
+              supplies, mining support and underground services — anchored by more than 200 skilled
+              Tanzanian and international professionals.
             </p>
           </Reveal>
         </div>

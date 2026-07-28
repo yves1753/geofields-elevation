@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Expand, MapPin, X } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
-import heroImg from "@/assets/hero-mine.jpg";
+import { images } from "@/lib/image-assets";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -312,7 +312,7 @@ function ProjectsPage() {
         eyebrow="National Project Portfolio"
         title="Experience mapped across Tanzania."
         subtitle="Explore the locations, minerals and partnerships behind Geofields' nationwide project experience."
-        image={heroImg}
+        image={images.heroMine}
       />
       <main className="relative overflow-hidden bg-[#111] text-white">
         <div
@@ -539,6 +539,10 @@ function ProjectsPage() {
                   src={p.image}
                   alt={p.name}
                   loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
+                  width={320}
+                  height={96}
                   className="max-h-16 w-full object-contain transition duration-500 group-hover:scale-[1.03]"
                 />
               </div>

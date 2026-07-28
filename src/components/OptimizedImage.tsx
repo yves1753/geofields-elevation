@@ -1,0 +1,79 @@
+import { useState, type ImgHTMLAttributes } from "react";
+
+export type ImageAsset = {
+  name: string;
+  width: number;
+  height: number;
+  widths: readonly number[];
+  fallback?: string;
+};
+
+type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "width" | "height"> & {
+  asset: ImageAsset;
+  priority?: boolean;
+};
+
+const srcSet = (asset: ImageAsset, format: "avif" | "webp") =>
+  asset.widths.map((width) => `/optimized/${asset.name}-${width}.${format} ${width}w`).join(", ");
+
+export function OptimizedImage({
+  asset,
+  priority = false,
+  alt,
+  className = "",
+  sizes = "100vw",
+  onLoad,
+  onError,
+  style,
+  ...props
+}: Props) {
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const fallback = asset.fallback ?? `/optimized/${asset.name}-${asset.widths.at(-1)}.webp`;
+
+  if (failed) {
+    return (
+      <span
+        role={alt ? "img" : undefined}
+        aria-label={alt || undefined}
+        aria-hidden={alt ? undefined : true}
+        className={`inline-block bg-gradient-to-br from-zinc-800 to-zinc-950 ${className}`}
+        style={{ aspectRatio: `${asset.width}/${asset.height}`, ...style }}
+      />
+    );
+  }
+
+  return (
+    <picture className="contents">
+      <source type="image/avif" srcSet={srcSet(asset, "avif")} sizes={sizes} />
+      <source type="image/webp" srcSet={srcSet(asset, "webp")} sizes={sizes} />
+      <img
+        {...props}
+        src={fallback}
+        srcSet={srcSet(asset, "webp")}
+        sizes={sizes}
+        alt={alt}
+        width={asset.width}
+        height={asset.height}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        fetchPriority={priority ? "high" : "low"}
+        onLoad={(event) => {
+          setLoaded(true);
+          onLoad?.(event);
+        }}
+        onError={(event) => {
+          setFailed(true);
+          onError?.(event);
+        }}
+        className={`${className} transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`}
+        style={{
+          backgroundImage: `url("/optimized/${asset.name}-blur.webp")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          ...style,
+        }}
+      />
+    </picture>
+  );
+}

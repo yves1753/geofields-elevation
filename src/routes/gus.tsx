@@ -3,7 +3,7 @@ import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { HiOutlineArrowRight, HiOutlineCheck } from "react-icons/hi";
-import underground from "@/assets/underground.jpg";
+import { images } from "@/lib/image-assets";
 
 export const Route = createFileRoute("/gus")({
   head: () => ({
@@ -48,7 +48,7 @@ function GusPage() {
         eyebrow="NEW · Geofields Underground Support"
         title="Underground expertise, engineered for African mines."
         subtitle="GUS delivers integrated ground support, mine development and underground logistics — with the discipline and equipment that keep production moving safely."
-        image={underground}
+        image={images.underground}
       >
         <div className="mt-10 flex flex-wrap gap-4">
           <Link to="/contact" className="btn-primary">

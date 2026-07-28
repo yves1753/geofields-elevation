@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import safety from "@/assets/safety.jpg";
+import { images } from "@/lib/image-assets";
 import {
   HiOutlineShieldCheck,
   HiOutlineAcademicCap,
@@ -67,7 +67,7 @@ function SafetyPage() {
         eyebrow="Safety, Health & Environment"
         title="Zero harm. Every crew. Every shift."
         subtitle="Our HSE management system is engineered around international best practice and independently audited."
-        image={safety}
+        image={images.safety}
       />
 
       <section className="section-y bg-background">

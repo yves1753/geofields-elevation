@@ -24,13 +24,8 @@ import { Reveal } from "@/components/Reveal";
 import { HeroVideo } from "@/components/HeroVideo";
 import { fleetData } from "@/data/fleetData";
 import heroPoster from "@/assets/home-hero-poster.jpg.asset.json";
-import heroImg from "@/assets/hero-mine.jpg";
-import drillingImg from "@/assets/drilling.jpg";
-import explorationImg from "@/assets/exploration.jpg";
-import undergroundImg from "@/assets/underground.jpg";
-import suppliesImg from "@/assets/supplies.jpg";
-import fleetImg from "@/assets/fleet.jpg";
-import safetyImg from "@/assets/safety.jpg";
+import { images } from "@/lib/image-assets";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,7 +40,22 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "/" },
-      { rel: "preload", as: "image", href: heroPoster.url, fetchpriority: "high" },
+      {
+        rel: "preload",
+        as: "image",
+        href: "/optimized/home-hero-poster-1280.avif",
+        type: "image/avif",
+        fetchpriority: "high",
+        imageSrcSet:
+          "/optimized/home-hero-poster-480.avif 480w, /optimized/home-hero-poster-768.avif 768w, /optimized/home-hero-poster-1280.avif 1280w, /optimized/home-hero-poster-1920.avif 1920w",
+        imageSizes: "100vw",
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: fleetData[0].image,
+        fetchpriority: "low",
+      },
     ],
     scripts: [
       {
@@ -84,35 +94,35 @@ const divisions = [
     icon: FaHardHat,
     title: "Drilling Services",
     desc: "Diamond, RC, blast hole, water and core drilling delivered by certified crews and modern rigs.",
-    img: drillingImg,
+    img: images.drilling,
     to: "/divisions",
   },
   {
     icon: FaMountain,
     title: "Geological & Exploration",
     desc: "Mapping, sampling, surveying and resource evaluation for junior and major explorers.",
-    img: explorationImg,
+    img: images.exploration,
     to: "/divisions",
   },
   {
     icon: FaTruckMoving,
     title: "Mining Supplies",
     desc: "Equipment, PPE, consumables and spare parts — sourced globally, delivered on-site.",
-    img: suppliesImg,
+    img: images.supplies,
     to: "/divisions",
   },
   {
     icon: FaHardHat,
     title: "Mining Services",
     desc: "Production, grade control, blast hole and exploration drilling with integrated field support.",
-    img: heroImg,
+    img: images.heroMine,
     to: "/divisions",
   },
   {
     icon: FaTools,
     title: "Geofields Underground Support (GUS)",
     desc: "Ground support, rock bolting, mine development and underground logistics.",
-    img: undergroundImg,
+    img: images.underground,
     to: "/gus",
     featured: true,
   },
@@ -248,13 +258,11 @@ function AboutPreview() {
       <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
         <Reveal>
           <div className="relative">
-            <img
-              src={explorationImg}
+            <OptimizedImage
+              asset={images.exploration}
               alt="Geologist studying rock samples"
               className="w-full aspect-[4/5] object-cover"
-              width={1280}
-              height={960}
-              loading="lazy"
+              sizes="(min-width: 1024px) 50vw, 100vw"
             />
             <div className="absolute -bottom-8 -right-8 bg-primary text-primary-foreground p-8 max-w-xs shadow-elegant">
               <div className="font-display text-5xl leading-none">18+</div>
@@ -333,11 +341,11 @@ function Divisions() {
                 to={d.to}
                 className={`group relative block overflow-hidden aspect-[4/5] hover-lift ${d.featured ? "lg:col-span-1 ring-2 ring-primary" : ""}`}
               >
-                <img
-                  src={d.img}
+                <OptimizedImage
+                  asset={d.img}
                   alt={d.title}
                   className="size-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
-                  loading="lazy"
+                  sizes="(min-width: 1024px) 20vw, (min-width: 640px) 50vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
                 {d.featured && (
@@ -371,10 +379,7 @@ function FleetSection() {
   const specifications = (rig: (typeof fleetData)[number]) => [
     ["Maximum Depth", rig.maximumDrillDepth],
     ["Hole Size", rig.holeSize],
-    [
-      "Engine Power",
-      rig.id === "MP1000-002" ? "132 HP + optional 44 HP" : rig.enginePower,
-    ],
+    ["Engine Power", rig.id === "MP1000-002" ? "132 HP + optional 44 HP" : rig.enginePower],
     ["Pullback", rig.pullbackCapacity],
     ["Pulldown", rig.pulldownCapacity],
     ["Rotation Speed", rig.rotationSpeed],
@@ -404,14 +409,11 @@ function FleetSection() {
 
         <Reveal>
           <div className="relative aspect-[16/8] md:aspect-[16/7] overflow-hidden rounded-xl mb-10">
-            <img
-              src={fleetImg}
+            <OptimizedImage
+              asset={images.fleet}
               alt="Geofields drilling fleet operating in demanding African terrain"
               className="size-full object-cover"
-              loading="lazy"
               sizes="(min-width: 1360px) 1264px, (min-width: 768px) calc(100vw - 64px), calc(100vw - 40px)"
-              width={1600}
-              height={900}
             />
           </div>
         </Reveal>
@@ -428,7 +430,10 @@ function FleetSection() {
                 <p className="mt-2 text-sm text-white/60">{rig.drillingMethod}</p>
                 <dl className="mt-6 flex-1 border-t border-white/10 pt-5 space-y-3">
                   {specifications(rig).map(([label, value]) => (
-                    <div key={label} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-3 text-sm">
+                    <div
+                      key={label}
+                      className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-3 text-sm"
+                    >
                       <dt className="text-white/45">{label}</dt>
                       <dd className="text-right font-semibold text-white break-words">{value}</dd>
                     </div>
@@ -496,13 +501,11 @@ function SafetySection() {
           </div>
         </Reveal>
         <Reveal delay={0.15}>
-          <img
-            src={safetyImg}
+          <OptimizedImage
+            asset={images.safety}
             alt="Geofields safety team on site"
             className="w-full aspect-[4/3] object-cover"
-            loading="lazy"
-            width={1280}
-            height={960}
+            sizes="(min-width: 1024px) 50vw, 100vw"
           />
         </Reveal>
       </div>
@@ -722,7 +725,12 @@ function CTASection() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroImg} alt="" className="size-full object-cover" loading="lazy" />
+        <OptimizedImage
+          asset={images.heroMine}
+          alt=""
+          className="size-full object-cover"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-[oklch(0.1_0.005_60)]/85" />
       </div>
       <div className="container-x relative py-28 text-center">

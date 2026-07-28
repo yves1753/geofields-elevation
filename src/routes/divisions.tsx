@@ -3,11 +3,8 @@ import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { HiOutlineArrowRight, HiOutlineCheck } from "react-icons/hi";
-import drilling from "@/assets/drilling.jpg";
-import exploration from "@/assets/exploration.jpg";
-import supplies from "@/assets/supplies.jpg";
-import miningServices from "@/assets/hero-mine.jpg";
-import underground from "@/assets/underground.jpg";
+import { images } from "@/lib/image-assets";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 export const Route = createFileRoute("/divisions")({
   head: () => ({
@@ -26,7 +23,7 @@ export const Route = createFileRoute("/divisions")({
 
 const divisions = [
   {
-    img: drilling,
+    img: images.drilling,
     title: "Drilling Services",
     capabilities: [
       "Diamond Drilling",
@@ -37,7 +34,7 @@ const divisions = [
     ],
   },
   {
-    img: exploration,
+    img: images.exploration,
     title: "Geological & Exploration Services",
     capabilities: [
       "Geological Mapping",
@@ -48,7 +45,7 @@ const divisions = [
     ],
   },
   {
-    img: supplies,
+    img: images.supplies,
     title: "Mining Supplies",
     capabilities: [
       "Mining Equipment",
@@ -59,13 +56,27 @@ const divisions = [
     ],
   },
   {
-    img: miningServices,
+    img: images.heroMine,
     title: "Mining Services",
-    description: "Geofields Tanzania Limited provides reliable mining support services designed to improve operational efficiency, resource development and safe project execution throughout the mining lifecycle.",
-    capabilities: ["Production Drilling", "Grade Control Drilling", "Blast Hole Drilling", "Reverse Circulation Drilling", "Diamond Core Drilling", "Exploration Drilling", "Drill and Blast Support", "Mine Dewatering Support", "Site Mobilization", "Equipment Rental", "Drilling Consumables Supply", "Technical Field Support"],
+    description:
+      "Geofields Tanzania Limited provides reliable mining support services designed to improve operational efficiency, resource development and safe project execution throughout the mining lifecycle.",
+    capabilities: [
+      "Production Drilling",
+      "Grade Control Drilling",
+      "Blast Hole Drilling",
+      "Reverse Circulation Drilling",
+      "Diamond Core Drilling",
+      "Exploration Drilling",
+      "Drill and Blast Support",
+      "Mine Dewatering Support",
+      "Site Mobilization",
+      "Equipment Rental",
+      "Drilling Consumables Supply",
+      "Technical Field Support",
+    ],
   },
   {
-    img: underground,
+    img: images.underground,
     title: "Geofields Underground Support (GUS)",
     featured: true,
     to: "/gus",
@@ -85,7 +96,7 @@ function DivisionsPage() {
         eyebrow="Business Divisions"
         title="Five integrated capabilities. One trusted partner."
         subtitle="From surface exploration to underground development, our divisions work together to deliver full-service mining and industrial solutions across Africa."
-        image={drilling}
+        image={images.drilling}
       />
 
       <section className="section-y bg-background">
@@ -96,11 +107,11 @@ function DivisionsPage() {
                 className={`grid lg:grid-cols-2 gap-14 items-center ${i % 2 === 1 ? "lg:[&>div:first-child]:order-2" : ""}`}
               >
                 <div className="relative">
-                  <img
-                    src={d.img}
+                  <OptimizedImage
+                    asset={d.img}
                     alt={d.title}
                     className="w-full aspect-[4/3] object-cover"
-                    loading="lazy"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
                   />
                   {d.featured && (
                     <span className="absolute top-4 right-4 bg-primary text-primary-foreground text-[10px] tracking-[0.25em] font-bold px-3 py-1.5">
@@ -111,7 +122,9 @@ function DivisionsPage() {
                 <div>
                   <div className="eyebrow">Division 0{i + 1}</div>
                   <h2 className="mt-4 text-3xl md:text-4xl leading-tight">{d.title}</h2>
-                  {d.description && <p className="mt-5 text-muted-foreground leading-relaxed">{d.description}</p>}
+                  {d.description && (
+                    <p className="mt-5 text-muted-foreground leading-relaxed">{d.description}</p>
+                  )}
                   <ul className="mt-8 space-y-3">
                     {d.capabilities.map((c) => (
                       <li key={c} className="flex items-start gap-3 text-foreground/85">

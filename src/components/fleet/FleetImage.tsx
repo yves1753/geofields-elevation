@@ -36,7 +36,7 @@ export function FleetImage({ src, alt, className = "", priority = false }: Fleet
       alt={alt}
       className={`${className} transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`}
       loading={priority ? "eager" : "lazy"}
-      fetchPriority={priority ? "high" : "auto"}
+      fetchPriority={priority ? "high" : "low"}
       decoding="async"
       width={1200}
       height={800}
