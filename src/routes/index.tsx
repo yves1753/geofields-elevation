@@ -165,10 +165,42 @@ function HomePage() {
       <SafetySection />
       <ValuesSection />
       <ProjectsPreview />
+      <PartnersSection />
       <Testimonials />
       <DownloadsSection />
       <CTASection />
     </Layout>
+  );
+}
+
+function PartnersSection() {
+  return (
+    <section className="section-y bg-surface">
+      <div className="container-x">
+        <Reveal>
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="eyebrow justify-center">
+              <span className="h-[1px] w-10 bg-primary" /> Trusted By
+            </span>
+            <h2 className="mt-5 text-4xl md:text-5xl leading-tight">Partners & Affiliates</h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              We collaborate with leading mining and exploration organisations across Africa to
+              deliver safe, reliable and world-class drilling services.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal>
+          <div className="group mt-12 max-w-4xl mx-auto overflow-hidden rounded-sm bg-white p-4 md:p-8 transition-all duration-500 hover:shadow-card focus-within:shadow-card">
+            <OptimizedImage
+              asset={images.partners}
+              alt="Geofields partners and affiliates: African Underground Mining Services, EMG Pamoja Royalty Limited and MSA Mining Limited"
+              className="w-full h-auto grayscale opacity-60 transition-all duration-500 group-hover:scale-[1.02] group-hover:grayscale-0 group-hover:opacity-100 group-focus-within:scale-[1.02] group-focus-within:grayscale-0 group-focus-within:opacity-100"
+              sizes="(min-width: 1024px) 896px, calc(100vw - 72px)"
+            />
+          </div>
+        </Reveal>
+      </div>
+    </section>
   );
 }
 
