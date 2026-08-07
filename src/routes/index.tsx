@@ -165,6 +165,7 @@ function HomePage() {
       <SafetySection />
       <ValuesSection />
       <ProjectsPreview />
+      <PartnersSection />
       <Testimonials />
       <DownloadsSection />
       <CTASection />
