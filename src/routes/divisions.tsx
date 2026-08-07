@@ -25,13 +25,14 @@ const divisions = [
   {
     img: images.drilling,
     title: "Drilling Services",
-    capabilities: [
-      "Diamond Drilling",
-      "Reverse Circulation (RC)",
-      "Blast Hole Drilling",
-      "Water Drilling",
-      "Core Drilling",
-    ],
+    capabilities: ["Diamond Drilling", "Reverse Circulation (RC)"],
+  },
+  {
+    img: images.heroMine,
+    title: "Mining Services",
+    description:
+      "Geofields Tanzania Limited provides reliable mining support services designed to improve operational efficiency, resource development and safe project execution throughout the mining lifecycle.",
+    capabilities: ["Production Drilling", "Grade Control Drilling", "Oil Rig Services"],
   },
   {
     img: images.exploration,
@@ -42,37 +43,6 @@ const divisions = [
       "Sampling & Assays",
       "Surveying",
       "Resource Evaluation",
-    ],
-  },
-  {
-    img: images.supplies,
-    title: "Mining Supplies",
-    capabilities: [
-      "Mining Equipment",
-      "PPE & Safety Gear",
-      "Consumables",
-      "Industrial Supplies",
-      "Spare Parts",
-    ],
-  },
-  {
-    img: images.heroMine,
-    title: "Mining Services",
-    description:
-      "Geofields Tanzania Limited provides reliable mining support services designed to improve operational efficiency, resource development and safe project execution throughout the mining lifecycle.",
-    capabilities: [
-      "Production Drilling",
-      "Grade Control Drilling",
-      "Blast Hole Drilling",
-      "Reverse Circulation Drilling",
-      "Diamond Core Drilling",
-      "Exploration Drilling",
-      "Drill and Blast Support",
-      "Mine Dewatering Support",
-      "Site Mobilization",
-      "Equipment Rental",
-      "Drilling Consumables Supply",
-      "Technical Field Support",
     ],
   },
   {
