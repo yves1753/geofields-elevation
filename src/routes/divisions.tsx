@@ -94,7 +94,7 @@ function DivisionsPage() {
     <Layout>
       <PageHero
         eyebrow="Business Divisions"
-        title="Five integrated capabilities. One trusted partner."
+        title="Three integrated capabilities. One trusted partner."
         subtitle="From surface exploration to underground development, our divisions work together to deliver full-service mining and industrial solutions across Africa."
         image={images.drilling}
       />
