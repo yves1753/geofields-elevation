@@ -91,10 +91,6 @@ function DivisionsPage() {
                     <Link to="/contact" className="btn-primary">
                       Request Quote <HiOutlineArrowRight />
                     </Link>
-
-                    <Link to="/contact" className="btn-outline">
-                      Request Quote
-                    </Link>
                   </div>
                 </div>
               </div>
