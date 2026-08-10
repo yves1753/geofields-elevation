@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { HiOutlineMenu, HiOutlineX, HiOutlinePhone } from "react-icons/hi";
 import { FaWhatsapp } from "react-icons/fa";
@@ -18,6 +18,8 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const isUndergroundPage = pathname === "/gus" || pathname === "/gus/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -37,6 +39,12 @@ export function Navbar() {
       <div className="container-x flex items-center justify-between h-24 lg:h-28">
         <Link to="/" className="flex items-center">
           <Logo
+            src={isUndergroundPage ? "/images/underground-logo.png" : undefined}
+            alt={
+              isUndergroundPage
+                ? "Geofields Underground Support"
+                : "Geofields Tanzania Limited — Drilling, Exploration and Mining Services"
+            }
             className="w-[145px] md:w-[170px] xl:w-[190px] h-auto transition-all"
           />
         </Link>
