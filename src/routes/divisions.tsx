@@ -72,11 +72,6 @@ function DivisionsPage() {
                     className="w-full aspect-[4/3] object-cover"
                     sizes="(min-width: 1024px) 50vw, 100vw"
                   />
-                  {d.featured && (
-                    <span className="absolute top-4 right-4 bg-primary text-primary-foreground text-[10px] tracking-[0.25em] font-bold px-3 py-1.5">
-                      NEW
-                    </span>
-                  )}
                 </div>
                 <div>
                   <div className="eyebrow">Division 0{i + 1}</div>
