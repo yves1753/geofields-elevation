@@ -45,19 +45,8 @@ const divisions = [
       "Resource Evaluation",
     ],
   },
-  {
-    img: images.underground,
-    title: "Geofields Underground Support (GUS)",
-    featured: true,
-    to: "/gus",
-    capabilities: [
-      "Ground Support & Rock Bolting",
-      "Mine Development",
-      "Underground Logistics",
-      "Emergency Response",
-    ],
-  },
 ];
+
 
 function DivisionsPage() {
   return (
@@ -83,11 +72,6 @@ function DivisionsPage() {
                     className="w-full aspect-[4/3] object-cover"
                     sizes="(min-width: 1024px) 50vw, 100vw"
                   />
-                  {d.featured && (
-                    <span className="absolute top-4 right-4 bg-primary text-primary-foreground text-[10px] tracking-[0.25em] font-bold px-3 py-1.5">
-                      NEW
-                    </span>
-                  )}
                 </div>
                 <div>
                   <div className="eyebrow">Division 0{i + 1}</div>
@@ -104,13 +88,8 @@ function DivisionsPage() {
                     ))}
                   </ul>
                   <div className="mt-10 flex gap-4">
-                    {d.to && (
-                      <Link to={d.to} className="btn-primary">
-                        Learn More <HiOutlineArrowRight />
-                      </Link>
-                    )}
-                    <Link to="/contact" className="btn-outline">
-                      Request Quote
+                    <Link to="/contact" className="btn-primary">
+                      Request Quote <HiOutlineArrowRight />
                     </Link>
                   </div>
                 </div>
