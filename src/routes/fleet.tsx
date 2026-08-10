@@ -36,6 +36,26 @@ const filters = [
 ];
 const numberValue = (value: string) => Number(value.replace(/[^\d.]/g, "")) || 0;
 
+const categoryOrder = {
+  ZQ: 1,
+  "Man Portable": 2,
+  Zinex: 3,
+  RC: 4,
+  Auger: 5,
+  DB: 6,
+  ICL: 7,
+} as const;
+
+const getRigCategory = (rig: FleetRig): keyof typeof categoryOrder => {
+  if (rig.rigType === "Man Portable") return "Man Portable";
+  if (rig.name.startsWith("ZQ")) return "ZQ";
+  if (rig.name.startsWith("ZINEX") || rig.name.startsWith("ZMEX")) return "Zinex";
+  if (rig.name.startsWith("RC")) return "RC";
+  if (rig.name.startsWith("Auger")) return "Auger";
+  if (rig.name.startsWith("DB")) return "DB";
+  return "ICL";
+};
+
 function FleetPage() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("All Rigs");
@@ -58,15 +78,20 @@ function FleetPage() {
             (filter === "Specifications Pending" && !rig.specificationsComplete);
           return matchesQuery && matchesFilter;
         })
-        .sort((a, b) =>
-          sort === "Maximum Drill Depth"
+        .sort((a, b) => {
+          const categoryDifference =
+            categoryOrder[getRigCategory(a)] - categoryOrder[getRigCategory(b)];
+
+          if (categoryDifference !== 0) return categoryDifference;
+
+          return sort === "Maximum Drill Depth"
             ? numberValue(b.maximumDrillDepth) - numberValue(a.maximumDrillDepth)
             : sort === "Engine Power"
               ? numberValue(b.enginePower) - numberValue(a.enginePower)
               : sort === "Rig Type"
                 ? a.rigType.localeCompare(b.rigType)
-                : a.name.localeCompare(b.name),
-        ),
+                : a.name.localeCompare(b.name);
+        }),
     [query, filter, sort],
   );
   const featured = results;
@@ -87,12 +112,11 @@ function FleetPage() {
           animate={{ opacity: 1, y: 0 }}
           className="container-x relative py-28 md:py-36 text-white"
         >
-          <span className="eyebrow-light">15 rigs · Tanzania and wider Africa</span>
           <h1 className="mt-5 text-white text-5xl md:text-7xl">Our Drilling Fleet</h1>
           <p className="mt-7 max-w-3xl text-lg text-white/75 leading-relaxed">
-            Geofields Tanzania Limited operates a versatile fleet of 15 drilling rigs designed to
+            Geofields Tanzania Limited operates a versatile fleet of drilling rigs designed to
             support diamond core drilling, reverse circulation drilling, auger drilling, exploration
-            programs and mining operations across Tanzania and the wider African region.
+            programs and mining operations across Tanzania.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a href="#featured-fleet" className="btn-primary">
