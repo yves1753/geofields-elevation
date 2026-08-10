@@ -45,19 +45,8 @@ const divisions = [
       "Resource Evaluation",
     ],
   },
-  {
-    img: images.underground,
-    title: "Geofields Underground Support (GUS)",
-    featured: true,
-    to: "/gus",
-    capabilities: [
-      "Ground Support & Rock Bolting",
-      "Mine Development",
-      "Underground Logistics",
-      "Emergency Response",
-    ],
-  },
 ];
+
 
 function DivisionsPage() {
   return (
