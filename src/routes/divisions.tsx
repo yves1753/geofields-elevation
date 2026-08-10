@@ -88,11 +88,10 @@ function DivisionsPage() {
                     ))}
                   </ul>
                   <div className="mt-10 flex gap-4">
-                    {d.to && (
-                      <Link to={d.to} className="btn-primary">
-                        Learn More <HiOutlineArrowRight />
-                      </Link>
-                    )}
+                    <Link to="/contact" className="btn-primary">
+                      Request Quote <HiOutlineArrowRight />
+                    </Link>
+
                     <Link to="/contact" className="btn-outline">
                       Request Quote
                     </Link>
