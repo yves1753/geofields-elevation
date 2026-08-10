@@ -22,17 +22,12 @@ export const Route = createFileRoute("/gus")({
 
 const services = [
   "Underground Mine Support",
-  "Ground Support Systems",
   "Rock Bolting",
-  "Underground Logistics",
   "Mine Development",
-  "Mine Maintenance",
-  "Emergency Response",
-  "Technical Support",
   "Underground Equipment Supply",
-  "Safety Procedures",
   "Skilled Workforce Deployment",
 ];
+
 
 const reasons = [
   { title: "Specialist Crews", desc: "Certified, drilled and site-hardened underground teams." },
