@@ -25,6 +25,7 @@ type Project = {
   id: string;
   name: string;
   region: string;
+  location?: string;
   mineral: "Lithium" | "Nickel" | "Gold" | "Limestone";
   status: "Completed" | "Partnership";
   partner?: string;
@@ -74,6 +75,7 @@ const projects: Project[] = [
     region: "Singida",
     mineral: "Lithium",
     status: "Completed",
+    partner: "Tanzania Lithium",
     x: 257,
     y: 203,
   },
@@ -92,6 +94,7 @@ const projects: Project[] = [
     region: "Morogoro",
     mineral: "Limestone",
     status: "Completed",
+    partner: "Seeking Strategic Partner – Developing Limestone Project",
     x: 361,
     y: 266,
   },
@@ -104,6 +107,17 @@ const projects: Project[] = [
     partner: "MSA",
     x: 399,
     y: 195,
+  },
+  {
+    id: "handeni",
+    name: "Handeni Gold Project",
+    region: "Tanga",
+    location: "Handeni, Tanga",
+    mineral: "Gold",
+    status: "Partnership",
+    partner: "EMG Pamoja Royalty",
+    x: 375,
+    y: 216,
   },
 ];
 
@@ -237,7 +251,7 @@ function TanzaniaMap({
         TANZANIA
       </text>
       {projects.map((p) => {
-        const selected = active === p.id;
+        const selected = active === p.region;
         return (
           <g
             key={p.id}
@@ -296,6 +310,9 @@ function ProjectsPage() {
   const [lightbox, setLightbox] = useState(false);
   const mapRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
+  const selectedProjects = selected
+    ? projects.filter((project) => project.region === selected.region)
+    : [];
 
   const chooseProject = (project: Project, scroll = false) => {
     setSelected(project);
@@ -349,7 +366,10 @@ function ProjectsPage() {
             >
               <div className="group relative aspect-[1.1/1] w-full overflow-hidden p-3 md:p-7">
                 <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.025]">
-                  <TanzaniaMap active={selected?.id ?? null} onSelect={(p) => chooseProject(p)} />
+                  <TanzaniaMap
+                    active={selected?.region ?? null}
+                    onSelect={(p) => chooseProject(p)}
+                  />
                 </div>
                 <button
                   type="button"
@@ -368,16 +388,7 @@ function ProjectsPage() {
                     exit={{ opacity: 0, y: 10 }}
                     className="absolute inset-x-3 bottom-3 rounded-xl border border-white/10 bg-[#151515]/95 p-5 shadow-2xl backdrop-blur-xl md:inset-x-auto md:bottom-6 md:left-6 md:w-[340px]"
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <div
-                          className="text-[10px] font-bold uppercase tracking-[.22em]"
-                          style={{ color: colors[selected.mineral] }}
-                        >
-                          {selected.mineral} project
-                        </div>
-                        <h3 className="mt-2 text-xl text-white">{selected.name}</h3>
-                      </div>
+                    <div className="flex justify-end">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
@@ -389,22 +400,42 @@ function ProjectsPage() {
                         <X size={18} />
                       </button>
                     </div>
-                    <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                      <div>
-                        <span className="block text-white/40">Region</span>
-                        {selected.region}
+                    {selectedProjects.map((project, index) => (
+                      <div
+                        key={project.id}
+                        className={index > 0 ? "mt-4 border-t border-white/10 pt-4" : "-mt-5"}
+                      >
+                        <div
+                          className="text-[10px] font-bold uppercase tracking-[.22em]"
+                          style={{ color: colors[project.mineral] }}
+                        >
+                          {project.mineral} project
+                        </div>
+                        <h3 className="mt-2 text-xl text-white">{project.name}</h3>
+                        <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
+                          <div>
+                            <span className="block text-white/40">Region</span>
+                            {project.region}
+                          </div>
+                          <div>
+                            <span className="block text-white/40">Status</span>
+                            {project.status}
+                          </div>
+                        </div>
+                        {project.location && (
+                          <p className="mt-3 text-xs text-white/60">
+                            <span className="text-white/35">Location · </span>
+                            {project.location}
+                          </p>
+                        )}
+                        {project.partner && (
+                          <p className="mt-3 text-xs text-white/60">
+                            <span className="text-white/35">Strategic partner · </span>
+                            {project.partner}
+                          </p>
+                        )}
                       </div>
-                      <div>
-                        <span className="block text-white/40">Status</span>
-                        {selected.status}
-                      </div>
-                    </div>
-                    {selected.partner && (
-                      <p className="mt-4 border-t border-white/10 pt-3 text-xs text-white/60">
-                        <span className="text-white/35">Strategic partner · </span>
-                        {selected.partner}
-                      </p>
-                    )}
+                    ))}
                   </motion.aside>
                 )}
               </AnimatePresence>
@@ -457,7 +488,7 @@ function ProjectsPage() {
               <h2 className="mt-3 text-3xl text-white md:text-4xl">Project Locations</h2>
             </div>
             <span className="hidden text-xs uppercase tracking-[.2em] text-white/30 md:block">
-              7 sites · 6 regions
+              {projects.length} sites · 6 regions
             </span>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -502,7 +533,7 @@ function ProjectsPage() {
         >
           <div className="container-x grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 lg:grid-cols-4">
             {[
-              { n: 7, suffix: "+", label: "Project Sites" },
+              { n: projects.length, suffix: "+", label: "Project Sites" },
               { n: 4, suffix: "", label: "Mineral Categories" },
               { n: 3, suffix: "", label: "Strategic Partners" },
               { n: 6, suffix: "+", label: "Regions Covered" },
@@ -580,7 +611,7 @@ function ProjectsPage() {
               </button>
               <TanzaniaMap
                 expanded
-                active={selected?.id ?? null}
+                active={selected?.region ?? null}
                 onSelect={(p) => chooseProject(p)}
               />
             </motion.div>
