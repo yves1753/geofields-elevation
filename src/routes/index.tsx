@@ -358,7 +358,7 @@ function Divisions() {
               <span className="h-[1px] w-10 bg-primary" /> Business Divisions
             </span>
             <h2 className="mt-5 text-4xl md:text-5xl leading-tight">
-              Five integrated capabilities. One trusted partner.
+              Three integrated capabilities. One trusted partner.
             </h2>
           </Reveal>
         </div>
