@@ -145,12 +145,12 @@ function HomePage() {
       <Hero />
       <StatsBar />
       <AboutPreview />
+      <PartnersSection />
       <Divisions />
       <FleetSection />
       <SafetySection />
       <ValuesSection />
       <ProjectsPreview />
-      <PartnersSection />
       <Testimonials />
       <DownloadsSection />
       <CTASection />
