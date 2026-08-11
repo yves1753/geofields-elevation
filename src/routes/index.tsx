@@ -102,26 +102,11 @@ const divisions = [
     to: "/divisions",
   },
   {
-    icon: FaTruckMoving,
-    title: "Mining Supplies",
-    desc: "Equipment, PPE, consumables and spare parts — sourced globally, delivered on-site.",
-    img: images.supplies,
-    to: "/divisions",
-  },
-  {
     icon: FaHardHat,
     title: "Mining Services",
     desc: "Production, grade control, blast hole and exploration drilling with integrated field support.",
     img: images.heroMine,
     to: "/divisions",
-  },
-  {
-    icon: FaTools,
-    title: "Geofields Underground Support (GUS)",
-    desc: "Ground support, rock bolting, mine development and underground logistics.",
-    img: images.underground,
-    to: "/gus",
-    featured: true,
   },
 ];
 
