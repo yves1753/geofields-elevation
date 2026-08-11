@@ -102,26 +102,11 @@ const divisions = [
     to: "/divisions",
   },
   {
-    icon: FaTruckMoving,
-    title: "Mining Supplies",
-    desc: "Equipment, PPE, consumables and spare parts — sourced globally, delivered on-site.",
-    img: images.supplies,
-    to: "/divisions",
-  },
-  {
     icon: FaHardHat,
     title: "Mining Services",
     desc: "Production, grade control, blast hole and exploration drilling with integrated field support.",
     img: images.heroMine,
     to: "/divisions",
-  },
-  {
-    icon: FaTools,
-    title: "Geofields Underground Support (GUS)",
-    desc: "Ground support, rock bolting, mine development and underground logistics.",
-    img: images.underground,
-    to: "/gus",
-    featured: true,
   },
 ];
 
@@ -368,7 +353,7 @@ function Divisions() {
             <Reveal key={d.title} delay={i * 0.08}>
               <Link
                 to={d.to}
-                className={`group relative block overflow-hidden aspect-[4/5] hover-lift ${d.featured ? "lg:col-span-1 ring-2 ring-primary" : ""}`}
+                className="group relative block overflow-hidden aspect-[4/5] hover-lift"
               >
                 <OptimizedImage
                   asset={d.img}
@@ -377,11 +362,6 @@ function Divisions() {
                   sizes="(min-width: 1024px) 20vw, (min-width: 640px) 50vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-                {d.featured && (
-                  <span className="absolute top-4 right-4 z-10 bg-primary text-primary-foreground text-[10px] tracking-[0.25em] font-bold px-3 py-1.5">
-                    NEW
-                  </span>
-                )}
                 <div className="absolute inset-0 flex flex-col justify-end p-7 text-white">
                   <d.icon className="size-8 text-primary-glow mb-4" />
                   <h3 className="text-white text-2xl leading-tight">{d.title}</h3>
