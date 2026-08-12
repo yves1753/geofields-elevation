@@ -26,8 +26,10 @@ export function Footer() {
               <FaWhatsapp />
             </a>
             <a
-              href="#"
-              aria-label="LinkedIn"
+              href="https://www.linkedin.com/company/geofields-tanzania-limited/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Geofields Tanzania Limited on LinkedIn"
               className="size-10 grid place-items-center border border-white/15 hover:bg-primary hover:border-primary transition"
             >
               <FaLinkedin />
