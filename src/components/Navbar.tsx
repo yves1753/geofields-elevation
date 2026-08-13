@@ -11,6 +11,7 @@ const links = [
   { to: "/gus", label: "Underground" },
   { to: "/fleet", label: "Fleet" },
   { to: "/projects", label: "Project" },
+  { to: "/safety", label: "Safety" },
   { to: "/community", label: "Community" },
 ] as const;
 
