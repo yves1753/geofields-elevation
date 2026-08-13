@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Layout } from "@/components/Layout";
@@ -15,6 +15,9 @@ import { FaWhatsapp } from "react-icons/fa";
 import { images } from "@/lib/image-assets";
 
 export const Route = createFileRoute("/contact")({
+  beforeLoad: () => {
+    throw redirect({ to: "/request-quote", replace: true });
+  },
   head: () => ({
     meta: [
       { title: "Contact & Request a Quote — Geofields Tanzania Limited" },
@@ -38,7 +41,7 @@ type FormValues = {
   message: string;
 };
 
-function ContactPage() {
+export function ContactPage() {
   const {
     register,
     handleSubmit,

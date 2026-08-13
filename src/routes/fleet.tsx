@@ -122,7 +122,7 @@ function FleetPage() {
             <a href="#featured-fleet" className="btn-primary">
               Explore Featured Rigs <HiOutlineArrowRight />
             </a>
-            <Link to="/contact" className="btn-ghost">
+            <Link to="/request-quote" className="btn-ghost">
               Contact Our Team
             </Link>
           </div>
@@ -322,7 +322,7 @@ function FleetPage() {
             >
               Request a Consultation
             </a>
-            <Link to="/contact" className="btn-ghost">
+            <Link to="/request-quote" className="btn-ghost">
               Contact Geofields
             </Link>
           </div>

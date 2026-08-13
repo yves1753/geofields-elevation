@@ -15,7 +15,8 @@ export const Route = createFileRoute("/sitemap.xml")({
           "/fleet",
           "/projects",
           "/safety",
-          "/contact",
+          "/community",
+          "/request-quote",
         ];
         const urls = paths
           .map((p) => `  <url><loc>${BASE_URL}${p}</loc><changefreq>weekly</changefreq></url>`)

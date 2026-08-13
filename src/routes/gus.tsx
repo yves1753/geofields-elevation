@@ -46,7 +46,7 @@ function GusPage() {
         image={images.underground}
       >
         <div className="mt-10 flex flex-wrap gap-4">
-          <Link to="/contact" className="btn-primary">
+          <Link to="/request-quote" className="btn-primary">
             Request Underground Support <HiOutlineArrowRight />
           </Link>
           <a href="tel:+255766775255" className="btn-ghost">

@@ -11,12 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SafetyRouteImport } from './routes/safety'
+import { Route as RequestQuoteRouteImport } from './routes/request-quote'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as GusRouteImport } from './routes/gus'
 import { Route as FleetRouteImport } from './routes/fleet'
 import { Route as DivisionsRouteImport } from './routes/divisions'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CommunityRouteImport } from './routes/community'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
@@ -31,6 +33,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const SafetyRoute = SafetyRouteImport.update({
   id: '/safety',
   path: '/safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestQuoteRoute = RequestQuoteRouteImport.update({
+  id: '/request-quote',
+  path: '/request-quote',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsRoute = ProjectsRouteImport.update({
@@ -61,6 +68,11 @@ const DivisionsRoute = DivisionsRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -95,12 +107,14 @@ const Char91DotmcpChar93InvokeToolToolRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/divisions': typeof DivisionsRoute
   '/fleet': typeof FleetRoute
   '/gus': typeof GusRoute
   '/mcp': typeof McpRoute
   '/projects': typeof ProjectsRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/safety': typeof SafetyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -110,12 +124,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/divisions': typeof DivisionsRoute
   '/fleet': typeof FleetRoute
   '/gus': typeof GusRoute
   '/mcp': typeof McpRoute
   '/projects': typeof ProjectsRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/safety': typeof SafetyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -126,12 +142,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/divisions': typeof DivisionsRoute
   '/fleet': typeof FleetRoute
   '/gus': typeof GusRoute
   '/mcp': typeof McpRoute
   '/projects': typeof ProjectsRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/safety': typeof SafetyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -143,12 +161,14 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/community'
     | '/contact'
     | '/divisions'
     | '/fleet'
     | '/gus'
     | '/mcp'
     | '/projects'
+    | '/request-quote'
     | '/safety'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -158,12 +178,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/community'
     | '/contact'
     | '/divisions'
     | '/fleet'
     | '/gus'
     | '/mcp'
     | '/projects'
+    | '/request-quote'
     | '/safety'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -173,12 +195,14 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/community'
     | '/contact'
     | '/divisions'
     | '/fleet'
     | '/gus'
     | '/mcp'
     | '/projects'
+    | '/request-quote'
     | '/safety'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -189,12 +213,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
   DivisionsRoute: typeof DivisionsRoute
   FleetRoute: typeof FleetRoute
   GusRoute: typeof GusRoute
   McpRoute: typeof McpRoute
   ProjectsRoute: typeof ProjectsRoute
+  RequestQuoteRoute: typeof RequestQuoteRoute
   SafetyRoute: typeof SafetyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
@@ -216,6 +242,13 @@ declare module '@tanstack/react-router' {
       path: '/safety'
       fullPath: '/safety'
       preLoaderRoute: typeof SafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request-quote': {
+      id: '/request-quote'
+      path: '/request-quote'
+      fullPath: '/request-quote'
+      preLoaderRoute: typeof RequestQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects': {
@@ -260,6 +293,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -301,12 +341,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
   DivisionsRoute: DivisionsRoute,
   FleetRoute: FleetRoute,
   GusRoute: GusRoute,
   McpRoute: McpRoute,
   ProjectsRoute: ProjectsRoute,
+  RequestQuoteRoute: RequestQuoteRoute,
   SafetyRoute: SafetyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,

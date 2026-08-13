@@ -6,13 +6,11 @@ import { Logo } from "./Logo";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/divisions", label: "Divisions" },
-  { to: "/gus", label: "Underground" },
-  { to: "/fleet", label: "Fleet" },
+  { to: "/about", label: "About Us" },
+  { to: "/divisions", label: "Services" },
   { to: "/projects", label: "Projects" },
-  { to: "/safety", label: "Safety & HSE" },
-  { to: "/contact", label: "Contact" },
+  { to: "/fleet", label: "Fleet" },
+  { to: "/community", label: "Community" },
 ] as const;
 
 export function Navbar() {
@@ -78,8 +76,8 @@ export function Navbar() {
             <HiOutlinePhone className="size-4" />
             +255 766 775 255
           </a>
-          <Link to="/contact" className="btn-primary">
-            Request Quote
+          <Link to="/request-quote" className="btn-primary">
+            Request a Quote
           </Link>
         </div>
 
@@ -105,9 +103,16 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
+            <Link
+              to="/request-quote"
+              onClick={() => setOpen(false)}
+              className="btn-primary justify-center mt-2"
+            >
+              Request a Quote
+            </Link>
             <a
               href="https://wa.me/255766775255"
-              className="btn-primary justify-center mt-2"
+              className="btn-outline justify-center"
               target="_blank"
               rel="noreferrer"
             >

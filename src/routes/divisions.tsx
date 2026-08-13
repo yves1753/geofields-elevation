@@ -88,7 +88,7 @@ function DivisionsPage() {
                     ))}
                   </ul>
                   <div className="mt-10 flex gap-4">
-                    <Link to="/contact" className="btn-primary">
+                    <Link to="/request-quote" className="btn-primary">
                       Request Quote <HiOutlineArrowRight />
                     </Link>
                   </div>

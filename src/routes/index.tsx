@@ -228,7 +228,7 @@ function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-10 flex flex-wrap gap-4"
         >
-          <Link to="/contact" className="btn-primary">
+          <Link to="/request-quote" className="btn-primary">
             Request Proposal <HiOutlineArrowRight />
           </Link>
           <Link to="/divisions" className="btn-ghost">
@@ -754,7 +754,7 @@ function CTASection() {
             Our team responds to every enquiry within 24 hours with a scoped, transparent proposal.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="btn-primary">
+            <Link to="/request-quote" className="btn-primary">
               Request Proposal <HiOutlineArrowRight />
             </Link>
             <a href="tel:+255766775255" className="btn-ghost">

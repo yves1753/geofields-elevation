@@ -61,8 +61,8 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-primary">
-                Contact
+              <Link to="/request-quote" className="hover:text-primary">
+                Request a Quote
               </Link>
             </li>
           </ul>
