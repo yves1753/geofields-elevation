@@ -255,3 +255,33 @@
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 20%, transparent);
 }
+
+.projects-contours {
+  background-image:
+    repeating-radial-gradient(
+      ellipse at 12% 25%,
+      transparent 0 34px,
+      rgba(255, 255, 255, 0.035) 35px 36px
+    ),
+    repeating-radial-gradient(
+      ellipse at 88% 72%,
+      transparent 0 48px,
+      rgba(245, 130, 32, 0.025) 49px 50px
+    );
+  background-size:
+    720px 520px,
+    900px 680px;
+  animation: contour-drift 30s ease-in-out infinite alternate;
+}
+
+@keyframes contour-drift {
+  to {
+    transform: translate3d(18px, -12px, 0) scale(1.015);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-contours {
+    animation: none;
+  }
+}
