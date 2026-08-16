@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { HiOutlineArrowRight, HiOutlineSearch } from "react-icons/hi";
-import { Layout } from "@/components/Layout";
 import { FleetImage } from "@/components/fleet/FleetImage";
 import { FleetRigModal } from "@/components/fleet/FleetRigModal";
 import { fleetData, type FleetRig } from "@/data/fleetData";
@@ -97,7 +96,7 @@ function FleetPage() {
   const featured = results;
 
   return (
-    <Layout>
+    <>
       <section className="relative min-h-[720px] flex items-end overflow-hidden bg-[#111]">
         <OptimizedImage
           asset={images.fleet}
@@ -205,7 +204,6 @@ function FleetPage() {
                   <FleetImage
                     src={rig.image}
                     alt={rig.imageAlt}
-                    priority={i < 4}
                     className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </button>
@@ -329,6 +327,6 @@ function FleetPage() {
         </div>
       </section>
       <FleetRigModal rig={selected} onClose={() => setSelected(null)} />
-    </Layout>
+    </>
   );
 }

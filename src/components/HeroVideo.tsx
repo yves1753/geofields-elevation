@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { HiOutlinePlay } from "react-icons/hi";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { images } from "@/lib/image-assets";
@@ -18,7 +18,7 @@ const devLog = (message: string, detail?: unknown) => {
  * A failed autoplay attempt leaves the poster visible and exposes an accessible
  * manual play control.
  */
-export function HeroVideo() {
+function HeroVideoComponent() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [renderVideo, setRenderVideo] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
@@ -44,12 +44,40 @@ export function HeroVideo() {
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    setRenderVideo(!reducedMotion);
-    if (reducedMotion) devLog("Reduced motion is enabled; retaining the poster.");
+    if (reducedMotion) {
+      devLog("Reduced motion is enabled; retaining the poster.");
+      return;
+    }
+
+    // Paint the responsive poster and headline first, then attach video sources once
+    // the browser has initial rendering capacity available.
+    const loadVideo = () => setRenderVideo(true);
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(loadVideo, { timeout: 1200 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = globalThis.setTimeout(loadVideo, 250);
+    return () => globalThis.clearTimeout(timeoutId);
   }, []);
 
   useEffect(() => {
     if (renderVideo) void startPlayback();
+  }, [renderVideo, startPlayback]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!renderVideo || !video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) void startPlayback();
+        else video.pause();
+      },
+      { rootMargin: "200px 0px", threshold: 0.05 },
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
   }, [renderVideo, startPlayback]);
 
   return (
@@ -97,8 +125,8 @@ export function HeroVideo() {
             videoPlaying ? "opacity-100" : "opacity-0"
           }`}
         >
-          <source src={VIDEO_WEBM} type="video/webm" />
           <source src={VIDEO_MP4} type="video/mp4" />
+          <source src={VIDEO_WEBM} type="video/webm" />
         </video>
       )}
 
@@ -118,3 +146,5 @@ export function HeroVideo() {
     </div>
   );
 }
+
+export const HeroVideo = memo(HeroVideoComponent);

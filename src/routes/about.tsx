@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { ClientsAffiliates } from "@/components/ClientsAffiliates";
@@ -69,7 +68,7 @@ const values = [
 
 function AboutPage() {
   return (
-    <Layout>
+    <>
       <PageHero
         eyebrow="Our Story"
         title="Africa's mineral wealth deserves world-class engineering."
@@ -159,6 +158,6 @@ function AboutPage() {
       </section>
 
       <ClientsAffiliates />
-    </Layout>
+    </>
   );
 }

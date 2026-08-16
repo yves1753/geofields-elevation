@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { images } from "@/lib/image-assets";
@@ -62,7 +61,7 @@ const pillars = [
 
 function SafetyPage() {
   return (
-    <Layout>
+    <>
       <PageHero
         eyebrow="Safety, Health & Environment"
         title="Zero harm. Every crew. Every shift."
@@ -101,6 +100,6 @@ function SafetyPage() {
           ))}
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

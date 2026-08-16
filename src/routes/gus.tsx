@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { HiOutlineArrowRight, HiOutlineCheck } from "react-icons/hi";
@@ -38,7 +37,7 @@ const reasons = [
 
 function GusPage() {
   return (
-    <Layout>
+    <>
       <PageHero
         eyebrow="NEW · Geofields Underground Support"
         title="Underground expertise, engineered for African mines."
@@ -118,6 +117,6 @@ function GusPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

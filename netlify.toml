@@ -10,22 +10,32 @@
   port = 3000
 
 [[headers]]
-  for = "/optimized/*"
+  for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/optimized/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
 
 [[headers]]
   for = "/fleet/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
 
 [[headers]]
   for = "/logos/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
 
 [[headers]]
   for = "/videos/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
     X-Content-Type-Options = "nosniff"

@@ -19,7 +19,6 @@ import {
   HiOutlineDownload,
 } from "react-icons/hi";
 import { FaHardHat, FaMountain, FaTruckMoving, FaTools } from "react-icons/fa";
-import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
 import { HeroVideo } from "@/components/HeroVideo";
 import { fleetData } from "@/data/fleetData";
@@ -49,12 +48,6 @@ export const Route = createFileRoute("/")({
         imageSrcSet:
           "/optimized/home-hero-poster-480.avif 480w, /optimized/home-hero-poster-768.avif 768w, /optimized/home-hero-poster-1280.avif 1280w, /optimized/home-hero-poster-1920.avif 1920w",
         imageSizes: "100vw",
-      },
-      {
-        rel: "preload",
-        as: "image",
-        href: fleetData[0].image,
-        fetchpriority: "low",
       },
     ],
     scripts: [
@@ -141,7 +134,7 @@ const values = [
 
 function HomePage() {
   return (
-    <Layout>
+    <>
       <Hero />
       <StatsBar />
       <AboutPreview />
@@ -154,7 +147,7 @@ function HomePage() {
       <Testimonials />
       <DownloadsSection />
       <CTASection />
-    </Layout>
+    </>
   );
 }
 

@@ -1,9 +1,11 @@
 import { useState } from "react";
 type FleetImageProps = { src: string; alt: string; className?: string; priority?: boolean };
 
+const decodedFleetImages = new Set<string>();
+
 export function FleetImage({ src, alt, className = "", priority = false }: FleetImageProps) {
   const [failed, setFailed] = useState(false);
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(() => decodedFleetImages.has(src));
 
   if (failed)
     return (
@@ -34,14 +36,17 @@ export function FleetImage({ src, alt, className = "", priority = false }: Fleet
     <img
       src={src}
       alt={alt}
-      className={`${className} transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`}
+      className={`${className} transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
       loading={priority ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : "low"}
       decoding="async"
       width={1200}
       height={800}
       onError={() => setFailed(true)}
-      onLoad={() => setLoaded(true)}
+      onLoad={() => {
+        decodedFleetImages.add(src);
+        setLoaded(true);
+      }}
     />
   );
 }

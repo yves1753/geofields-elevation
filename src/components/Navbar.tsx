@@ -15,6 +15,33 @@ const links = [
   { to: "/community", label: "Community" },
 ] as const;
 
+const routeHeroImages: Record<string, string> = {
+  "/": "home-hero-poster",
+  "/about": "about-hero",
+  "/divisions": "hero-mine",
+  "/gus": "underground",
+  "/fleet": "fleet",
+  "/projects": "hero-mine",
+  "/safety": "safety",
+  "/community": "about-hero",
+  "/request-quote": "contact-hero",
+};
+const prefetchedMedia = new Set<string>();
+
+function prefetchRouteHero(path: string) {
+  const assetName = routeHeroImages[path];
+  if (!assetName) return;
+  const requiredWidth = window.innerWidth * Math.min(window.devicePixelRatio || 1, 2);
+  const width = requiredWidth <= 480 ? 480 : requiredWidth <= 768 ? 768 : 1280;
+  const src = `/optimized/${assetName}-${width}.avif`;
+  if (prefetchedMedia.has(src)) return;
+  prefetchedMedia.add(src);
+  const image = new Image();
+  image.fetchPriority = "low";
+  image.decoding = "async";
+  image.src = src;
+}
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -61,6 +88,9 @@ export function Navbar() {
               }`}
               activeProps={{ className: "text-primary" }}
               activeOptions={{ exact: l.to === "/" }}
+              onMouseEnter={() => prefetchRouteHero(l.to)}
+              onFocus={() => prefetchRouteHero(l.to)}
+              onPointerDown={() => prefetchRouteHero(l.to)}
             >
               {l.label}
             </Link>
@@ -78,7 +108,13 @@ export function Navbar() {
             <HiOutlinePhone className="size-4" />
             +255 766 775 255
           </a>
-          <Link to="/request-quote" className="btn-primary">
+          <Link
+            to="/request-quote"
+            className="btn-primary"
+            onMouseEnter={() => prefetchRouteHero("/request-quote")}
+            onFocus={() => prefetchRouteHero("/request-quote")}
+            onPointerDown={() => prefetchRouteHero("/request-quote")}
+          >
             Request a Quote
           </Link>
         </div>
@@ -100,6 +136,8 @@ export function Navbar() {
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
+                onFocus={() => prefetchRouteHero(l.to)}
+                onPointerDown={() => prefetchRouteHero(l.to)}
                 className="text-base font-semibold text-foreground py-2 border-b border-border/50"
               >
                 {l.label}
@@ -108,6 +146,8 @@ export function Navbar() {
             <Link
               to="/request-quote"
               onClick={() => setOpen(false)}
+              onFocus={() => prefetchRouteHero("/request-quote")}
+              onPointerDown={() => prefetchRouteHero("/request-quote")}
               className="btn-primary justify-center mt-2"
             >
               Request a Quote

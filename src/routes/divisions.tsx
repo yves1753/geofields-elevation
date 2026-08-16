@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Layout } from "@/components/Layout";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { HiOutlineArrowRight, HiOutlineCheck } from "react-icons/hi";
@@ -50,7 +49,7 @@ const divisions = [
 
 function DivisionsPage() {
   return (
-    <Layout>
+    <>
       <PageHero
         eyebrow="Business Divisions"
         title="Three integrated capabilities. One trusted partner."
@@ -98,6 +97,6 @@ function DivisionsPage() {
           ))}
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

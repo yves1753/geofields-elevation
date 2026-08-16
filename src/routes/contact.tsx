@@ -1,7 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -60,7 +59,7 @@ export function ContactPage() {
   };
 
   return (
-    <Layout>
+    <>
       <PageHero
         eyebrow="Get In Touch"
         title="Let's engineer your next project together."
@@ -191,7 +190,7 @@ export function ContactPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }
 

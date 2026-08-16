@@ -6,7 +6,6 @@ import {
   HiOutlineLocationMarker,
   HiOutlineUserGroup,
 } from "react-icons/hi";
-import { Layout } from "@/components/Layout";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -70,7 +69,7 @@ const communityStories: CommunityImpactStory[] = [];
 
 function CommunityPage() {
   return (
-    <Layout>
+    <>
       <PageHero
         eyebrow="Our Projects. Our Communities. Our Impact."
         title="Building Beyond the Project"
@@ -190,6 +189,6 @@ function CommunityPage() {
           </Reveal>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

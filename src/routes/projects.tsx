@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Expand, MapPin, X } from "lucide-react";
-import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { images } from "@/lib/image-assets";
 
@@ -324,7 +323,7 @@ function ProjectsPage() {
   };
 
   return (
-    <Layout>
+    <>
       <PageHero
         eyebrow="National Project Portfolio"
         title="Experience mapped across Tanzania."
@@ -618,6 +617,6 @@ function ProjectsPage() {
           </motion.div>
         )}
       </AnimatePresence>
-    </Layout>
+    </>
   );
 }
