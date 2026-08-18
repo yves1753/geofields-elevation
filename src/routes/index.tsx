@@ -89,9 +89,9 @@ const divisions = [
   },
   {
     icon: FaMountain,
-    title: "Geological & Exploration",
-    desc: "Mapping, sampling, surveying and resource evaluation for junior and major explorers.",
-    img: images.exploration,
+    title: "Underground Mining Supplies",
+    desc: "Wire mesh, ground support, ventilation, piping and specialised consumables for safe underground operations.",
+    img: images.wireMesh,
     to: "/divisions",
   },
   {
