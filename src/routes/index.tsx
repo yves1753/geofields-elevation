@@ -96,7 +96,7 @@ const divisions = [
   },
   {
     icon: FaHardHat,
-    title: "Mining Services",
+    title: "Contract Mining",
     desc: "Production, grade control, blast hole and exploration drilling with integrated field support.",
     img: images.heroMine,
     to: "/divisions",
