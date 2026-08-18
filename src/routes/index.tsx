@@ -89,9 +89,9 @@ const divisions = [
   },
   {
     icon: FaMountain,
-    title: "Geological & Exploration",
-    desc: "Mapping, sampling, surveying and resource evaluation for junior and major explorers.",
-    img: images.exploration,
+    title: "Underground Mining Supplies",
+    desc: "Wire mesh, ground support, ventilation, piping and specialised consumables for safe underground operations.",
+    img: images.wireMesh,
     to: "/divisions",
   },
   {
@@ -247,7 +247,10 @@ function StatsBar() {
     <section ref={ref} className="bg-[oklch(0.14_0.005_60)] text-white">
       <div className="container-x py-16 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
         {stats.map((s, i) => (
-          <div key={i} className="text-center md:border-l md:border-white/10 md:pl-6 first:md:border-l-0 first:md:pl-0">
+          <div
+            key={i}
+            className="text-center md:border-l md:border-white/10 md:pl-6 first:md:border-l-0 first:md:pl-0"
+          >
             <div className="font-display font-extrabold text-3xl md:text-4xl text-primary-glow">
               {inView && <CountUp end={s.value} duration={2.4} separator="," suffix={s.suffix} />}
             </div>
