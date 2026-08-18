@@ -63,7 +63,7 @@ export function OptimizedImage({
         src={fallback}
         srcSet={srcSet(asset, "webp")}
         sizes={sizes}
-        alt={alt}
+        ref={imgRef}
         width={asset.width}
         height={asset.height}
         loading={priority ? "eager" : "lazy"}
