@@ -269,8 +269,8 @@ function AboutPreview() {
         <Reveal>
           <div className="relative">
             <OptimizedImage
-              asset={images.exploration}
-              alt="Geologist studying rock samples"
+              asset={images.aboutPreview}
+              alt="Geofields drilling crew at work at sunset"
               className="w-full aspect-[4/5] object-cover"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />

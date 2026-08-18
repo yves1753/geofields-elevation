@@ -1,4 +1,4 @@
-import { useState, type ImgHTMLAttributes } from "react";
+import { useEffect, useRef, useState, type ImgHTMLAttributes } from "react";
 
 export type ImageAsset = {
   name: string;
@@ -33,7 +33,15 @@ export function OptimizedImage({
 }: Props) {
   const [loaded, setLoaded] = useState(() => decodedAssets.has(asset.name));
   const [failed, setFailed] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
   const fallback = asset.fallback ?? `/optimized/${asset.name}-${asset.widths.at(-1)}.webp`;
+
+  useEffect(() => {
+    if (imgRef.current?.complete && !loaded) {
+      decodedAssets.add(asset.name);
+      setLoaded(true);
+    }
+  }, [loaded, asset.name]);
 
   if (failed) {
     return (
@@ -57,6 +65,7 @@ export function OptimizedImage({
         srcSet={srcSet(asset, "webp")}
         sizes={sizes}
         alt={alt}
+        ref={imgRef}
         width={asset.width}
         height={asset.height}
         loading={priority ? "eager" : "lazy"}
