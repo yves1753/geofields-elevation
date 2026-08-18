@@ -38,6 +38,7 @@ export function OptimizedImage({
 
   useEffect(() => {
     if (imgRef.current?.complete && !loaded) {
+      decodedAssets.add(asset.name);
       setLoaded(true);
     }
   }, [loaded, asset.name]);
