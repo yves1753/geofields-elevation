@@ -507,7 +507,7 @@ function SafetySection() {
         </Reveal>
         <Reveal delay={0.15}>
           <OptimizedImage
-            asset={images.safety}
+            asset={images.safetyPage}
             alt="Geofields safety team on site"
             className="w-full aspect-[4/3] object-cover"
             sizes="(min-width: 1024px) 50vw, 100vw"
