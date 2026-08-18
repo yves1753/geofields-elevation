@@ -66,7 +66,7 @@ function SafetyPage() {
         eyebrow="Safety, Health & Environment"
         title="Zero harm. Every crew. Every shift."
         subtitle="Our HSE management system is engineered around international best practice and independently audited."
-        image={images.safety}
+        image={images.safetyPage}
       />
 
       <section className="section-y bg-background">

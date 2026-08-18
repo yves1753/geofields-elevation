@@ -16,6 +16,7 @@ export const images = {
   wireMesh: asset("wire-mesh", 1280, 960, [480, 768, 1280]),
   fleet: asset("fleet", 1600, 900, [480, 768, 1280, 1600]),
   safety: asset("safety", 1280, 960, [480, 768, 1280]),
+  safetyPage: asset("safety-page", 1280, 960, [480, 768, 1280]),
   homeHero: asset("home-hero-poster", 1920, 1080, [480, 768, 1280, 1920]),
   contactHero: asset("contact-hero", 1589, 1073, [480, 768, 1280, 1589]),
   aboutHero: asset("about-hero", 1920, 1281, [480, 768, 1280, 1920]),
