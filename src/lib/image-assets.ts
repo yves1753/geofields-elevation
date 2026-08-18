@@ -13,6 +13,7 @@ export const images = {
   exploration: asset("exploration", 1280, 960, [480, 768, 1280]),
   underground: asset("underground", 1280, 960, [480, 768, 1280]),
   supplies: asset("supplies", 1280, 960, [480, 768, 1280]),
+  wireMesh: asset("wire-mesh", 1280, 960, [480, 768, 1280]),
   fleet: asset("fleet", 1600, 900, [480, 768, 1280, 1600]),
   safety: asset("safety", 1280, 960, [480, 768, 1280]),
   homeHero: asset("home-hero-poster", 1920, 1080, [480, 768, 1280, 1920]),
