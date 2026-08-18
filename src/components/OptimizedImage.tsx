@@ -33,7 +33,14 @@ export function OptimizedImage({
 }: Props) {
   const [loaded, setLoaded] = useState(() => decodedAssets.has(asset.name));
   const [failed, setFailed] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
   const fallback = asset.fallback ?? `/optimized/${asset.name}-${asset.widths.at(-1)}.webp`;
+
+  useEffect(() => {
+    if (imgRef.current?.complete && !loaded) {
+      setLoaded(true);
+    }
+  }, [loaded, asset.name]);
 
   if (failed) {
     return (
