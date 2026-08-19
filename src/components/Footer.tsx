@@ -73,7 +73,8 @@ export function Footer() {
           <ul className="space-y-3 text-sm">
             <li>Drilling Services</li>
             <li>Geological & Exploration</li>
-            <li>Mining Supplies</li>
+            <li>Mining Services</li>
+            <li>Underground Support (GUS)</li>
             <li>Mining Services</li>
             <li>Underground Support (GUS)</li>
           </ul>
