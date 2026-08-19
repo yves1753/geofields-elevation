@@ -31,7 +31,7 @@ const divisions = [
     title: "Mining Services",
     description:
       "Geofields Tanzania Limited provides reliable mining support services designed to improve operational efficiency, resource development and safe project execution throughout the mining lifecycle.",
-    capabilities: ["Production Drilling", "Grade Control Drilling", "Oil Rig Services"],
+    capabilities: ["Production Drilling", "Grade Control Drilling"],
   },
   {
     img: images.exploration,
