@@ -10,7 +10,7 @@ const asset = (
 export const images = {
   heroMine: asset("hero-mine", 1920, 1080, [480, 768, 1280, 1920]),
   drilling: asset("drilling", 1280, 960, [480, 768, 1280]),
-  exploration: asset("exploration", 1280, 960, [480, 768, 1280]),
+  exploration: asset("exploration", 1920, 1280, [480, 768, 1280, 1920]),
   underground: asset("underground", 1280, 960, [480, 768, 1280]),
   supplies: asset("supplies", 1280, 960, [480, 768, 1280]),
   wireMesh: asset("wire-mesh", 1280, 960, [480, 768, 1280]),
