@@ -80,8 +80,8 @@ function AboutPage() {
         <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
             <OptimizedImage
-              asset={images.exploration}
-              alt="Geofields exploration team"
+              asset={images.aboutDrillingCrew}
+              alt="Geofields drilling crew at sunset"
               className="w-full aspect-[4/5] object-cover"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
