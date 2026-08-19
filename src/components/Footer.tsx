@@ -75,8 +75,6 @@ export function Footer() {
             <li>Geological & Exploration</li>
             <li>Mining Services</li>
             <li>Underground Support (GUS)</li>
-            <li>Mining Services</li>
-            <li>Underground Support (GUS)</li>
           </ul>
         </div>
 
