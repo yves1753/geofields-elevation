@@ -87,9 +87,9 @@ function CommunityPage() {
               Responsible operations begin with listening.
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Geofields seeks to work responsibly with the communities surrounding its operations,
-              understand local priorities and contribute positively where practical, relevant and
-              sustainable.
+              Geofields is committed to building strong relationships with communities surrounding
+              its operations, understanding local priorities and supporting initiatives that
+              contribute to sustainable social and economic development.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
