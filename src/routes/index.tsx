@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useInView } from "framer-motion";
 import CountUpImport from "react-countup";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Vite prebundles react-countup (CJS) with a double-wrapped default export
 // (`{ default: { default: CountUp, useCountUp } }`), so the bare import is an
@@ -241,6 +241,16 @@ function Hero() {
 function StatsBar() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    const interval = setInterval(() => {
+      setTick((t) => t + 1);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [inView]);
+
   return (
     <section ref={ref} className="bg-[oklch(0.14_0.005_60)] text-white">
       <div className="container-x py-16 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
@@ -250,7 +260,15 @@ function StatsBar() {
             className="text-center md:border-l md:border-white/10 md:pl-6 first:md:border-l-0 first:md:pl-0"
           >
             <div className="font-display font-extrabold text-3xl md:text-4xl text-primary-glow">
-              {inView && <CountUp end={s.value} duration={2.4} separator="," suffix={s.suffix} />}
+              {inView && (
+                <CountUp
+                  key={tick}
+                  end={s.value}
+                  duration={2.4}
+                  separator=","
+                  suffix={s.suffix}
+                />
+              )}
             </div>
             <div className="mt-2 text-xs tracking-[0.2em] uppercase text-white/60">{s.label}</div>
           </div>
