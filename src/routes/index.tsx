@@ -672,57 +672,6 @@ function Testimonials() {
   );
 }
 
-function DownloadsSection() {
-  const files = [
-    "Company Profile",
-    "Capability Statement",
-    "Service Brochure",
-    "HSE Policy",
-    "Certificates",
-    "Equipment Brochure",
-  ];
-  return (
-    <section className="section-y bg-surface">
-      <div className="container-x">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
-          <div className="max-w-2xl">
-            <Reveal>
-              <span className="eyebrow">
-                <span className="h-[1px] w-10 bg-primary" /> Downloads
-              </span>
-              <h2 className="mt-5 text-4xl md:text-5xl leading-tight">
-                Everything procurement teams need — in one place.
-              </h2>
-            </Reveal>
-          </div>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {files.map((f, i) => (
-            <Reveal key={f} delay={i * 0.04}>
-              <a
-                href="#"
-                className="flex items-center justify-between p-6 bg-background border border-border hover:border-primary transition group"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="size-12 grid place-items-center bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition">
-                    <HiOutlineDownload className="size-5" />
-                  </div>
-                  <div>
-                    <div className="font-semibold">{f}</div>
-                    <div className="text-xs text-muted-foreground uppercase tracking-widest mt-0.5">
-                      PDF · 2.4 MB
-                    </div>
-                  </div>
-                </div>
-                <HiOutlineArrowRight className="text-primary" />
-              </a>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function CTASection() {
   return (
