@@ -144,7 +144,6 @@ function HomePage() {
       <ValuesSection />
       <ProjectsPreview />
       <Testimonials />
-      <DownloadsSection />
       <CTASection />
     </>
   );
