@@ -16,7 +16,6 @@ import {
   HiOutlineCog,
   HiOutlineGlobeAlt,
   HiOutlineStar,
-  HiOutlineDownload,
 } from "react-icons/hi";
 import { FaHardHat, FaMountain, FaTruckMoving, FaTools } from "react-icons/fa";
 import { Reveal } from "@/components/Reveal";
