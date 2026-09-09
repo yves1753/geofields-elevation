@@ -35,6 +35,7 @@ export function OptimizedImage({
   const [failed, setFailed] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
   const fallback = asset.fallback ?? `/optimized/${asset.name}-${asset.widths.at(-1)}.webp`;
+  const isRawAsset = Boolean(asset.fallback && !asset.fallback.startsWith("/optimized/"));
 
   useEffect(() => {
     if (imgRef.current?.complete && !loaded) {
@@ -51,6 +52,33 @@ export function OptimizedImage({
         aria-hidden={alt ? undefined : true}
         className={`inline-block bg-gradient-to-br from-zinc-800 to-zinc-950 ${className}`}
         style={{ aspectRatio: `${asset.width}/${asset.height}`, ...style }}
+      />
+    );
+  }
+
+  if (isRawAsset) {
+    return (
+      <img
+        {...props}
+        src={fallback}
+        alt={alt}
+        ref={imgRef}
+        width={asset.width}
+        height={asset.height}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        fetchPriority={priority ? "high" : "low"}
+        onLoad={(event) => {
+          decodedAssets.add(asset.name);
+          setLoaded(true);
+          onLoad?.(event);
+        }}
+        onError={(event) => {
+          setFailed(true);
+          onError?.(event);
+        }}
+        className={`${className} transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+        style={style}
       />
     );
   }

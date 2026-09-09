@@ -5,7 +5,8 @@ const asset = (
   width: number,
   height: number,
   widths: readonly number[],
-): ImageAsset => ({ name, width, height, widths });
+  fallback?: string,
+): ImageAsset => ({ name, width, height, widths, fallback });
 
 export const images = {
   heroMine: asset("hero-mine", 1920, 1080, [480, 768, 1280, 1920]),
@@ -25,4 +26,11 @@ export const images = {
   aboutDrillingCrew: asset("about-drilling-crew", 1920, 1281, [480, 768, 1280, 1920]),
   clients: asset("clients-logos", 1245, 677, [480, 768, 1245]),
   partners: asset("partners-affiliates", 1247, 280, [480, 768, 1247]),
+  communityHero: asset(
+    "community-hero",
+    1200,
+    900,
+    [480, 768, 1200],
+    "/images/community/community-hero.jpg",
+  ),
 } as const;
