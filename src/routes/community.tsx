@@ -95,8 +95,8 @@ function CommunityPage() {
           <Reveal delay={0.15}>
             <div className="relative aspect-[4/3] overflow-hidden">
               <OptimizedImage
-                asset={images.drilling}
-                alt="Geofields drilling professional working at an operational site"
+                asset={images.communityApproach}
+                alt="Community members gathered together with raised hands"
                 sizes="(min-width: 1024px) 55vw, 100vw"
                 className="size-full object-cover"
               />
