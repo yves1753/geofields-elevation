@@ -89,7 +89,7 @@ function SafetyPage() {
         <div className="container-x grid md:grid-cols-4 gap-8 text-center md:text-left">
           {[
             { v: "1.2M+", l: "LTI-Free Man-hours" },
-            { v: "100%", l: "PPE Compliance" },
+            { v: "ISO 9001", l: "Quality" },
             { v: "ISO 45001", l: "Certified Systems" },
             { v: "ISO 14001", l: "Environmental Standard" },
           ].map((s) => (
