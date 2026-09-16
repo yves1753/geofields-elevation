@@ -63,8 +63,8 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-x flex items-center justify-between h-24 lg:h-28">
-        <Link to="/" className="flex items-center">
+      <div className="container-x flex h-20 items-center justify-between xl:grid xl:h-[5.5rem] xl:grid-cols-[190px_minmax(0,1fr)_auto] xl:gap-5">
+        <Link to="/" className="flex shrink-0 items-center">
           <Logo
             src={isUndergroundPage ? "/images/underground-logo.png" : undefined}
             alt={
@@ -72,19 +72,19 @@ export function Navbar() {
                 ? "Geofields Underground Support"
                 : "Geofields Tanzania Limited — Drilling, Exploration and Mining Services"
             }
-            className="w-[145px] md:w-[170px] xl:w-[190px] h-auto transition-all"
+            className="h-auto w-[145px] transition-all md:w-[170px] xl:w-[190px]"
           />
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-6">
+        <nav className="hidden min-w-0 items-center justify-center gap-3 xl:flex 2xl:gap-5">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className={`text-sm font-semibold tracking-wide transition-colors ${
+              className={`shrink-0 whitespace-nowrap text-[11px] font-semibold tracking-wide transition-[color,opacity,transform] duration-200 ease-out hover:-translate-y-px xl:text-xs ${
                 scrolled
                   ? "text-foreground/80 hover:text-primary"
-                  : "text-white/90 hover:text-white"
+                  : "text-white/90 hover:text-primary"
               }`}
               activeProps={{ className: "text-primary" }}
               activeOptions={{ exact: l.to === "/" }}
@@ -97,10 +97,10 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden items-center gap-3 lg:flex xl:border-l xl:border-border/70 xl:pl-5">
           <a
             href="tel:+255766775255"
-            className={`flex items-center gap-2 text-sm font-semibold ${
+            className={`flex shrink-0 items-center gap-2 whitespace-nowrap text-sm font-semibold transition-colors duration-200 ${
               scrolled ? "text-foreground" : "text-white"
             }`}
             aria-label="Call Geofields"
