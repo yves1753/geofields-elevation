@@ -7,10 +7,10 @@ import { Logo } from "./Logo";
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/divisions", label: "Division" },
-  { to: "/gus", label: "Underground" },
-  { to: "/fleet", label: "Fleet" },
-  { to: "/projects", label: "Project" },
+  { to: "/divisions", label: "Service" },
+  { to: "/gus", label: "Underground Support" },
+  { to: "/fleet", label: "Drilling Services" },
+  { to: "/projects", label: "Project JV" },
   { to: "/safety", label: "Safety" },
   { to: "/community", label: "Community" },
 ] as const;
