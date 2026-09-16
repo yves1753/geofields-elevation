@@ -39,7 +39,7 @@ function GusPage() {
   return (
     <>
       <PageHero
-        eyebrow="NEW · Geofields Underground Support"
+        eyebrow="GEOFIELDS UNDERGROUND SUPPORT"
         title="Underground expertise, engineered for African mines."
         subtitle="GUS delivers integrated ground support, mine development and underground logistics — with the discipline and equipment that keep production moving safely."
         image={images.underground}
