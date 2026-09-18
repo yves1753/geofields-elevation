@@ -50,7 +50,7 @@ const pillars = [
   {
     icon: HiOutlineFire,
     title: "Emergency Response",
-    desc: "24/7 on-call response teams and drilled evacuation protocols.",
+    desc: "24/7 emergency response readiness through trained teams, clear communication, and regular emergency drills to protect people, assets, and the environment.",
   },
   {
     icon: HiOutlineGlobeAlt,
