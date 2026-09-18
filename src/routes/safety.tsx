@@ -91,7 +91,7 @@ function SafetyPage() {
             { v: "1.2M+", l: "LTI-Free Man-hours" },
             { v: "ISO 9001", l: "Quality Management System" },
             { v: "ISO 45001", l: "Health and Safety Management System" },
-            { v: "ISO 14001", l: "Environmental Standard" },
+            { v: "ISO 14001", l: "Environmental Management System" },
           ].map((s) => (
             <div key={s.l} className="border-l-2 border-primary pl-6">
               <div className="font-display text-4xl md:text-5xl text-primary-glow">{s.v}</div>
