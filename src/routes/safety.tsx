@@ -35,7 +35,7 @@ const pillars = [
   {
     icon: HiOutlineDocumentText,
     title: "HSE Policy",
-    desc: "Documented policies aligned to ISO 45001 and ISO 14001, audited annually.",
+    desc: "Documented policies to ISO 45001 (Health and safety management system), ISO 9001 (Quality management system), and ISO 14001 (Environmental management system) audited annually.",
   },
   {
     icon: HiOutlineAcademicCap,
