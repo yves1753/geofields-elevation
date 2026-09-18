@@ -55,7 +55,7 @@ const pillars = [
   {
     icon: HiOutlineGlobeAlt,
     title: "Environmental Care",
-    desc: "Water, waste and rehabilitation programmes on every project.",
+    desc: "Water conservation, Energy efficiency, proper waste management and progressive rehabilitation is implemented on every project to minimize environmental impacts and protect the surrounding environment.",
   },
 ];
 
