@@ -30,7 +30,7 @@ const pillars = [
   {
     icon: HiOutlineShieldCheck,
     title: "Safety Philosophy",
-    desc: "Zero harm is not a target — it is a non-negotiable standard on every site.",
+    desc: "We are committed to a zero-harm culture where the safety and well-being of our people, communities, and the environment remain our highest priority. Every task is planned and performed with safety as a fundamental standard, not an option.",
   },
   {
     icon: HiOutlineDocumentText,
