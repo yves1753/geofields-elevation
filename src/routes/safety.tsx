@@ -40,7 +40,7 @@ const pillars = [
   {
     icon: HiOutlineAcademicCap,
     title: "Training",
-    desc: "Structured induction, competency and refresher training for every employee.",
+    desc: "We invest in our people through structured induction, competency-based training, and regular refresher programmes. Our approach ensures that employees have the knowledge, skills, and awareness required to perform their duties safely, effectively, and responsibly.",
   },
   {
     icon: HiOutlineExclamation,
