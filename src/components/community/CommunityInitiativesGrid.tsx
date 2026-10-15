@@ -8,7 +8,7 @@ export function CommunityInitiativesGrid() {
       className="community-initiatives relative bg-[oklch(0.14_0.005_60)] py-20 text-white md:py-28"
       aria-labelledby="community-initiatives-title"
     >
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent" />
       <div className="container-x relative">
         <Reveal>
           <div className="max-w-3xl">
