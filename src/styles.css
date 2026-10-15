@@ -79,6 +79,25 @@
   html {
     scroll-behavior: smooth;
   }
+  .skip-to-content {
+    position: absolute;
+    left: 1rem;
+    top: -5rem;
+    z-index: 100;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    transition: top 0.2s ease;
+  }
+  .skip-to-content:focus {
+    top: 1rem;
+    outline: 2px solid var(--foreground);
+    outline-offset: 2px;
+  }
+  #main:focus {
+    outline: none;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);

@@ -12,22 +12,21 @@ import {
 } from "react-icons/hi";
 import { FaWhatsapp } from "react-icons/fa";
 import { images } from "@/lib/image-assets";
+import { pageHead } from "@/lib/seo";
+import { SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
   beforeLoad: () => {
-    throw redirect({ to: "/request-quote", replace: true });
+    throw redirect({ to: "/request-quote", replace: true, statusCode: 301 });
   },
-  head: () => ({
-    meta: [
-      { title: "Contact & Request a Quote — Geofields Tanzania Limited" },
-      {
-        name: "description",
-        content:
-          "Contact Geofields Tanzania Limited in Dar es Salaam. Request a quotation, chat on WhatsApp, or reach our operations team by phone or email.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Contact Geofields Tanzania Limited | Request a Quote",
+      description:
+        "Contact Geofields Tanzania Limited in Dar es Salaam for drilling, exploration and underground support quotations.",
+      path: "/request-quote",
+      noindex: true,
+    }),
   component: ContactPage,
 });
 
@@ -53,7 +52,7 @@ export function ContactPage() {
     const body = encodeURIComponent(
       `Name: ${data.name}\nCompany: ${data.company}\nEmail: ${data.email}\nPhone: ${data.phone}\nService: ${data.service}\n\n${data.message}`,
     );
-    window.location.href = `mailto:sales@geofields.co.tz?subject=Quotation%20Request%20from%20${encodeURIComponent(data.name)}&body=${body}`;
+    window.location.href = `mailto:${SITE.email.sales}?subject=Quotation%20Request%20from%20${encodeURIComponent(data.name)}&body=${body}`;
     setSent(true);
     reset();
   };
@@ -65,6 +64,7 @@ export function ContactPage() {
         title="Let's engineer your next project together."
         subtitle="Our team responds to every enquiry within 24 hours with a clear, scoped proposal."
         image={images.contactHero}
+        imageAlt="Geofields Tanzania Limited head office in Dar es Salaam"
       />
 
       <section className="section-y bg-background">
@@ -80,20 +80,35 @@ export function ContactPage() {
 
             <form onSubmit={handleSubmit(onSubmit)} className="mt-10 grid sm:grid-cols-2 gap-5">
               <Field label="Full Name" error={errors.name?.message}>
-                <input {...register("name", { required: "Required" })} className="input" />
+                <input
+                  {...register("name", { required: "Required" })}
+                  autoComplete="name"
+                  className="input"
+                />
               </Field>
               <Field label="Company" error={errors.company?.message}>
-                <input {...register("company", { required: "Required" })} className="input" />
+                <input
+                  {...register("company", { required: "Required" })}
+                  autoComplete="organization"
+                  className="input"
+                />
               </Field>
               <Field label="Email" error={errors.email?.message}>
                 <input
                   type="email"
                   {...register("email", { required: "Required" })}
+                  autoComplete="email"
                   className="input"
                 />
               </Field>
               <Field label="Phone" error={errors.phone?.message}>
-                <input {...register("phone", { required: "Required" })} className="input" />
+                <input
+                  {...register("phone", { required: "Required" })}
+                  type="tel"
+                  autoComplete="tel"
+                  inputMode="tel"
+                  className="input"
+                />
               </Field>
               <Field label="Service Required" className="sm:col-span-2">
                 <select {...register("service")} className="input">
@@ -130,47 +145,45 @@ export function ContactPage() {
               <span className="eyebrow-light">
                 <span className="h-[1px] w-10 bg-primary-glow" /> Head Office
               </span>
-              <h3 className="mt-4 text-white text-3xl">Dar es Salaam, Tanzania</h3>
+              <h3 className="mt-4 text-white text-3xl">{SITE.foundingLocation}</h3>
 
               <div className="mt-10 space-y-6">
                 <InfoRow icon={HiOutlineLocationMarker} title="Address">
-                  Mwai Kibaki Road, Mbezi Beach
+                  {SITE.address.street}
                   <br />
-                  P.O Box 76387, Dar es Salaam, Tanzania
+                  {SITE.address.poBox}, {SITE.address.locality}, {SITE.address.country}
                 </InfoRow>
                 <InfoRow icon={HiOutlinePhone} title="Telephone">
-                  <a href="tel:+255766775255" className="block hover:text-primary-glow">
-                    +255 766 775 255
+                  <a href={`tel:${SITE.phone.primaryTel}`} className="block hover:text-primary-glow">
+                    {SITE.phone.primary}
                   </a>
-                  <a href="tel:+255755284141" className="block hover:text-primary-glow">
-                    +255 755 284 141
+                  <a href={`tel:${SITE.phone.secondaryTel}`} className="block hover:text-primary-glow">
+                    {SITE.phone.secondary}
                   </a>
                 </InfoRow>
                 <InfoRow icon={HiOutlineMail} title="Email">
-                  <a href="mailto:info@geofields.co.tz" className="block hover:text-primary-glow">
-                    info@geofields.co.tz
+                  <a href={`mailto:${SITE.email.info}`} className="block hover:text-primary-glow">
+                    {SITE.email.info}
                   </a>
-                  <a href="mailto:sales@geofields.co.tz" className="block hover:text-primary-glow">
-                    sales@geofields.co.tz
+                  <a href={`mailto:${SITE.email.sales}`} className="block hover:text-primary-glow">
+                    {SITE.email.sales}
                   </a>
                 </InfoRow>
                 <InfoRow icon={HiOutlineClock} title="Business Hours">
-                  Mon – Fri · 08:00 – 17:00 EAT
-                  <br />
-                  Sat · 09:00 – 13:00
+                  {SITE.hours.display}
                 </InfoRow>
               </div>
 
               <div className="mt-10 pt-8 border-t border-white/10 flex flex-wrap gap-3">
                 <a
-                  href="https://wa.me/255766775255"
+                  href={SITE.whatsapp}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="btn-primary"
                 >
                   <FaWhatsapp /> WhatsApp
                 </a>
-                <a href="tel:+255766775255" className="btn-ghost">
+                <a href={`tel:${SITE.phone.primaryTel}`} className="btn-ghost">
                   Call Now
                 </a>
               </div>

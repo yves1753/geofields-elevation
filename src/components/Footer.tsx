@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { FaWhatsapp, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi";
 import { Logo } from "./Logo";
+import { SITE } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -12,21 +13,21 @@ export function Footer() {
             <Logo className="w-[190px] md:w-[215px] h-auto" />
           </div>
           <p className="mt-6 text-sm leading-relaxed max-w-sm text-white/60">
-            Geofields Tanzania Limited is an integrated drilling, exploration and mining services
-            company delivering engineering excellence across Tanzania and Africa.
+            {SITE.name} is an integrated drilling, exploration and mining services company
+            delivering engineering excellence across Tanzania and Africa.
           </p>
           <div className="flex gap-3 mt-6">
             <a
-              href="https://wa.me/255766775255"
+              href={SITE.whatsapp}
               target="_blank"
-              rel="noreferrer"
-              aria-label="WhatsApp"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp Geofields Tanzania Limited"
               className="size-10 grid place-items-center border border-white/15 hover:bg-primary hover:border-primary transition"
             >
               <FaWhatsapp />
             </a>
             <a
-              href="https://www.linkedin.com/company/geofields-tanzania-limited/"
+              href={SITE.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit Geofields Tanzania Limited on LinkedIn"
@@ -37,8 +38,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
-          <h5 className="text-white text-sm tracking-[0.2em] uppercase mb-5">Company</h5>
+        <nav aria-label="Company">
+          <p className="text-white text-sm tracking-[0.2em] uppercase mb-5 font-display font-extrabold">
+            Company
+          </p>
           <ul className="space-y-3 text-sm">
             <li>
               <Link to="/about" className="hover:text-primary">
@@ -61,60 +64,88 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link to="/community" className="hover:text-primary">
+                Community
+              </Link>
+            </li>
+            <li>
               <Link to="/request-quote" className="hover:text-primary">
                 Request a Quote
               </Link>
             </li>
           </ul>
-        </div>
+        </nav>
 
-        <div>
-          <h5 className="text-white text-sm tracking-[0.2em] uppercase mb-5">Divisions</h5>
+        <nav aria-label="Divisions">
+          <p className="text-white text-sm tracking-[0.2em] uppercase mb-5 font-display font-extrabold">
+            Divisions
+          </p>
           <ul className="space-y-3 text-sm">
-            <li>Drilling Services</li>
-            <li>Geological & Exploration</li>
-            <li>Mining Services</li>
-            <li>Underground Support (GUS)</li>
+            <li>
+              <Link to="/divisions" className="hover:text-primary">
+                Drilling Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/divisions" className="hover:text-primary">
+                Geological & Exploration
+              </Link>
+            </li>
+            <li>
+              <Link to="/divisions" className="hover:text-primary">
+                Mining Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/gus" className="hover:text-primary">
+                Underground Support (GUS)
+              </Link>
+            </li>
+            <li>
+              <Link to="/fleet" className="hover:text-primary">
+                Drilling Fleet
+              </Link>
+            </li>
           </ul>
-        </div>
+        </nav>
 
         <div>
-          <h5 className="text-white text-sm tracking-[0.2em] uppercase mb-5">Get In Touch</h5>
+          <p className="text-white text-sm tracking-[0.2em] uppercase mb-5 font-display font-extrabold">
+            Get In Touch
+          </p>
           <ul className="space-y-3 text-sm">
             <li className="flex gap-3">
-              <HiOutlineLocationMarker className="size-5 text-primary shrink-0 mt-0.5" /> P.O Box
-              76387, Mwai Kibaki Road, Mbezi Beach, Dar es Salaam, Tanzania
+              <HiOutlineLocationMarker className="size-5 text-primary shrink-0 mt-0.5" />
+              <address className="not-italic">
+                {SITE.address.poBox}, {SITE.address.street}, {SITE.address.locality},{" "}
+                {SITE.address.country}
+              </address>
             </li>
             <li className="flex gap-3">
               <HiOutlinePhone className="size-5 text-primary shrink-0" />{" "}
-              <a href="tel:+255766775255">+255 766 775 255</a>
+              <a href={`tel:${SITE.phone.primaryTel}`}>{SITE.phone.primary}</a>
             </li>
             <li className="flex gap-3">
               <HiOutlinePhone className="size-5 text-primary shrink-0" />{" "}
-              <a href="tel:+255755284141">+255 755 284 141</a>
+              <a href={`tel:${SITE.phone.secondaryTel}`}>{SITE.phone.secondary}</a>
             </li>
             <li className="flex gap-3">
               <HiOutlineMail className="size-5 text-primary shrink-0" />{" "}
-              <a href="mailto:info@geofields.co.tz">info@geofields.co.tz</a>
+              <a href={`mailto:${SITE.email.info}`}>{SITE.email.info}</a>
             </li>
             <li className="flex gap-3">
               <HiOutlineMail className="size-5 text-primary shrink-0" />{" "}
-              <a href="mailto:sales@geofields.co.tz">sales@geofields.co.tz</a>
+              <a href={`mailto:${SITE.email.sales}`}>{SITE.email.sales}</a>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="container-x mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
-        <p>© {new Date().getFullYear()} Geofields Tanzania Limited. All rights reserved.</p>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-primary">
-            Privacy Policy
-          </a>
-          <a href="#" className="hover:text-primary">
-            Terms & Conditions
-          </a>
-        </div>
+        <p>
+          © {new Date().getFullYear()} {SITE.name}. All rights reserved.
+        </p>
+        <p>Dar es Salaam, Tanzania</p>
       </div>
     </footer>
   );

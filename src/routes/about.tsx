@@ -12,24 +12,24 @@ import {
   HiOutlineGlobeAlt,
 } from "react-icons/hi";
 import { FaHardHat } from "react-icons/fa";
+import { breadcrumbSchema, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Geofields Tanzania Limited" },
-      {
-        name: "description",
-        content:
-          "The story, vision, mission and values behind one of Africa's leading integrated mining service companies.",
-      },
-      { property: "og:title", content: "About Geofields Tanzania Limited" },
-      {
-        property: "og:description",
-        content: "Discover the people, purpose and principles behind Geofields Tanzania Limited.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "About Geofields Tanzania Limited | Mining Services in Dar es Salaam",
+      description:
+        "Meet Geofields Tanzania Limited: a Dar es Salaam mining services company delivering drilling, exploration and underground support across Tanzania, with a zero-harm culture.",
+      path: "/about",
+      image: "/images/about-hero.jpg",
+      imageAlt: "Geofields Tanzania Limited exploration and drilling team",
+      jsonLd: [
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]),
+      ],
+    }),
   component: AboutPage,
 });
 
@@ -74,6 +74,7 @@ function AboutPage() {
         title="Africa's mineral wealth deserves world-class engineering."
         subtitle="For more than a decade, Geofields Tanzania Limited has been engineering the systems, crews and equipment that turn Africa's geological potential into responsible, long-term prosperity."
         image={images.aboutHero}
+        imageAlt="Geofields Tanzania Limited drilling and exploration operations"
       />
 
       <section className="section-y bg-background">

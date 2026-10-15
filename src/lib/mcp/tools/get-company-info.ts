@@ -1,10 +1,11 @@
 import { defineTool } from "@lovable.dev/mcp-js";
+import { SITE, SITE_URL, SERVICES } from "@/lib/site";
 
 export default defineTool({
   name: "get_company_info",
   title: "Get company info",
   description:
-    "Return an overview of Geofields Tanzania Limited: what the company does, headquarters, and primary contact channels.",
+    "Return an overview of Geofields Tanzania Limited: what the company does, headquarters, services, and primary contact channels.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
@@ -13,13 +14,25 @@ export default defineTool({
         type: "text",
         text: JSON.stringify(
           {
-            name: "Geofields Tanzania Limited",
-            summary:
-              "Integrated drilling, exploration, underground support, fleet and mining supplies services across Tanzania and Africa.",
-            headquarters: "Tanzania",
-            phone: "+255 766 775 255",
-            whatsapp: "https://wa.me/255766775255",
-            website: "https://geofields.co.tz",
+            name: SITE.name,
+            summary: SITE.description,
+            tagline: SITE.tagline,
+            headquarters: SITE.foundingLocation,
+            address: {
+              street: SITE.address.street,
+              poBox: SITE.address.poBox,
+              city: SITE.address.locality,
+              country: SITE.address.country,
+            },
+            geo: SITE.geo,
+            areaServed: SITE.areaServed,
+            phone: [SITE.phone.primary, SITE.phone.secondary],
+            email: [SITE.email.info, SITE.email.sales],
+            whatsapp: SITE.whatsapp,
+            linkedin: SITE.linkedin,
+            website: SITE_URL,
+            hours: SITE.hours.display,
+            services: SERVICES.map((service) => service.name),
           },
           null,
           2,

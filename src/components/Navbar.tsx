@@ -64,7 +64,11 @@ export function Navbar() {
       }`}
     >
       <div className="container-x flex h-20 items-center justify-between xl:grid xl:h-[5.5rem] xl:grid-cols-[190px_minmax(0,1fr)_auto] xl:gap-5">
-        <Link to="/" className="flex shrink-0 items-center">
+        <Link
+          to="/"
+          className="flex shrink-0 items-center"
+          aria-label="Geofields Tanzania Limited home"
+        >
           <Logo
             src={isUndergroundPage ? "/images/underground-logo.png" : undefined}
             alt={
@@ -76,7 +80,10 @@ export function Navbar() {
           />
         </Link>
 
-        <nav className="hidden min-w-0 items-center justify-center gap-3 xl:flex 2xl:gap-5">
+        <nav
+          className="hidden min-w-0 items-center justify-center gap-3 xl:flex 2xl:gap-5"
+          aria-label="Primary"
+        >
           {links.map((l) => (
             <Link
               key={l.to}
@@ -103,7 +110,7 @@ export function Navbar() {
             className={`flex shrink-0 items-center gap-2 whitespace-nowrap text-sm font-semibold transition-colors duration-200 ${
               scrolled ? "text-foreground" : "text-white"
             }`}
-            aria-label="Call Geofields"
+            aria-label="Call Geofields Tanzania Limited"
           >
             <HiOutlinePhone className="size-4" />
             +255 766 775 255
@@ -122,14 +129,16 @@ export function Navbar() {
         <button
           className={`xl:hidden p-2 ${scrolled ? "text-foreground" : "text-white"}`}
           onClick={() => setOpen((o) => !o)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
         >
           {open ? <HiOutlineX className="size-7" /> : <HiOutlineMenu className="size-7" />}
         </button>
       </div>
 
       {open && (
-        <div className="xl:hidden bg-background border-t border-border">
+        <div id="mobile-nav" className="xl:hidden bg-background border-t border-border">
           <div className="container-x py-6 flex flex-col gap-4">
             {links.map((l) => (
               <Link
@@ -156,7 +165,7 @@ export function Navbar() {
               href="https://wa.me/255766775255"
               className="btn-outline justify-center"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <FaWhatsapp /> WhatsApp Us
             </a>

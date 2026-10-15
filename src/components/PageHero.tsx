@@ -7,12 +7,14 @@ export function PageHero({
   title,
   subtitle,
   image,
+  imageAlt = "",
   children,
 }: {
   eyebrow: string;
   title: string;
   subtitle?: string;
   image: ImageAsset;
+  imageAlt?: string;
   children?: ReactNode;
 }) {
   return (
@@ -20,7 +22,7 @@ export function PageHero({
       <div className="absolute inset-0">
         <OptimizedImage
           asset={image}
-          alt=""
+          alt={imageAlt}
           priority
           sizes="100vw"
           className="size-full object-cover"

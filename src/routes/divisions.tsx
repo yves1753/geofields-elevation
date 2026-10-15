@@ -4,19 +4,24 @@ import { PageHero } from "@/components/PageHero";
 import { HiOutlineArrowRight, HiOutlineCheck } from "react-icons/hi";
 import { images } from "@/lib/image-assets";
 import { OptimizedImage } from "@/components/OptimizedImage";
+import { breadcrumbSchema, pageHead, serviceSchema } from "@/lib/seo";
+import { SERVICES } from "@/lib/site";
 
 export const Route = createFileRoute("/divisions")({
-  head: () => ({
-    meta: [
-      { title: "Business Divisions — Geofields Tanzania Limited" },
-      {
-        name: "description",
-        content:
-          "Explore Geofields' five integrated service divisions: Drilling, Geological & Exploration, Mining Supplies, Mining Services and Underground Support (GUS).",
-      },
-    ],
-    links: [{ rel: "canonical", href: "/divisions" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Drilling, Exploration & Mining Services | Geofields Tanzania",
+      description:
+        "Geofields Tanzania Limited divisions: diamond and RC drilling, geological exploration, production mining services, underground support and mining supplies across Tanzania.",
+      path: "/divisions",
+      jsonLd: [
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/divisions" },
+        ]),
+        ...SERVICES.filter((service) => service.path === "/divisions").map(serviceSchema),
+      ],
+    }),
   component: DivisionsPage,
 });
 
@@ -24,6 +29,8 @@ const divisions = [
   {
     img: images.drilling,
     title: "Drilling Services",
+    description:
+      "Certified crews and a modern Tanzanian fleet deliver diamond core, reverse circulation, blast hole, grade control and water-well drilling for explorers and producers.",
     capabilities: ["Diamond Drilling", "Reverse Circulation (RC)"],
   },
   {
@@ -36,6 +43,8 @@ const divisions = [
   {
     img: images.exploration,
     title: "Geological & Exploration Services",
+    description:
+      "From first-pass mapping to resource definition, Geofields supports mineral exploration programmes with sampling, surveying and geological interpretation across Tanzania.",
     capabilities: [
       "Geological Mapping",
       "Mineral Exploration",
@@ -55,6 +64,7 @@ function DivisionsPage() {
         title="Three integrated capabilities. One trusted partner."
         subtitle="From surface exploration to underground development, our divisions work together to deliver full-service mining and industrial solutions across Africa."
         image={images.drilling}
+        imageAlt="Geofields diamond drilling operations in Tanzania"
       />
 
       <section className="section-y bg-background">

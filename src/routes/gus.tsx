@@ -3,19 +3,28 @@ import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { HiOutlineArrowRight, HiOutlineCheck } from "react-icons/hi";
 import { images } from "@/lib/image-assets";
+import { breadcrumbSchema, pageHead, serviceSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/gus")({
-  head: () => ({
-    meta: [
-      { title: "Underground Support (GUS) — Geofields Tanzania Limited" },
-      {
-        name: "description",
-        content:
-          "Geofields Underground Support delivers ground support, rock bolting, mine development, underground logistics and emergency response for African mines.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "/gus" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Underground Support (GUS) | Geofields Tanzania Limited",
+      description:
+        "Geofields Underground Support (GUS) provides ground support, rock bolting, mine development, underground logistics and emergency response for mines in Tanzania and Africa.",
+      path: "/gus",
+      jsonLd: [
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Underground Support", path: "/gus" },
+        ]),
+        serviceSchema({
+          name: "Geofields Underground Support (GUS)",
+          description:
+            "Ground support, rock bolting, mine development, underground logistics and emergency response for African underground mines.",
+          path: "/gus",
+        }),
+      ],
+    }),
   component: GusPage,
 });
 
@@ -43,6 +52,7 @@ function GusPage() {
         title="Underground expertise, engineered for African mines."
         subtitle="GUS delivers integrated ground support, mine development and underground logistics — with the discipline and equipment that keep production moving safely."
         image={images.underground}
+        imageAlt="Underground mining support operations by Geofields GUS"
       >
         <div className="mt-10 flex flex-wrap gap-4">
           <Link to="/request-quote" className="btn-primary">

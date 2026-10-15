@@ -17,27 +17,31 @@ import {
   HiOutlineGlobeAlt,
   HiOutlineStar,
 } from "react-icons/hi";
-import { FaHardHat, FaMountain, FaTruckMoving, FaTools } from "react-icons/fa";
+import { FaHardHat, FaMountain } from "react-icons/fa";
 import { Reveal } from "@/components/Reveal";
 import { HeroVideo } from "@/components/HeroVideo";
 import { fleetData } from "@/data/fleetData";
-import heroPoster from "@/assets/home-hero-poster.jpg.asset.json";
+import { faqs } from "@/data/faqs";
 import { images } from "@/lib/image-assets";
 import { OptimizedImage } from "@/components/OptimizedImage";
+import { FaqSection } from "@/components/FaqSection";
+import { breadcrumbSchema, faqSchema, pageHead } from "@/lib/seo";
+
+const homeSeo = pageHead({
+  title: "Geofields Tanzania Limited — Engineering the Future of Mining",
+  description:
+    "Diamond core, RC and auger drilling, geological exploration, underground support and mining services from Dar es Salaam across Tanzania and Africa.",
+  path: "/",
+  image: "/images/home-hero-poster.jpg",
+  imageAlt: "Geofields Tanzania Limited drilling operations in Tanzania",
+  jsonLd: [breadcrumbSchema([{ name: "Home", path: "/" }]), faqSchema([...faqs])],
+});
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "Geofields Tanzania Limited — Engineering the Future of Mining" },
-      {
-        name: "description",
-        content:
-          "Integrated drilling, exploration, underground support and mining supplies across Tanzania and Africa. Safety, precision and reliability at scale.",
-      },
-      { property: "og:image", content: heroPoster.url },
-    ],
+    ...homeSeo,
     links: [
-      { rel: "canonical", href: "/" },
+      ...homeSeo.links,
       {
         rel: "preload",
         as: "image",
@@ -47,25 +51,6 @@ export const Route = createFileRoute("/")({
         imageSrcSet:
           "/optimized/home-hero-poster-480.avif 480w, /optimized/home-hero-poster-768.avif 768w, /optimized/home-hero-poster-1280.avif 1280w, /optimized/home-hero-poster-1920.avif 1920w",
         imageSizes: "100vw",
-      },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Geofields Tanzania Limited",
-          url: "/",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Mwai Kibaki Road, Mbezi Beach, P.O Box 76387",
-            addressLocality: "Dar es Salaam",
-            addressCountry: "TZ",
-          },
-          telephone: ["+255766775255", "+255755284141"],
-          email: ["info@geofields.co.tz", "sales@geofields.co.tz"],
-        }),
       },
     ],
   }),
@@ -144,6 +129,7 @@ function HomePage() {
       <ValuesSection />
       <ProjectsPreview />
       <Testimonials />
+      <FaqSection />
       <CTASection />
     </>
   );

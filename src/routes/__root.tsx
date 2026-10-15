@@ -12,8 +12,19 @@ import { Layout } from "@/components/Layout";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { jsonLdScript, organizationSchema, websiteSchema } from "@/lib/seo";
+import { SITE } from "@/lib/site";
 
 function NotFoundComponent() {
+  useEffect(() => {
+    document.title = `Page not found — ${SITE.name}`;
+    const robots = document.createElement("meta");
+    robots.name = "robots";
+    robots.content = "noindex, nofollow";
+    document.head.appendChild(robots);
+    return () => robots.remove();
+  }, []);
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -78,30 +89,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Geofields Tanzania Limited — Drilling, Exploration & Mining Services" },
-      {
-        name: "description",
-        content:
-          "Geofields Tanzania Limited delivers world-class drilling, exploration, underground support and integrated mining services across Tanzania and Africa.",
-      },
+      { title: `${SITE.name} — ${SITE.tagline}` },
+      { name: "description", content: SITE.description },
       { name: "theme-color", content: "#D97A2C" },
-      { property: "og:site_name", content: "Geofields Tanzania Limited" },
-      {
-        property: "og:title",
-        content: "Geofields Tanzania Limited — Engineering the Future of Mining",
-      },
-      {
-        property: "og:description",
-        content:
-          "Integrated drilling, exploration, underground support and mining supplies across Africa. Safety, precision and reliability at scale.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "format-detection", content: "telephone=no" },
+      { name: "application-name", content: SITE.shortName },
+      { name: "apple-mobile-web-app-title", content: SITE.shortName },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
       { rel: "apple-touch-icon", sizes: "192x192", href: "/favicon-192.png" },
+      { rel: "manifest", href: "/site.webmanifest" },
+      { rel: "alternate", type: "text/plain", href: "/llms.txt", title: "LLM brief" },
       {
         rel: "preload",
         as: "image",
@@ -115,6 +115,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap",
       },
     ],
+    scripts: [jsonLdScript(organizationSchema()), jsonLdScript(websiteSchema())],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -124,7 +125,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-TZ">
       <head>
         <HeadContent />
       </head>

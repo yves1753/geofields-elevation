@@ -1,0 +1,23 @@
+# Geofields Tanzania Limited
+
+> Integrated diamond core, reverse circulation and auger drilling, geological exploration, underground support, mining supplies and mining services for Tanzania and Africa.
+
+Geofields Tanzania Limited is a Dar es Salaam–based mining services company. Head office: Mwai Kibaki Road, Mbezi Beach, P.O Box 76387, Dar es Salaam, Tanzania. Phone: +255 766 775 255 and +255 755 284 141. Email: info@geofields.co.tz and sales@geofields.co.tz. WhatsApp: https://wa.me/255766775255
+
+## Pages
+
+- [Home](https://geofields.co.tz/): Company overview, services, fleet highlights and contact
+- [About](https://geofields.co.tz/about): Vision, mission, values and history
+- [Services](https://geofields.co.tz/divisions): Drilling, geological exploration and mining services
+- [Underground Support (GUS)](https://geofields.co.tz/gus): Ground support, rock bolting and mine development
+- [Drilling Fleet](https://geofields.co.tz/fleet): Diamond core, RC and auger rigs, including 1,600 m capability
+- [Projects](https://geofields.co.tz/projects): Gold, nickel, lithium and limestone programmes across Tanzania
+- [Safety & HSE](https://geofields.co.tz/safety): ISO 9001, ISO 45001 and ISO 14001 aligned zero-harm practice
+- [Community](https://geofields.co.tz/community): Local engagement and social investment
+- [Request a Quote](https://geofields.co.tz/request-quote): Sales enquiries and project quotations
+
+## Optional
+
+- [Full company brief](https://geofields.co.tz/llms-full.txt): Extended facts for citations
+- [MCP](https://geofields.co.tz/mcp): Machine-readable tools for assistants (`get_company_info`, `list_divisions`, `get_contact`, `list_projects`, `get_fleet`)
+- [Sitemap](https://geofields.co.tz/sitemap.xml)

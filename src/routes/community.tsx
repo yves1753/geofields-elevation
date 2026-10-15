@@ -4,19 +4,24 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CommunityInitiativesGrid } from "@/components/community/CommunityInitiativesGrid";
 import { images } from "@/lib/image-assets";
+import { breadcrumbSchema, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/community")({
-  head: () => ({
-    meta: [
-      { title: "Community | Geofields Tanzania Limited" },
-      {
-        name: "description",
-        content:
-          "Discover how Geofields Tanzania Limited works alongside communities surrounding its exploration, drilling and mining operations across Tanzania.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "/community" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Community Impact | Geofields Tanzania Limited",
+      description:
+        "How Geofields Tanzania Limited invests in education, water access and local partnerships around its drilling and mining operations across Tanzania.",
+      path: "/community",
+      image: "/images/community/community-hero.jpg",
+      imageAlt: "Geofields community engagement in Tanzania",
+      jsonLd: [
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Community", path: "/community" },
+        ]),
+      ],
+    }),
   component: CommunityPage,
 });
 
@@ -28,6 +33,7 @@ function CommunityPage() {
         title="Building Beyond the Project"
         subtitle="At Geofields Tanzania Limited, our responsibility extends beyond exploration, drilling and mining operations. Wherever we operate, we aim to create a positive and lasting contribution to the communities that host our projects."
         image={images.communityHero}
+        imageAlt="Geofields Tanzania Limited community engagement near a project site"
       />
 
       <section className="section-y bg-background">

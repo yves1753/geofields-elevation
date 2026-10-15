@@ -4,33 +4,32 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Expand, MapPin, X } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { images } from "@/lib/image-assets";
+import { projects, type Project } from "@/data/projects";
+import { breadcrumbSchema, itemListSchema, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/projects")({
-  head: () => ({
-    meta: [
-      { title: "Projects Across Tanzania — Geofields Tanzania Limited" },
-      {
-        name: "description",
-        content:
-          "Explore Geofields Tanzania Limited's drilling, exploration and mining project portfolio across Tanzania.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "/projects" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Mining Projects Across Tanzania | Geofields Tanzania Limited",
+      description:
+        "Gold, nickel, lithium and limestone drilling and exploration programmes delivered by Geofields Tanzania Limited in Geita, Tanga, Kagera, Singida, Dodoma and Morogoro.",
+      path: "/projects",
+      jsonLd: [
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Projects", path: "/projects" },
+        ]),
+        itemListSchema(
+          "Geofields projects in Tanzania",
+          projects.map((project) => ({
+            name: project.name,
+            description: `${project.mineral} ${project.status.toLowerCase()} project in ${project.location ?? `${project.region}, Tanzania`}.`,
+          })),
+        ),
+      ],
+    }),
   component: ProjectsPage,
 });
-
-type Project = {
-  id: string;
-  name: string;
-  region: string;
-  location?: string;
-  mineral: "Lithium" | "Nickel" | "Gold" | "Limestone";
-  status: "Completed" | "Partnership";
-  partner?: string;
-  x: number;
-  y: number;
-};
 
 const colors = {
   Lithium: "#f58220",
@@ -38,87 +37,6 @@ const colors = {
   Gold: "#f5c44e",
   Limestone: "#4d9fca",
 };
-
-const projects: Project[] = [
-  {
-    id: "kibare",
-    name: "Kibare",
-    region: "Kagera",
-    mineral: "Nickel",
-    status: "Completed",
-    x: 140,
-    y: 77,
-  },
-  {
-    id: "kabanga",
-    name: "Kabanga",
-    region: "Kagera",
-    mineral: "Lithium",
-    status: "Partnership",
-    x: 108,
-    y: 121,
-  },
-  {
-    id: "geita",
-    name: "Geita Gold Project",
-    region: "Geita",
-    mineral: "Gold",
-    status: "Completed",
-    partner: "African Underground Mining Services (AUMS)",
-    x: 165,
-    y: 121,
-  },
-  {
-    id: "ikungi",
-    name: "Ikungi",
-    region: "Singida",
-    mineral: "Lithium",
-    status: "Completed",
-    partner: "Tanzania Lithium",
-    x: 257,
-    y: 203,
-  },
-  {
-    id: "mahonga",
-    name: "Mahonga",
-    region: "Dodoma",
-    mineral: "Lithium",
-    status: "Completed",
-    x: 291,
-    y: 240,
-  },
-  {
-    id: "mkunazi",
-    name: "Mkunazi",
-    region: "Morogoro",
-    mineral: "Limestone",
-    status: "Completed",
-    partner: "Seeking Strategic Partner – Developing Limestone Project",
-    x: 361,
-    y: 266,
-  },
-  {
-    id: "manga",
-    name: "Manga Gold Project",
-    region: "Tanga",
-    mineral: "Gold",
-    status: "Partnership",
-    partner: "MSA",
-    x: 399,
-    y: 195,
-  },
-  {
-    id: "handeni",
-    name: "Handeni Gold Project",
-    region: "Tanga",
-    location: "Handeni, Tanga",
-    mineral: "Gold",
-    status: "Partnership",
-    partner: "EMG Pamoja Royalty",
-    x: 375,
-    y: 216,
-  },
-];
 
 const legend = [
   { type: "Lithium", text: "Exploration drilling and resource definition programs." },
@@ -329,6 +247,7 @@ function ProjectsPage() {
         title="Experience mapped across Tanzania."
         subtitle="Explore the locations, minerals and partnerships behind Geofields' nationwide project experience."
         image={images.heroMine}
+        imageAlt="Geofields mining and exploration projects across Tanzania"
       />
       <main className="relative overflow-hidden bg-[#111] text-white">
         <div

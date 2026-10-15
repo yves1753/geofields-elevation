@@ -7,19 +7,29 @@ import { FleetRigModal } from "@/components/fleet/FleetRigModal";
 import { fleetData, type FleetRig } from "@/data/fleetData";
 import { images } from "@/lib/image-assets";
 import { OptimizedImage } from "@/components/OptimizedImage";
+import { breadcrumbSchema, itemListSchema, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/fleet")({
-  head: () => ({
-    meta: [
-      { title: "Our Drilling Fleet — Geofields Tanzania Limited" },
-      {
-        name: "description",
-        content:
-          "Explore Geofields Tanzania Limited's fleet of 15 diamond core, reverse circulation and auger drilling rigs.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "/fleet" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Drilling Fleet | Diamond Core, RC & Auger Rigs — Geofields Tanzania",
+      description:
+        "Inspect Geofields Tanzania Limited's diamond core, reverse circulation and auger drilling fleet, including track-mounted and man-portable rigs with listed depths to 1,600 metres.",
+      path: "/fleet",
+      jsonLd: [
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Drilling Fleet", path: "/fleet" },
+        ]),
+        itemListSchema(
+          "Geofields drilling fleet",
+          fleetData.map((rig) => ({
+            name: rig.name,
+            description: `${rig.rigType} ${rig.drillingMethod} rig. Maximum listed depth: ${rig.maximumDrillDepth}.`,
+          })),
+        ),
+      ],
+    }),
   component: FleetPage,
 });
 

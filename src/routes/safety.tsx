@@ -10,19 +10,22 @@ import {
   HiOutlineDocumentText,
   HiOutlineFire,
 } from "react-icons/hi";
+import { breadcrumbSchema, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/safety")({
-  head: () => ({
-    meta: [
-      { title: "Safety & HSE — Geofields Tanzania Limited" },
-      {
-        name: "description",
-        content:
-          "Zero-harm safety systems, ISO 45001 and ISO 14001 aligned HSE practice, and environmental stewardship across every Geofields operation.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "/safety" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Safety & HSE | ISO 45001 and ISO 14001 — Geofields Tanzania",
+      description:
+        "Zero-harm safety at Geofields Tanzania Limited: ISO 9001, ISO 45001 and ISO 14001 aligned HSE systems, competency training and 1.2 million+ LTI-free man-hours.",
+      path: "/safety",
+      jsonLd: [
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Safety & HSE", path: "/safety" },
+        ]),
+      ],
+    }),
   component: SafetyPage,
 });
 
@@ -67,21 +70,27 @@ function SafetyPage() {
         title="Zero harm. Every crew. Every shift."
         subtitle="Our HSE management system is engineered around international best practice and independently audited."
         image={images.safetyPage}
+        imageAlt="Geofields Tanzania Limited health, safety and environment team on site"
       />
 
-      <section className="section-y bg-background">
-        <div className="container-x grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
-          {pillars.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.05}>
-              <div className="bg-background p-10 h-full hover-lift">
-                <div className="size-14 grid place-items-center bg-primary/10 text-primary">
-                  <p.icon className="size-7" />
+      <section className="section-y bg-background" aria-labelledby="hse-pillars">
+        <div className="container-x">
+          <h2 id="hse-pillars" className="mb-10 text-3xl md:text-4xl">
+            How we keep every crew and community safe
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+            {pillars.map((p, i) => (
+              <Reveal key={p.title} delay={i * 0.05}>
+                <div className="bg-background p-10 h-full hover-lift">
+                  <div className="size-14 grid place-items-center bg-primary/10 text-primary">
+                    <p.icon className="size-7" />
+                  </div>
+                  <h3 className="mt-6 text-xl">{p.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
                 </div>
-                <h3 className="mt-6 text-xl">{p.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
