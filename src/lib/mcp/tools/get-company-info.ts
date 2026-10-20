@@ -30,6 +30,7 @@ export default defineTool({
             email: [SITE.email.info, SITE.email.sales],
             whatsapp: SITE.whatsapp,
             linkedin: SITE.linkedin,
+            instagram: SITE.instagram,
             website: SITE_URL,
             hours: SITE.hours.display,
             services: SERVICES.map((service) => service.name),

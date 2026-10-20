@@ -10,7 +10,7 @@ import {
   HiOutlineClock,
   HiOutlineArrowRight,
 } from "react-icons/hi";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 import { images } from "@/lib/image-assets";
 import { pageHead } from "@/lib/seo";
 import { SITE } from "@/lib/site";
@@ -182,6 +182,14 @@ export function ContactPage() {
                   className="btn-primary"
                 >
                   <FaWhatsapp /> WhatsApp
+                </a>
+                <a
+                  href={SITE.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
+                >
+                  <FaInstagram /> Instagram
                 </a>
                 <a href={`tel:${SITE.phone.primaryTel}`} className="btn-ghost">
                   Call Now

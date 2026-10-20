@@ -30,6 +30,7 @@ export const SITE = {
   },
   whatsapp: "https://wa.me/255766775255",
   linkedin: "https://www.linkedin.com/company/geofields-tanzania-limited/",
+  instagram: "https://www.instagram.com/geofieldstanzanialtd/",
   address: {
     street: "Mwai Kibaki Road, Mbezi Beach",
     poBox: "P.O Box 76387",

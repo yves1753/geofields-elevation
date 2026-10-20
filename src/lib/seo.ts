@@ -47,7 +47,7 @@ export function organizationSchema(): JsonLd {
     description: SITE.description,
     email: [SITE.email.info, SITE.email.sales],
     telephone: [SITE.phone.primary, SITE.phone.secondary],
-    sameAs: [SITE.linkedin],
+    sameAs: [SITE.linkedin, SITE.instagram],
     address: {
       "@type": "PostalAddress",
       streetAddress: `${SITE.address.street}, ${SITE.address.poBox}`,

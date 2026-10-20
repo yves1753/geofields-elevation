@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { FaWhatsapp, FaLinkedin } from "react-icons/fa";
+import { FaWhatsapp, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi";
 import { Logo } from "./Logo";
 import { SITE } from "@/lib/site";
@@ -34,6 +34,15 @@ export function Footer() {
               className="size-10 grid place-items-center border border-white/15 hover:bg-primary hover:border-primary transition"
             >
               <FaLinkedin />
+            </a>
+            <a
+              href={SITE.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Geofields Tanzania Limited on Instagram"
+              className="size-10 grid place-items-center border border-white/15 hover:bg-primary hover:border-primary transition"
+            >
+              <FaInstagram />
             </a>
           </div>
         </div>
