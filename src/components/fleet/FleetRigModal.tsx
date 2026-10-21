@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import {
   Dialog,
   DialogContent,
@@ -61,12 +62,9 @@ export function FleetRigModal({ rig, onClose }: { rig: FleetRig | null; onClose:
               </div>
             )}
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <a
-                href="mailto:sales@geofields.co.tz?subject=Equipment%20information%20request"
-                className="btn-primary justify-center"
-              >
+              <Link to="/request-quote" className="btn-primary justify-center">
                 Request Equipment Information
-              </a>
+              </Link>
               <a
                 href="https://wa.me/255766775255"
                 target="_blank"

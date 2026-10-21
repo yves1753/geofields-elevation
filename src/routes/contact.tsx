@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { quoteServices, type QuoteInput } from "@/lib/quote";
 import {
   HiOutlineMail,
   HiOutlinePhone,
@@ -30,31 +31,43 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-type FormValues = {
-  name: string;
-  company: string;
-  email: string;
-  phone: string;
-  service: string;
-  message: string;
-};
+type FormValues = QuoteInput;
 
 export function ContactPage() {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
-  } = useForm<FormValues>();
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({
+    defaultValues: {
+      service: "Drilling Services",
+      website: "",
+    },
+  });
   const [sent, setSent] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const onSubmit = (data: FormValues) => {
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nCompany: ${data.company}\nEmail: ${data.email}\nPhone: ${data.phone}\nService: ${data.service}\n\n${data.message}`,
-    );
-    window.location.href = `mailto:${SITE.email.sales}?subject=Quotation%20Request%20from%20${encodeURIComponent(data.name)}&body=${body}`;
-    setSent(true);
-    reset();
+  const onSubmit = async (data: FormValues) => {
+    setSent(false);
+    setSubmitError(null);
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const payload = (await response.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+      if (!response.ok || !payload?.ok) {
+        throw new Error(payload?.error || "Send failed");
+      }
+      setSent(true);
+      reset({ service: "Drilling Services", website: "" });
+    } catch {
+      setSubmitError(
+        `We could not send your enquiry automatically. Please email ${SITE.email.sales} or call ${SITE.phone.primary}.`,
+      );
+    }
   };
 
   return (
@@ -79,6 +92,14 @@ export function ContactPage() {
             </p>
 
             <form onSubmit={handleSubmit(onSubmit)} className="mt-10 grid sm:grid-cols-2 gap-5">
+              <input
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+                {...register("website")}
+              />
               <Field label="Full Name" error={errors.name?.message}>
                 <input
                   {...register("name", { required: "Required" })}
@@ -112,12 +133,11 @@ export function ContactPage() {
               </Field>
               <Field label="Service Required" className="sm:col-span-2">
                 <select {...register("service")} className="input">
-                  <option>Drilling Services</option>
-                  <option>Geological & Exploration</option>
-                  <option>Mining Supplies</option>
-                  <option>Mining Services</option>
-                  <option>Underground Support (GUS)</option>
-                  <option>Other</option>
+                  {quoteServices.map((service) => (
+                    <option key={service} value={service}>
+                      {service}
+                    </option>
+                  ))}
                 </select>
               </Field>
               <Field label="Project Details" className="sm:col-span-2">
@@ -128,14 +148,17 @@ export function ContactPage() {
                 />
               </Field>
               <div className="sm:col-span-2 flex items-center justify-between gap-4 flex-wrap">
-                <button type="submit" className="btn-primary">
-                  Submit Enquiry <HiOutlineArrowRight />
+                <button type="submit" className="btn-primary" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending…" : "Submit Enquiry"}
+                  {!isSubmitting && <HiOutlineArrowRight />}
                 </button>
                 {sent && (
                   <span className="text-sm text-green-700">
-                    Thank you — opening your mail client…
+                    Thank you — your enquiry was sent to {SITE.email.sales}. We will reply within
+                    one business day.
                   </span>
                 )}
+                {submitError && <span className="text-sm text-destructive">{submitError}</span>}
               </div>
             </form>
           </Reveal>

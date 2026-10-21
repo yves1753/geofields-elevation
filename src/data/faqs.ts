@@ -12,7 +12,7 @@ export const faqs = [
   {
     question: "How do I request a drilling or underground support quotation?",
     answer:
-      "Submit a project brief on the Request a Quote page, email sales@geofields.co.tz, call +255 766 775 255, or message WhatsApp. The operations team aims to reply within one business day with a scoped proposal.",
+      "Submit a project brief on the Request a Quote page. It is emailed to sales@geofields.co.tz with a copy to info@geofields.co.tz. You can also call +255 766 775 255 or message WhatsApp. The operations team aims to reply within one business day with a scoped proposal.",
   },
   {
     question: "What drilling methods and depths can the Geofields fleet cover?",
