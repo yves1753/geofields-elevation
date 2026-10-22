@@ -9,14 +9,38 @@ export const quoteServices = [
   "Other",
 ] as const;
 
+const noHeaderBreaks = (value: string) => !/[\r\n\0]/.test(value);
+
+const oneLine = (max: number) =>
+  z
+    .string()
+    .trim()
+    .min(1, "Required")
+    .max(max)
+    .refine(noHeaderBreaks, "Invalid characters")
+    .transform((value) => value.replace(/[<>]/g, ""));
+
 export const quoteSchema = z.object({
-  name: z.string().trim().min(1, "Required").max(120),
-  company: z.string().trim().min(1, "Required").max(160),
-  email: z.email("Enter a valid email").max(160),
-  phone: z.string().trim().min(5, "Required").max(40),
+  name: oneLine(120),
+  company: oneLine(160),
+  email: z
+    .email("Enter a valid email")
+    .max(160)
+    .refine(noHeaderBreaks, "Invalid characters"),
+  phone: z
+    .string()
+    .trim()
+    .min(5, "Required")
+    .max(40)
+    .regex(/^[+0-9() .\-]+$/, "Enter a valid phone number"),
   service: z.enum(quoteServices),
-  message: z.string().trim().min(1, "Required").max(4000),
-  website: z.string().optional(),
+  message: z
+    .string()
+    .trim()
+    .min(1, "Required")
+    .max(4000)
+    .transform((value) => value.replace(/[\0\u0001-\u0008\u000B\u000C\u000E-\u001F]/g, "")),
+  website: z.string().max(200).optional(),
 });
 
 export type QuoteInput = z.infer<typeof quoteSchema>;

@@ -54,7 +54,8 @@ export function ContactPage() {
     try {
       const response = await fetch("/api/quote", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(data),
       });
       const payload = (await response.json().catch(() => null)) as { ok?: boolean; error?: string } | null;

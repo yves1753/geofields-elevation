@@ -1,6 +1,10 @@
 import { SITE } from "@/lib/site";
 import type { QuoteInput } from "@/lib/quote";
 
+function oneLine(value: string) {
+  return value.replace(/[\r\n\0]+/g, " ").trim();
+}
+
 function escapeHtml(value: string) {
   return value.replace(/[&<>"']/g, (char) => {
     const map: Record<string, string> = {
@@ -65,7 +69,7 @@ async function sendWithResend(data: QuoteInput, apiKey: string) {
       to: [SITE.email.sales],
       cc: [SITE.email.info],
       reply_to: data.email,
-      subject: `Website quotation request from ${data.name} (${data.company})`,
+      subject: `Website quotation request from ${oneLine(data.name)} (${oneLine(data.company)})`,
       text: quoteText(data),
       html: quoteHtml(data),
     }),
@@ -94,7 +98,7 @@ async function sendWithFormSubmit(data: QuoteInput) {
       message: data.message,
       _replyto: data.email,
       _cc: SITE.email.info,
-      _subject: `Website quotation request from ${data.name} (${data.company})`,
+      _subject: `Website quotation request from ${oneLine(data.name)} (${oneLine(data.company)})`,
       _template: "table",
       _captcha: "false",
       source: `${SITE.url}/request-quote`,
