@@ -108,6 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "/logos/geofields-logo.webp",
         type: "image/webp",
       },
+      { rel: "preconnect", href: "https://news.google.com" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -115,7 +116,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap",
       },
     ],
-    scripts: [jsonLdScript(organizationSchema()), jsonLdScript(websiteSchema())],
+    scripts: [
+      { src: SITE.preferredSources.script, async: true },
+      jsonLdScript(organizationSchema()),
+      jsonLdScript(websiteSchema()),
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,

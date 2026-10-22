@@ -5,13 +5,13 @@ export const CONTENT_SECURITY_POLICY = [
   "form-action 'self'",
   "frame-ancestors 'none'",
   "object-src 'none'",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://news.google.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com data:",
   "img-src 'self' data: blob:",
   "media-src 'self'",
-  "connect-src 'self'",
-  "frame-src https://www.google.com https://maps.google.com",
+  "connect-src 'self' https://news.google.com",
+  "frame-src https://www.google.com https://maps.google.com https://news.google.com",
   "upgrade-insecure-requests",
 ].join("; ");
 
