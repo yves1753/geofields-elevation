@@ -484,14 +484,14 @@ function SafetySection() {
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
             Our HSE management system is engineered around international best practice and audited
-            to the ISO 45001 and ISO 14001 standards. Every crew, every site, every shift — safety
-            comes first, without compromise.
+            to the ISO 9001, ISO 45001 and ISO 14001 standards. Every crew, every site, every shift —
+            safety comes first, without compromise.
           </p>
           <div className="mt-10 grid grid-cols-3 gap-6">
             {[
               { v: "1.2M+", l: "LTI-Free Man-hours" },
               { v: "100%", l: "PPE Compliance" },
-              { v: "ISO", l: "45001 · 14001" },
+              { v: "ISO", l: "9001 · 45001 · 14001" },
             ].map((s) => (
               <div key={s.l} className="border-l-2 border-primary pl-4">
                 <div className="font-display text-3xl">{s.v}</div>
