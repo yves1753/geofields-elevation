@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { FaWhatsapp, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi";
 import { Logo } from "./Logo";
-import { PreferredSourceBadge } from "./PreferredSourceBadge";
 import { SITE } from "@/lib/site";
 
 export function Footer() {
@@ -45,9 +44,6 @@ export function Footer() {
             >
               <FaInstagram />
             </a>
-          </div>
-          <div className="mt-8">
-            <PreferredSourceBadge theme="dark" />
           </div>
         </div>
 
