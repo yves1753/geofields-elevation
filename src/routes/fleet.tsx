@@ -14,7 +14,7 @@ export const Route = createFileRoute("/fleet")({
     pageHead({
       title: "Drilling Fleet | Diamond Core, RC & Auger Rigs — Geofields Tanzania",
       description:
-        "Inspect Geofields Tanzania Limited's diamond core, reverse circulation and auger drilling fleet, including track-mounted and man-portable rigs with listed depths to 1,600 metres.",
+        "Inspect Geofields Tanzania Limited's diamond core, reverse circulation and auger drilling fleet, including track-mounted and man-portable rigs with listed depths to 2,000 metres.",
       path: "/fleet",
       jsonLd: [
         breadcrumbSchema([
@@ -140,7 +140,7 @@ function FleetPage() {
       <section className="bg-[#111] text-white">
         <div className="container-x py-12 grid grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            ["1,600 m", "Maximum Listed Drilling Depth"],
+            ["2,000 m", "Maximum Listed Drilling Depth"],
             ["Multiple", "Drilling Configurations"],
             ["Nationwide", "Operational Capability"],
           ].map(([v, l]) => (
@@ -260,8 +260,8 @@ function FleetPage() {
           <span className="eyebrow">All equipment</span>
           <h2 className="mt-4 text-4xl">Complete Fleet Inventory</h2>
           <p className="mt-4 text-muted-foreground">
-            Geofields Tanzania Limited currently maintains a total fleet of 15 drilling rigs across
-            multiple drilling configurations.
+            Geofields Tanzania Limited currently maintains a total fleet of {fleetData.length}{" "}
+            drilling rigs across multiple drilling configurations.
           </p>
           <div className="mt-10 overflow-x-auto rounded-xl border border-border bg-background">
             <table className="w-full min-w-[760px] text-sm">
@@ -308,7 +308,9 @@ function FleetPage() {
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">Showing {results.length} of 15 rigs</p>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Showing {results.length} of {fleetData.length} rigs
+          </p>
         </div>
       </section>
       <section className="section-y bg-[#111] text-white">

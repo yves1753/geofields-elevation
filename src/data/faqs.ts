@@ -17,7 +17,7 @@ export const faqs = [
   {
     question: "What drilling methods and depths can the Geofields fleet cover?",
     answer:
-      "The fleet includes track-mounted and man-portable diamond core rigs, reverse circulation rigs and an auger rig, with listed diamond-core capability to 1,600 metres using PQ, HQ and NQ hole sizes.",
+      "The fleet includes track-mounted and man-portable diamond core rigs, reverse circulation rigs and an auger rig, with listed diamond-core capability to 2,000 metres using PQ, HQ and NQ hole sizes.",
   },
   {
     question: "Does Geofields work on gold, nickel and lithium projects in Tanzania?",

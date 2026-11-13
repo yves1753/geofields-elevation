@@ -19,7 +19,6 @@ const fields: [keyof FleetRig, string][] = [
   ["pulldownCapacity", "Pulldown Capacity"],
   ["rotationSpeed", "Rotation Speed"],
   ["drillAngle", "Drill Angle"],
-  ["dimensions", "Dimensions"],
 ];
 
 export function FleetRigModal({ rig, onClose }: { rig: FleetRig | null; onClose: () => void }) {

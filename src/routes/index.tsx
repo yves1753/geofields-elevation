@@ -378,7 +378,7 @@ function Divisions() {
 }
 
 function FleetSection() {
-  const homepageRigIds = ["ZQ-1600-006", "MP1000-002", "MP800-ZQ800-004", "ZQ-1600C-010"];
+  const homepageRigIds = ["ZQ-2000", "MP1000-002", "MP800-ZQ800-004", "ZQ-1600C-010"];
   const homepageRigs = homepageRigIds
     .map((id) => fleetData.find((rig) => rig.id === id))
     .filter((rig): rig is (typeof fleetData)[number] => Boolean(rig));
@@ -408,7 +408,8 @@ function FleetSection() {
             </Reveal>
           </div>
           <p className="text-white/60 max-w-xl leading-relaxed">
-            Explore selected rigs from Geofields Tanzania Limited's fleet of 15 drilling units,
+            Explore selected rigs from Geofields Tanzania Limited's fleet of {fleetData.length}{" "}
+            drilling units,
             supporting deep diamond core drilling, mineral exploration and mining operations across
             challenging ground conditions.
           </p>
@@ -463,7 +464,7 @@ function FleetSection() {
             available drilling configurations.
           </p>
           <Link to="/fleet" className="btn-primary mt-6">
-            Explore All 15 Rigs <HiOutlineArrowRight />
+            Explore All {fleetData.length} Rigs <HiOutlineArrowRight />
           </Link>
         </div>
       </div>

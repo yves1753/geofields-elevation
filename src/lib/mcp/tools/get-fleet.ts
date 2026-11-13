@@ -29,7 +29,7 @@ export default defineTool({
               website: `${SITE_URL}/fleet`,
               count: rigs.length,
               methods: [...new Set(fleetData.map((rig) => rig.drillingMethod))],
-              maximumListedDepth: "1,600 m",
+              maximumListedDepth: "2,000 m",
               rigs,
             },
             null,

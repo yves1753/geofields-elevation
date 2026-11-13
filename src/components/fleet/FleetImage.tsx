@@ -32,6 +32,11 @@ export function FleetImage({ src, alt, className = "", priority = false }: Fleet
       </div>
     );
 
+  const markLoaded = () => {
+    decodedFleetImages.add(src);
+    setLoaded(true);
+  };
+
   return (
     <img
       src={src}
@@ -43,9 +48,9 @@ export function FleetImage({ src, alt, className = "", priority = false }: Fleet
       width={1200}
       height={800}
       onError={() => setFailed(true)}
-      onLoad={() => {
-        decodedFleetImages.add(src);
-        setLoaded(true);
+      onLoad={markLoaded}
+      ref={(node) => {
+        if (node?.complete && node.naturalWidth > 0) markLoaded();
       }}
     />
   );

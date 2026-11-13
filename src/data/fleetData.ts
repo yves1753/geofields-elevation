@@ -13,7 +13,6 @@ export interface FleetRig {
   pulldownCapacity: string;
   rotationSpeed: string;
   drillAngle: string;
-  dimensions: string;
   status: "Available" | "Deployed" | "Maintenance" | "To be confirmed";
   featured: boolean;
   specificationsComplete: boolean;
@@ -57,7 +56,6 @@ const diamondRig = (
   pulldownCapacity: pulldown,
   rotationSpeed: rotation,
   drillAngle: angle,
-  dimensions: pending,
   status: pending,
   featured,
   specificationsComplete: true,
@@ -86,7 +84,6 @@ const incompleteRig = (
   pulldownCapacity: pending,
   rotationSpeed: pending,
   drillAngle: pending,
-  dimensions: pending,
   status: pending,
   featured: false,
   specificationsComplete: false,
@@ -95,6 +92,18 @@ const incompleteRig = (
 });
 
 export const fleetData: FleetRig[] = [
+  diamondRig(
+    "ZQ-2000",
+    "ZQ 2000",
+    "/fleet/zq-2000.webp",
+    "Track Mounted",
+    "2,000 m",
+    "260 HP",
+    "30 tonnes",
+    "15 tonnes",
+    "1,400 RPM",
+    "45°–90°",
+  ),
   diamondRig(
     "ZQ-1600-006",
     "ZQ 1600-006",
