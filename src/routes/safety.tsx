@@ -95,9 +95,8 @@ function SafetyPage() {
       </section>
 
       <section className="section-y bg-[oklch(0.14_0.005_60)] text-white">
-        <div className="container-x grid md:grid-cols-4 gap-8 text-center md:text-left">
+        <div className="container-x grid md:grid-cols-3 gap-8 text-center md:text-left">
           {[
-            { v: "1.2M+", l: "LTI-Free Man-hours" },
             { v: "ISO 9001", l: "Quality Management System" },
             { v: "ISO 45001", l: "Health and Safety Management System" },
             { v: "ISO 14001", l: "Environmental Management System" },

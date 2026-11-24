@@ -1,7 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
-import { HiOutlineArrowRight, HiOutlineCheck } from "react-icons/hi";
+import { HiOutlineCheck } from "react-icons/hi";
 import { images } from "@/lib/image-assets";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { breadcrumbSchema, pageHead, serviceSchema } from "@/lib/seo";
@@ -61,7 +61,7 @@ function DivisionsPage() {
     <>
       <PageHero
         eyebrow="Business Divisions"
-        title="Three integrated capabilities. One trusted partner."
+        title="Integrated mining capabilities across mining value chain"
         subtitle="From surface exploration to underground development, our divisions work together to deliver full-service mining and industrial solutions across Africa."
         image={images.drilling}
         imageAlt="Geofields diamond drilling operations in Tanzania"
@@ -96,11 +96,6 @@ function DivisionsPage() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-10 flex gap-4">
-                    <Link to="/request-quote" className="btn-primary">
-                      Request Quote <HiOutlineArrowRight />
-                    </Link>
-                  </div>
                 </div>
               </div>
             </Reveal>

@@ -69,9 +69,8 @@ export function LoadingScreen() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white p-5 rounded-sm"
           >
-            <Logo className="h-12 w-auto" />
+            <Logo className="h-auto w-[240px] md:w-[280px]" />
           </motion.div>
 
           <div className="w-64 mt-10 h-[2px] bg-white/10 overflow-hidden">

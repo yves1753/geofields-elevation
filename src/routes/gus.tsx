@@ -38,10 +38,10 @@ const services = [
 
 
 const reasons = [
-  { title: "Specialist Crews", desc: "Certified, drilled and site-hardened underground teams." },
-  { title: "Modern Equipment", desc: "Underground rigs, bolters and loaders from tier-1 OEMs." },
-  { title: "Zero-Harm Culture", desc: "Rigorous safety systems audited to ISO 45001." },
-  { title: "24/7 Availability", desc: "On-call emergency response and technical support." },
+  "Manufacturing of underground ground support wire mesh.",
+  "Supply of rock bolts, cable bolts, and associated accessories.",
+  "Supply of ground support installation tools and equipment.",
+  "Procurement and distribution of underground mining consumables.",
 ];
 
 function GusPage() {
@@ -50,9 +50,9 @@ function GusPage() {
       <PageHero
         eyebrow="GEOFIELDS UNDERGROUND SUPPORT"
         title="Underground expertise, engineered for African mines."
-        subtitle="GUS delivers integrated ground support, mine development and underground logistics — with the discipline and equipment that keep production moving safely."
-        image={images.underground}
-        imageAlt="Underground mining support operations by Geofields GUS"
+        subtitle="Geofields Underground Support (GUS) is a specialized division of Geofields Tanzania Limited (GTL), dedicated to the manufacturing and supply of high-quality underground mining ground support products, equipment, and consumables."
+        image={images.gusHero}
+        imageAlt="Geofields Underground Support team manufacturing underground reinforcement wire mesh"
       >
         <div className="mt-10 flex flex-wrap gap-4">
           <Link to="/request-quote" className="btn-primary">
@@ -74,26 +74,23 @@ function GusPage() {
               Purpose-built for the demands of underground mining.
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Geofields Underground Support (GUS) is our newest division, established to give our
-              clients a single, accountable partner for the full underground services stack — from
-              ground control engineering to logistics, maintenance and emergency response.
+              GUS operates a local manufacturing facility producing underground reinforcement wire
+              mesh and supplies a comprehensive range of ground support solutions designed to
+              enhance mine safety, operational efficiency, and productivity.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Every GUS engagement is led by an underground superintendent with decades of
-              experience on African mines, supported by trained crews, modern equipment and a HSE
-              system engineered around zero-harm.
+              Through local manufacturing, reliable procurement, and technical expertise, GUS
+              supports Tanzania's mining industry by reducing dependence on imports, improving
+              product availability, and promoting local content development.
             </p>
           </Reveal>
 
           <Reveal delay={0.15}>
             <div className="grid grid-cols-2 gap-px bg-border">
-              {reasons.map((r) => (
-                <div key={r.title} className="bg-background p-8">
-                  <div className="text-primary font-display text-3xl">
-                    0{reasons.indexOf(r) + 1}
-                  </div>
-                  <h3 className="mt-4 text-lg">{r.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
+              {reasons.map((r, i) => (
+                <div key={r} className="bg-background p-8">
+                  <div className="text-primary font-display text-3xl">0{i + 1}</div>
+                  <h3 className="mt-4 text-lg leading-snug">{r}</h3>
                 </div>
               ))}
             </div>
@@ -109,7 +106,7 @@ function GusPage() {
                 <span className="h-[1px] w-10 bg-primary" /> Capabilities
               </span>
               <h2 className="mt-5 text-4xl md:text-5xl leading-tight">
-                The full underground services stack.
+                The full underground services.
               </h2>
             </div>
           </Reveal>

@@ -14,7 +14,7 @@ export const SITE = {
   foundingLocation: "Dar es Salaam, Tanzania",
   areaServed: ["Tanzania", "East Africa", "Africa"],
   url: SITE_URL,
-  logo: "/logos/geofields-logo.webp",
+  logo: "/logos/geofields-wordmark.webp",
   ogImage: "/images/home-hero-poster.jpg",
   ogImageWidth: 1920,
   ogImageHeight: 1080,

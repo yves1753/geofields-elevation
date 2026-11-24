@@ -67,14 +67,14 @@ const divisions = [
   {
     icon: FaHardHat,
     title: "Drilling Services",
-    desc: "Diamond, RC, blast hole, water and core drilling delivered by certified crews and modern rigs.",
+    desc: "Exploration, Diamond drilling, RC drilling delivered by certified crews and modern rigs.",
     img: images.drilling,
     to: "/divisions",
   },
   {
     icon: FaMountain,
-    title: "Underground Mining Supplies",
-    desc: "Wire mesh, ground support, ventilation, piping and specialised consumables for safe underground operations.",
+    title: "Underground Mining Solutions",
+    desc: "Underground support tools, Wire mesh, Friction bolts, and specialised consumables for safe underground operations.",
     img: images.wireMesh,
     to: "/divisions",
   },
@@ -84,6 +84,13 @@ const divisions = [
     desc: "Production, grade control, blast hole and exploration drilling with integrated field support.",
     img: images.heroMine,
     to: "/divisions",
+  },
+  {
+    icon: FaMountain,
+    title: "Wire Mesh Manufacturing",
+    desc: "Local manufacturing of underground reinforcement wire mesh designed to enhance mine safety, operational efficiency and productivity.",
+    img: images.wireMeshManufacturing,
+    to: "/gus",
   },
 ];
 
@@ -127,7 +134,6 @@ function HomePage() {
       <FleetSection />
       <SafetySection />
       <ValuesSection />
-      <ProjectsPreview />
       <Testimonials />
       <FaqSection />
       <CTASection />
@@ -141,10 +147,10 @@ function PartnersSection() {
       <div className="container-x">
         <Reveal>
           <div className="max-w-3xl mx-auto text-center">
-            <span className="eyebrow justify-center">
-              <span className="h-[1px] w-10 bg-primary" /> Trusted By
+            <span className="eyebrow !text-2xl justify-center">
+              <span className="h-[1px] w-12 bg-primary" /> Trusted By
             </span>
-            <h2 className="mt-5 text-4xl md:text-5xl leading-tight">Partners & Affiliates</h2>
+            <h2 className="mt-5 text-4xl md:text-5xl leading-tight">Affiliates</h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               We collaborate with leading mining and exploration organisations across Africa to
               deliver safe, reliable and world-class drilling services.
@@ -155,7 +161,7 @@ function PartnersSection() {
           <div className="group mt-12 max-w-4xl mx-auto overflow-hidden rounded-sm bg-white p-4 md:p-8 transition-all duration-500 hover:shadow-card focus-within:shadow-card">
             <OptimizedImage
               asset={images.partners}
-              alt="Geofields partners and affiliates: African Underground Mining Services, EMG Pamoja Royalty Limited and MSA Mining Limited"
+              alt="Geofields affiliates: African Underground Mining Services, EMG Pamoja Royalty Limited, MSA Mining Ltd, Xtrata Mining and Zhiqiang"
               className="w-full h-auto grayscale opacity-60 transition-all duration-500 group-hover:scale-[1.02] group-hover:grayscale-0 group-hover:opacity-100 group-focus-within:scale-[1.02] group-focus-within:grayscale-0 group-focus-within:opacity-100"
               sizes="(min-width: 1024px) 896px, calc(100vw - 72px)"
             />
@@ -195,8 +201,8 @@ function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-8 text-white/75 text-lg md:text-xl max-w-2xl leading-relaxed"
         >
-          World-class drilling, exploration, underground support, geological services and integrated
-          mining solutions — delivered with safety, precision and unwavering reliability.
+          World class exploration, drilling, mining services and underground support solutions
+          delivered with safety, precision and unwavering reliability.
         </motion.p>
 
         <motion.div
@@ -276,10 +282,10 @@ function AboutPreview() {
               className="w-full aspect-[4/5] object-cover"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
-            <div className="absolute -bottom-8 -right-8 bg-primary text-primary-foreground p-8 max-w-xs shadow-elegant">
+            <div className="absolute -bottom-8 -right-8 bg-primary text-primary-foreground p-8 max-w-sm shadow-elegant">
               <div className="font-display text-5xl leading-none">18+</div>
-              <div className="mt-2 text-xs tracking-[0.2em] uppercase">
-                Years of Engineering Excellence
+              <div className="mt-2 text-xs tracking-[0.12em] uppercase leading-snug">
+                Years of Exploration Drilling and Mining Excellence
               </div>
             </div>
           </div>
@@ -289,7 +295,7 @@ function AboutPreview() {
             <span className="h-[1px] w-10 bg-primary" /> About Geofields
           </span>
           <h2 className="mt-5 text-4xl md:text-5xl leading-tight">
-            One of Africa's most trusted integrated mining service providers.
+            One of the most trusted integrated mining service providers.
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
             From our headquarters in Dar es Salaam, Geofields delivers the full spectrum of
@@ -341,12 +347,12 @@ function Divisions() {
               <span className="h-[1px] w-10 bg-primary" /> Business Divisions
             </span>
             <h2 className="mt-5 text-4xl md:text-5xl leading-tight">
-              Three integrated capabilities. One trusted partner.
+              Integrated mining capabilities across mining value chain
             </h2>
           </Reveal>
         </div>
 
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {divisions.map((d, i) => (
             <Reveal key={d.title} delay={i * 0.08}>
               <Link
@@ -378,21 +384,6 @@ function Divisions() {
 }
 
 function FleetSection() {
-  const homepageRigIds = ["ZQ-2000", "MP1000-002", "MP800-ZQ800-004", "ZQ-1600C-010"];
-  const homepageRigs = homepageRigIds
-    .map((id) => fleetData.find((rig) => rig.id === id))
-    .filter((rig): rig is (typeof fleetData)[number] => Boolean(rig));
-
-  const specifications = (rig: (typeof fleetData)[number]) => [
-    ["Maximum Depth", rig.maximumDrillDepth],
-    ["Hole Size", rig.holeSize],
-    ["Engine Power", rig.id === "MP1000-002" ? "132 HP + optional 44 HP" : rig.enginePower],
-    ["Pullback", rig.pullbackCapacity],
-    ["Pulldown", rig.pulldownCapacity],
-    ["Rotation Speed", rig.rotationSpeed],
-    ["Drill Angle", rig.drillAngle],
-  ];
-
   return (
     <section className="section-y bg-[oklch(0.14_0.005_60)] text-white relative overflow-hidden">
       <div className="container-x">
@@ -408,55 +399,22 @@ function FleetSection() {
             </Reveal>
           </div>
           <p className="text-white/60 max-w-xl leading-relaxed">
-            Explore selected rigs from Geofields Tanzania Limited's fleet of {fleetData.length}{" "}
-            drilling units,
+            Geofields Tanzania Limited operates a fleet of {fleetData.length} drilling units,
             supporting deep diamond core drilling, mineral exploration and mining operations across
             challenging ground conditions.
           </p>
         </div>
 
         <Reveal>
-          <div className="relative aspect-[16/8] md:aspect-[16/7] overflow-hidden rounded-xl mb-10">
+          <div className="relative aspect-[16/8] md:aspect-[16/7] overflow-hidden rounded-xl">
             <OptimizedImage
               asset={images.fleet}
-              alt="Geofields drilling fleet operating in demanding African terrain"
+              alt="Geofields mixed drilling fleet lined up on site"
               className="size-full object-cover"
               sizes="(min-width: 1360px) 1264px, (min-width: 768px) calc(100vw - 64px), calc(100vw - 40px)"
             />
           </div>
         </Reveal>
-
-        <div className="grid md:grid-cols-2 2xl:grid-cols-4 gap-5">
-          {homepageRigs.map((rig, i) => (
-            <Reveal key={rig.id} delay={i * 0.06} className="h-full">
-              <article className="relative flex h-full flex-col rounded-xl border border-white/10 bg-[#191919] p-6 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-2xl">
-                <span className="absolute inset-x-6 top-0 h-0.5 bg-primary" />
-                <div className="text-[11px] uppercase tracking-[0.22em] text-primary-glow">
-                  {rig.rigType}
-                </div>
-                <h3 className="mt-3 text-2xl text-white">{rig.name}</h3>
-                <p className="mt-2 text-sm text-white/60">{rig.drillingMethod}</p>
-                <dl className="mt-6 flex-1 border-t border-white/10 pt-5 space-y-3">
-                  {specifications(rig).map(([label, value]) => (
-                    <div
-                      key={label}
-                      className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-3 text-sm"
-                    >
-                      <dt className="text-white/45">{label}</dt>
-                      <dd className="text-right font-semibold text-white break-words">{value}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <Link
-                  to="/fleet"
-                  className="mt-7 inline-flex min-h-11 items-center gap-2 border-t border-white/10 pt-5 text-xs font-semibold uppercase tracking-[0.16em] text-primary-glow hover:text-white transition-colors"
-                >
-                  View Full Specifications <HiOutlineArrowRight />
-                </Link>
-              </article>
-            </Reveal>
-          ))}
-        </div>
 
         <div className="mt-12 text-center">
           <p className="mx-auto max-w-2xl text-sm leading-relaxed text-white/55">
@@ -477,8 +435,8 @@ function SafetySection() {
     <section className="section-y bg-surface">
       <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
         <Reveal>
-          <span className="eyebrow">
-            <span className="h-[1px] w-10 bg-primary" /> Safety & HSE
+          <span className="eyebrow !text-2xl">
+            <span className="h-[1px] w-12 bg-primary" /> HSE
           </span>
           <h2 className="mt-5 text-4xl md:text-5xl leading-tight">
             Zero harm is not a target. It is a standard.
@@ -488,9 +446,8 @@ function SafetySection() {
             to the ISO 9001, ISO 45001 and ISO 14001 standards. Every crew, every site, every shift —
             safety comes first, without compromise.
           </p>
-          <div className="mt-10 grid grid-cols-3 gap-6">
+          <div className="mt-10 grid grid-cols-2 gap-6">
             {[
-              { v: "1.2M+", l: "LTI-Free Man-hours" },
               { v: "100%", l: "PPE Compliance" },
               { v: "ISO", l: "9001 · 45001 · 14001" },
             ].map((s) => (
@@ -544,75 +501,6 @@ function ValuesSection() {
                 </div>
                 <h3 className="mt-6 text-xl">{v.title}</h3>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ProjectsPreview() {
-  const projects = [
-    {
-      name: "Geita Gold Expansion",
-      commodity: "Gold",
-      depth: "1,200 m",
-      location: "Geita, Tanzania",
-    },
-    {
-      name: "North Mara Exploration",
-      commodity: "Gold",
-      depth: "800 m",
-      location: "Mara, Tanzania",
-    },
-    {
-      name: "Kabanga Nickel Program",
-      commodity: "Nickel",
-      depth: "1,500 m",
-      location: "Kagera, Tanzania",
-    },
-    {
-      name: "Bulyanhulu Underground",
-      commodity: "Gold",
-      depth: "1,100 m",
-      location: "Shinyanga, Tanzania",
-    },
-  ];
-  return (
-    <section className="section-y bg-surface-muted">
-      <div className="container-x">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
-          <div className="max-w-2xl">
-            <Reveal>
-              <span className="eyebrow">
-                <span className="h-[1px] w-10 bg-primary" /> Selected Projects
-              </span>
-              <h2 className="mt-5 text-4xl md:text-5xl leading-tight">
-                Trusted on Africa's most demanding mine sites.
-              </h2>
-            </Reveal>
-          </div>
-          <Link to="/projects" className="btn-outline w-fit">
-            View All Projects <HiOutlineArrowRight />
-          </Link>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((p, i) => (
-            <Reveal key={p.name} delay={i * 0.08}>
-              <div className="group bg-background border border-border p-10 hover-lift">
-                <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-primary font-semibold">
-                  <span className="size-1.5 rounded-full bg-primary" /> {p.commodity} · {p.location}
-                </div>
-                <h3 className="mt-4 text-2xl leading-tight">{p.name}</h3>
-                <div className="mt-8 pt-6 border-t border-border flex items-center justify-between text-sm">
-                  <div>
-                    <span className="text-muted-foreground">Depth: </span>
-                    <span className="font-semibold">{p.depth}</span>
-                  </div>
-                  <HiOutlineArrowRight className="text-primary transition-transform group-hover:translate-x-1" />
-                </div>
               </div>
             </Reveal>
           ))}

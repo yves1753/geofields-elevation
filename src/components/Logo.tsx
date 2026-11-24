@@ -1,21 +1,25 @@
+import type { CSSProperties } from "react";
 import logo from "@/assets/geofields-logo.asset.json";
 
 export function Logo({
-  className = "w-[145px] md:w-[175px] xl:w-[205px] h-auto",
+  className = "w-[200px] md:w-[220px] xl:w-[230px] h-auto",
   src = logo.url,
   alt = "Geofields Tanzania Limited — Drilling, Exploration and Mining Services",
+  style,
 }: {
   className?: string;
   src?: string;
   alt?: string;
+  style?: CSSProperties;
 }) {
   return (
     <img
       src={src}
       alt={alt}
       className={className}
-      width={480}
-      height={200}
+      style={style}
+      width={474}
+      height={126}
       decoding="async"
       fetchPriority="high"
     />

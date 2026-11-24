@@ -63,7 +63,7 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-x flex h-20 items-center justify-between xl:grid xl:h-[5.5rem] xl:grid-cols-[190px_minmax(0,1fr)_auto] xl:gap-5">
+      <div className="container-x flex h-24 items-center justify-between xl:grid xl:h-[6.5rem] xl:grid-cols-[230px_minmax(0,1fr)_auto] xl:gap-5">
         <Link
           to="/"
           className="flex shrink-0 items-center"
@@ -76,19 +76,22 @@ export function Navbar() {
                 ? "Geofields Underground Support"
                 : "Geofields Tanzania Limited — Drilling, Exploration and Mining Services"
             }
-            className="h-auto w-[145px] transition-all md:w-[170px] xl:w-[190px]"
+            className="h-auto w-[200px] transition-[width,filter] md:w-[220px] xl:w-[230px]"
+            style={
+              scrolled && !isUndergroundPage ? { filter: "brightness(0)" } : undefined
+            }
           />
         </Link>
 
         <nav
-          className="hidden min-w-0 items-center justify-center gap-3 xl:flex 2xl:gap-5"
+          className="hidden min-w-0 items-center justify-center gap-2.5 xl:flex 2xl:gap-3"
           aria-label="Primary"
         >
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className={`shrink-0 whitespace-nowrap text-[11px] font-semibold tracking-wide transition-[color,opacity,transform] duration-200 ease-out hover:-translate-y-px xl:text-xs ${
+              className={`shrink-0 whitespace-nowrap text-sm font-semibold tracking-normal transition-[color,opacity,transform] duration-200 ease-out hover:-translate-y-px ${
                 scrolled
                   ? "text-foreground/80 hover:text-primary"
                   : "text-white/90 hover:text-primary"
@@ -122,7 +125,7 @@ export function Navbar() {
             onFocus={() => prefetchRouteHero("/request-quote")}
             onPointerDown={() => prefetchRouteHero("/request-quote")}
           >
-            Request a Quote
+            Contact Us
           </Link>
         </div>
 
@@ -159,7 +162,7 @@ export function Navbar() {
               onPointerDown={() => prefetchRouteHero("/request-quote")}
               className="btn-primary justify-center mt-2"
             >
-              Request a Quote
+              Contact Us
             </Link>
             <a
               href="https://wa.me/255766775255"

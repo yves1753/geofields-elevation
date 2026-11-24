@@ -153,7 +153,7 @@ function FleetPage() {
           ))}
         </div>
       </section>
-      <section className="py-12 bg-surface sticky top-20 z-20 border-b border-border">
+      <section className="py-12 bg-surface sticky top-24 z-20 border-b border-border">
         <div className="container-x grid lg:grid-cols-[1fr_240px_220px] gap-3">
           <label className="relative">
             <HiOutlineSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -188,7 +188,7 @@ function FleetPage() {
           </select>
         </div>
       </section>
-      <section id="featured-fleet" className="section-y bg-background scroll-mt-44">
+      <section id="featured-fleet" className="section-y bg-background scroll-mt-48">
         <div className="container-x">
           <span className="eyebrow">Selected equipment</span>
           <h2 className="mt-4 text-4xl md:text-5xl">Featured Drilling Rigs</h2>
@@ -253,64 +253,6 @@ function FleetPage() {
           {featured.length === 0 && (
             <p className="mt-10 text-muted-foreground">No featured rigs match these filters.</p>
           )}
-        </div>
-      </section>
-      <section className="section-y bg-surface">
-        <div className="container-x">
-          <span className="eyebrow">All equipment</span>
-          <h2 className="mt-4 text-4xl">Complete Fleet Inventory</h2>
-          <p className="mt-4 text-muted-foreground">
-            Geofields Tanzania Limited currently maintains a total fleet of {fleetData.length}{" "}
-            drilling rigs across multiple drilling configurations.
-          </p>
-          <div className="mt-10 overflow-x-auto rounded-xl border border-border bg-background">
-            <table className="w-full min-w-[760px] text-sm">
-              <thead className="bg-[#111] text-white text-left">
-                <tr>
-                  <th className="p-4">Rig</th>
-                  <th className="p-4">Type</th>
-                  <th className="p-4">Method</th>
-                  <th className="p-4">Maximum depth</th>
-                  <th className="p-4">Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {results.map((rig) => (
-                  <tr key={rig.id} className="border-b border-border last:border-0">
-                    <td className="p-4 font-semibold">
-                      {rig.name}
-                      <div className="mt-1 flex gap-2">
-                        {rig.featured && (
-                          <span className="text-[10px] bg-primary text-white px-2 py-1 rounded-full">
-                            Featured
-                          </span>
-                        )}
-                        {!rig.specificationsComplete && (
-                          <span className="text-[10px] bg-muted px-2 py-1 rounded-full">
-                            Specifications pending
-                          </span>
-                        )}
-                      </div>
-                    </td>
-                    <td className="p-4">{rig.rigType}</td>
-                    <td className="p-4">{rig.drillingMethod}</td>
-                    <td className="p-4">{rig.maximumDrillDepth}</td>
-                    <td className="p-4">
-                      <button
-                        className="text-primary font-semibold"
-                        onClick={() => setSelected(rig)}
-                      >
-                        View specifications
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Showing {results.length} of {fleetData.length} rigs
-          </p>
         </div>
       </section>
       <section className="section-y bg-[#111] text-white">

@@ -105,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "preload",
         as: "image",
-        href: "/logos/geofields-logo.webp",
+        href: "/logos/geofields-wordmark.webp",
         type: "image/webp",
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

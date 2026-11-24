@@ -95,16 +95,22 @@ function AboutPage() {
               Built by geologists. Trusted by miners. Chosen by Africa's operators.
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Founded in Dar es Salaam, Geofields Tanzania Limited was created to close the gap
-              between international mining standards and locally-delivered service excellence. From
-              our first drill rig to a fleet of 18+, our growth has been driven by long-term
-              partnerships with multinational miners and government agencies who demand precision,
-              safety and integrity.
+              Founded in 2008, Geofields Tanzania Limited (GTL) is a multidisciplinary strategic
+              service provider company for the exploration and mining industry. Geofields is
+              Tanzania's leading exploration and mining service company, with an integrated and
+              comprehensive service portfolio of drilling services, ground exploration survey works,
+              exploration and mining equipment supply, and mining ventures.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Today, we deliver five integrated service lines across drilling, exploration, mining
-              supplies, mining support and underground services — anchored by more than 200 skilled
-              Tanzanian and international professionals.
+              With more than 50 years of combined local and international experience from the team of
+              geologists and drillers, GTL has established itself as one of the successful mining
+              industry services and consultancy providers in Tanzania through its brand name “GTL”.
+              We particularly enjoy helping our clients including small to large scale mining
+              companies, Government, engineering firms and individuals in the industry.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Whether you are a miner or a prospector with one property or several properties, GTL
+              will provide you with quality services within the mining industries.
             </p>
           </Reveal>
         </div>

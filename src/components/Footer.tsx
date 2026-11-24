@@ -9,9 +9,7 @@ export function Footer() {
     <footer className="bg-[oklch(0.14_0.005_60)] text-white/80 pt-24 pb-10">
       <div className="container-x grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
-          <div className="bg-white p-3 inline-block rounded-sm">
-            <Logo className="w-[190px] md:w-[215px] h-auto" />
-          </div>
+          <Logo className="w-[220px] md:w-[260px] h-auto" />
           <p className="mt-6 text-sm leading-relaxed max-w-sm text-white/60">
             {SITE.name} is an integrated drilling, exploration and mining services company
             delivering engineering excellence across Tanzania and Africa.

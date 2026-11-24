@@ -48,15 +48,15 @@ const legend = [
 const partners = [
   {
     name: "African Underground Mining Services",
-    image: "/logos/partner-aums.png",
+    image: "/logos/affiliate-aums-geofields.png",
   },
   {
     name: "EMG Pamoja Royalty Limited",
-    image: "/logos/partner-emg-pamoja.png",
+    image: "/logos/affiliate-emg-pamoja.png",
   },
   {
     name: "MSA Mining Ltd. Joint Venture",
-    image: "/logos/partner-msa-mining.png",
+    image: "/logos/affiliate-msa-mining.png",
   },
 ];
 
@@ -449,11 +449,10 @@ function ProjectsPage() {
           className="relative border-y border-white/10 bg-black/25 py-12"
           aria-label="Project statistics"
         >
-          <div className="container-x grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 lg:grid-cols-4">
+          <div className="container-x grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 lg:grid-cols-3">
             {[
               { n: projects.length, suffix: "+", label: "Project Sites" },
               { n: 4, suffix: "", label: "Mineral Categories" },
-              { n: 3, suffix: "", label: "Strategic Partners" },
               { n: 6, suffix: "+", label: "Regions Covered" },
             ].map((s) => (
               <div key={s.label} className="bg-[#151515] px-5 py-8 text-center md:py-10">
@@ -481,7 +480,7 @@ function ProjectsPage() {
             {partners.map((p) => (
               <div
                 key={p.name}
-                className="group flex min-h-36 min-w-[72vw] snap-center items-center justify-center rounded-xl border border-white/10 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] md:min-w-0"
+                className="group flex min-h-40 min-w-[72vw] snap-center items-center justify-center rounded-xl border border-white/10 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] md:min-w-0"
                 title={p.name}
               >
                 <img
@@ -491,8 +490,8 @@ function ProjectsPage() {
                   decoding="async"
                   fetchPriority="low"
                   width={320}
-                  height={96}
-                  className="max-h-16 w-full object-contain transition duration-500 group-hover:scale-[1.03]"
+                  height={160}
+                  className="max-h-28 w-full object-contain transition duration-500 group-hover:scale-[1.03]"
                 />
               </div>
             ))}

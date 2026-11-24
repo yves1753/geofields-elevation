@@ -46,7 +46,7 @@ export function ClientsAffiliates() {
           <div className="group overflow-hidden rounded-sm bg-white p-4 md:p-8 transition-all duration-500 ease-in-out hover:shadow-card focus-within:shadow-card max-w-4xl mx-auto">
             <OptimizedImage
               asset={images.partners}
-              alt="Geofields partners and affiliates: African Underground Mining Services, EMG Pamoja Royalty Limited and MSA Mining Limited"
+              alt="Geofields affiliates: African Underground Mining Services, EMG Pamoja Royalty Limited, MSA Mining Ltd, Xtrata Mining and Zhiqiang"
               className="w-full h-auto grayscale opacity-60 transition-all duration-500 ease-in-out group-hover:scale-[1.02] group-hover:grayscale-0 group-hover:opacity-100 group-focus-within:scale-[1.02] group-focus-within:grayscale-0 group-focus-within:opacity-100"
               sizes="(min-width: 1024px) 896px, calc(100vw - 72px)"
             />
