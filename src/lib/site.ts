@@ -75,12 +75,6 @@ export const SERVICES = [
       "Diamond core, reverse circulation, blast hole, grade control and water-well drilling delivered by certified crews and a modern Tanzanian fleet.",
   },
   {
-    name: "Geological & Exploration Services",
-    path: "/divisions",
-    description:
-      "Geological mapping, mineral exploration, sampling, surveying and resource evaluation across Tanzania.",
-  },
-  {
     name: "Mining Services",
     path: "/divisions",
     description:

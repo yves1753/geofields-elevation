@@ -348,8 +348,14 @@ function ProjectsPage() {
                         )}
                         {project.partner && (
                           <p className="mt-3 text-xs text-white/60">
-                            <span className="text-white/35">Strategic partner · </span>
-                            {project.partner}
+                            {project.id === "geita" ? (
+                              project.partner
+                            ) : (
+                              <>
+                                <span className="text-white/35">Strategic partner · </span>
+                                {project.partner}
+                              </>
+                            )}
                           </p>
                         )}
                       </div>

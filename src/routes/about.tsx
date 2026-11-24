@@ -92,7 +92,11 @@ function AboutPage() {
               <span className="h-[1px] w-10 bg-primary" /> Who We Are
             </span>
             <h2 className="mt-5 text-4xl md:text-5xl leading-tight">
-              Built by geologists. Trusted by miners. Chosen by Africa's operators.
+              Built by geologists & mining engineers.
+              <br />
+              Trusted by miners & exploration.
+              <br />
+              Chosen by world's operators.
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
               Founded in 2008, Geofields Tanzania Limited (GTL) is a multidisciplinary strategic

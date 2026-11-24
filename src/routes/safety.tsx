@@ -66,7 +66,7 @@ function SafetyPage() {
   return (
     <>
       <PageHero
-        eyebrow="Safety, Health & Environment"
+        eyebrow="Health, Safety, Environment & Training (HSET)"
         title="Zero harm. Every crew. Every shift."
         subtitle="Our HSE management system is engineered around international best practice and independently audited."
         image={images.safetyPage}

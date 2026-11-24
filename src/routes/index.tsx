@@ -88,7 +88,7 @@ const divisions = [
   {
     icon: FaMountain,
     title: "Wire Mesh Manufacturing",
-    desc: "Local manufacturing of underground reinforcement wire mesh designed to enhance mine safety, operational efficiency and productivity.",
+    desc: "Manufacturing of specialized galvanized wire mesh for underground reinforcement to enhance mine safety.",
     img: images.wireMeshManufacturing,
     to: "/gus",
   },
@@ -400,8 +400,7 @@ function FleetSection() {
           </div>
           <p className="text-white/60 max-w-xl leading-relaxed">
             Geofields Tanzania Limited operates a fleet of {fleetData.length} drilling units,
-            supporting deep diamond core drilling, mineral exploration and mining operations across
-            challenging ground conditions.
+            supporting deep diamond core drilling across challenging ground conditions.
           </p>
         </div>
 
@@ -410,7 +409,7 @@ function FleetSection() {
             <OptimizedImage
               asset={images.fleet}
               alt="Geofields mixed drilling fleet lined up on site"
-              className="size-full object-cover"
+              className="size-full object-cover object-[center_42%]"
               sizes="(min-width: 1360px) 1264px, (min-width: 768px) calc(100vw - 64px), calc(100vw - 40px)"
             />
           </div>

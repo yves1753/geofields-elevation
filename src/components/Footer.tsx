@@ -95,11 +95,6 @@ export function Footer() {
             </li>
             <li>
               <Link to="/divisions" className="hover:text-primary">
-                Geological & Exploration
-              </Link>
-            </li>
-            <li>
-              <Link to="/divisions" className="hover:text-primary">
                 Mining Services
               </Link>
             </li>

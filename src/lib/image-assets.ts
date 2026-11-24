@@ -18,7 +18,7 @@ export const images = {
   supplies: asset("supplies", 1280, 960, [480, 768, 1280]),
   wireMesh: asset("wire-mesh", 1280, 960, [480, 768, 1280]),
   wireMeshManufacturing: asset("wire-mesh-manufacturing", 264, 324, [264, 480, 768]),
-  fleet: asset("fleet", 1024, 576, [480, 768, 1024]),
+  fleet: asset("fleet", 2048, 1152, [480, 768, 1280, 1600, 1920, 2048]),
   safety: asset("safety", 1280, 960, [480, 768, 1280]),
   safetyPage: asset("safety-page", 1280, 960, [480, 768, 1280]),
   homeHero: asset("home-hero-poster", 1920, 1080, [480, 768, 1280, 1920]),

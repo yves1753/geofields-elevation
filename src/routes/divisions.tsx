@@ -12,7 +12,7 @@ export const Route = createFileRoute("/divisions")({
     pageHead({
       title: "Drilling, Exploration & Mining Services | Geofields Tanzania",
       description:
-        "Geofields Tanzania Limited divisions: diamond and RC drilling, geological exploration, production mining services, underground support and mining supplies across Tanzania.",
+        "Geofields Tanzania Limited divisions: diamond and RC drilling, production mining services, underground support and mining supplies across Tanzania.",
       path: "/divisions",
       jsonLd: [
         breadcrumbSchema([
@@ -39,19 +39,6 @@ const divisions = [
     description:
       "Geofields Tanzania Limited provides reliable mining support services designed to improve operational efficiency, resource development and safe project execution throughout the mining lifecycle.",
     capabilities: ["Production Drilling", "Grade Control Drilling"],
-  },
-  {
-    img: images.exploration,
-    title: "Geological & Exploration Services",
-    description:
-      "From first-pass mapping to resource definition, Geofields supports mineral exploration programmes with sampling, surveying and geological interpretation across Tanzania.",
-    capabilities: [
-      "Geological Mapping",
-      "Mineral Exploration",
-      "Sampling & Assays",
-      "Surveying",
-      "Resource Evaluation",
-    ],
   },
 ];
 

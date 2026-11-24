@@ -75,7 +75,7 @@ export function ContactPage() {
     <>
       <PageHero
         eyebrow="Get In Touch"
-        title="Let's engineer your next project together."
+        title="Your Next Mining Project Starts Here."
         subtitle="Our team responds to every enquiry within 24 hours with a clear, scoped proposal."
         image={images.contactHero}
         imageAlt="Geofields Tanzania Limited head office in Dar es Salaam"

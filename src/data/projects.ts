@@ -35,7 +35,7 @@ export const projects: Project[] = [
     region: "Geita",
     mineral: "Gold",
     status: "Completed",
-    partner: "African Underground Mining Services (AUMS)",
+    partner: "African Underground Mining Services (AUMS) Australian based company",
     x: 165,
     y: 121,
   },
