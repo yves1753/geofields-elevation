@@ -404,16 +404,15 @@ function FleetSection() {
           </p>
         </div>
 
-        <Reveal>
-          <div className="relative aspect-[16/8] md:aspect-[16/7] overflow-hidden rounded-xl">
-            <OptimizedImage
-              asset={images.fleet}
-              alt="Geofields mixed drilling fleet lined up on site"
-              className="size-full object-cover object-[center_42%]"
-              sizes="(min-width: 1360px) 1264px, (min-width: 768px) calc(100vw - 64px), calc(100vw - 40px)"
-            />
-          </div>
-        </Reveal>
+        <div className="relative aspect-[16/8] md:aspect-[16/7] overflow-hidden rounded-xl">
+          <OptimizedImage
+            asset={images.fleet}
+            alt="Geofields mixed drilling fleet lined up on site"
+            priority
+            className="absolute inset-0 size-full object-cover object-[center_42%]"
+            sizes="(min-width: 1360px) 1264px, (min-width: 768px) calc(100vw - 64px), calc(100vw - 40px)"
+          />
+        </div>
 
         <div className="mt-12 text-center">
           <p className="mx-auto max-w-2xl text-sm leading-relaxed text-white/55">

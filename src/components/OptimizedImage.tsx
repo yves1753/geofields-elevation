@@ -77,7 +77,7 @@ export function OptimizedImage({
           setFailed(true);
           onError?.(event);
         }}
-        className={`${className} transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+        className={`${className}${priority ? "" : ` transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}`}
         style={style}
       />
     );
@@ -108,7 +108,7 @@ export function OptimizedImage({
           setFailed(true);
           onError?.(event);
         }}
-        className={`${className} transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+        className={`${className}${priority ? "" : ` transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}`}
         style={{
           backgroundImage: `url("/optimized/${asset.name}-blur.webp")`,
           backgroundSize: "cover",
