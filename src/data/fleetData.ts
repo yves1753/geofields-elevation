@@ -140,7 +140,18 @@ export const fleetData: FleetRig[] = [
     "1,500 RPM",
     "45°–90°",
   ),
-  incompleteRig("ZMEX-A5-001", "ZMEX A5-001", "/fleet/zmex-a5-001.webp", "Track Mounted"),
+  diamondRig(
+    "ZMEX-A5-001",
+    "ZMEX A5-001",
+    "/fleet/zmex-a5-001.webp",
+    "Track Mounted",
+    "1,400 m",
+    "1,700 HP",
+    "29.452 tonnes",
+    "15.02 tonnes",
+    "1,500 RPM",
+    "45°–90°",
+  ),
   diamondRig(
     "MP1000-002",
     "MP1000-002",
@@ -205,11 +216,17 @@ export const fleetData: FleetRig[] = [
     "Reverse Circulation Rig",
     "Reverse Circulation Drilling",
   ),
-  incompleteRig(
+  diamondRig(
     "ZINEX-A5-MOD-007",
     "ZINEX A5 MOD-007",
     "/fleet/zinex-a5-mod-007.webp",
     "Track Mounted",
+    "1,400 m",
+    "1,700 HP",
+    "29.452 tonnes",
+    "15.02 tonnes",
+    "1,500 RPM",
+    "45°–90°",
   ),
   diamondRig(
     "ZQ-1600C-010",

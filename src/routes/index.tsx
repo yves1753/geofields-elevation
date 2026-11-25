@@ -72,17 +72,17 @@ const divisions = [
     to: "/divisions",
   },
   {
-    icon: FaMountain,
-    title: "Underground Mining Solutions",
-    desc: "Underground support tools, Wire mesh, Friction bolts, and specialised consumables for safe underground operations.",
-    img: images.wireMesh,
-    to: "/divisions",
-  },
-  {
     icon: FaHardHat,
     title: "Contract Mining",
     desc: "Production, grade control, blast hole and exploration drilling with integrated field support.",
     img: images.heroMine,
+    to: "/divisions",
+  },
+  {
+    icon: FaMountain,
+    title: "Underground Mining Solutions",
+    desc: "Underground support tools, Wire mesh, Friction bolts, and specialised consumables for safe underground operations.",
+    img: images.wireMesh,
     to: "/divisions",
   },
   {

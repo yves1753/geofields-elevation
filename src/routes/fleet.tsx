@@ -193,8 +193,8 @@ function FleetPage() {
           <span className="eyebrow">Selected equipment</span>
           <h2 className="mt-4 text-4xl md:text-5xl">Featured Drilling Rigs</h2>
           <p className="mt-5 max-w-2xl text-muted-foreground">
-            Explore selected rigs from the Geofields fleet, including deep-hole tracked rigs and
-            versatile man-portable diamond drilling systems.
+            Explore our drilling rigs from the Geofields fleet, including tracked mounted drilling
+            rigs and man-portable diamond drilling rigs.
           </p>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
             {featured.map((rig, i) => (
