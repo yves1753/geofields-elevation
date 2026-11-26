@@ -72,18 +72,18 @@ export const communityInitiatives: CommunityInitiative[] = [
     location: "Tanzania",
   },
   {
-    title: "Local partnerships",
+    title: "Sports development",
     description:
-      "Working constructively with community leaders, local organizations and established partners on shared initiatives.",
+      "Geofields supports Geita Queens Football Club, backing women's football, youth opportunity and community pride in the Geita region.",
     photo: {
-      id: "school-partnership",
-      src: "/images/community/community-school-partnership.jpg",
-      alt: "Geofields team members standing with schoolchildren holding educational materials",
-      aspectRatio: 4 / 3,
-      width: 1200,
-      height: 900,
+      id: "geita-queens",
+      src: "/images/community/community-geita-queens-team.jpg",
+      alt: "Geita Queens Football Club team in green Geofields kits, lined up on the pitch",
+      aspectRatio: 961 / 732,
+      width: 961,
+      height: 732,
     },
-    location: "Tanzania",
+    location: "Geita, Tanzania",
   },
   {
     title: "Environmental responsibility",

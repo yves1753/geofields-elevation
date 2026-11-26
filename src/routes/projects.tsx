@@ -458,7 +458,7 @@ function ProjectsPage() {
           <div className="container-x grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 lg:grid-cols-3">
             {[
               { n: projects.length, suffix: "+", label: "Project Sites" },
-              { n: 4, suffix: "", label: "Mineral Categories" },
+              { n: 4, suffix: "", label: "Mineral Commodities" },
               { n: 6, suffix: "+", label: "Regions Covered" },
             ].map((s) => (
               <div key={s.label} className="bg-[#151515] px-5 py-8 text-center md:py-10">
